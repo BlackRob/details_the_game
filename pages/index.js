@@ -1,202 +1,71 @@
 import Head from 'next/head'
+import SiteHeader from '../components/siteHeader'
+import SiteFooter from '../components/siteFooter'
+import TypeButtonDiv from '../components/typeButtonDiv'
+import YouTubeVid from '../components/youTubeVid'
+
 
 const Home = () => (
   <div className="container">
     <Head>
-      <title>Create Next App</title>
+      <title>Grumbly Games</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
+    <SiteHeader />
     <main>
-      <h1 className="title">
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
-      </h1>
-
-      <p className="description">
-        Get started by editing <code>pages/index.js</code>
-      </p>
-
-      <div className="grid">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Learn &rarr;</h3>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
-        </a>
-
-        <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
-        </a>
-
-        <a
-          href="https://zeit.co/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className="card"
-        >
-          <h3>Deploy &rarr;</h3>
-          <p>
-            Instantly deploy your Next.js site to a public URL with ZEIT Now.
+      <div className="intro">
+        <h2 className="title">
+          Hi! Welcome to Grumbly Games!
+        </h2>
+        <p className="description">
+          This site is intended to help you learn English grammar
+          by playing games. Right now, we only have one game, "details".
+          In details you make a long sentence by adding details to a
+          shorter sentence, then share it with your friends.
+          Try it! It's fun!
+        </p>
+      </div>
+      <div className="content">
+        <section>
+          <h3>How to play details</h3>
+          <p>Details is easy! When you start a game, you get a new sentence and
+          five cards. Each card corresponds to one of the eight types of words
+          in English (nouns, verbs, etc.). To play, think of words or phrases
+          that you could add to the sentence by using one or more of your cards.
+          Every time you add words to the sentence you get one more card.
+          If you use all your cards, you win! The following video shows the basics
+          of the game: (note: this is a placeholder video)
           </p>
-        </a>
+          <YouTubeVid vidID="HD0eam6fuJ4" />
+        </section>
+        <section>
+          <h3>The rules of details</h3>
+          <p>Details doesn't really have a lot of rules, you can play it however you want.
+            <i>But</i> there are some facts you should know to make your game more fun.
+            <ul>
+              <li>You get articles for free. This means if you want to add a noun,
+              "vinegar", for example, you can write "the vinegar" or "a vinegar"
+              on the noun card, and the game will automatically separate them.</li>
+              <li>You can also add articles to adjectives: for example, to add an
+              adjective and a noun, "the red wolf", write "the red" on the
+              adjective card and "wolf" on the noun card.
+              </li>
+            </ul>
+          </p>
+        </section>
+      </div>
+      <div className="sidebar">
+        <TypeButtonDiv />
       </div>
     </main>
 
-    <footer>
-      <a
-        href="https://zeit.co?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Powered by <img src="/zeit.svg" alt="ZEIT Logo" />
-      </a>
-    </footer>
+    <SiteFooter />
 
     <style jsx>{`
-      .container {
-        min-height: 100vh;
-        padding: 0 0.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      main {
-        padding: 5rem 0;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      footer {
-        width: 100%;
-        height: 100px;
-        border-top: 1px solid #eaeaea;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      footer img {
-        margin-left: 0.5rem;
-      }
-
-      footer a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .title a {
-        color: #0070f3;
-        text-decoration: none;
-      }
-
-      .title a:hover,
-      .title a:focus,
-      .title a:active {
-        text-decoration: underline;
-      }
-
-      .title {
-        margin: 0;
-        line-height: 1.15;
-        font-size: 4rem;
-      }
-
-      .title,
-      .description {
-        text-align: center;
-      }
-
-      .description {
-        line-height: 1.5;
-        font-size: 1.5rem;
-      }
-
-      code {
-        background: #fafafa;
-        border-radius: 5px;
-        padding: 0.75rem;
-        font-size: 1.1rem;
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-      }
-
-      .grid {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-
-        max-width: 800px;
-        margin-top: 3rem;
-      }
-
-      .card {
-        margin: 1rem;
-        flex-basis: 45%;
-        padding: 1.5rem;
-        text-align: left;
-        color: inherit;
-        text-decoration: none;
-        border: 1px solid #eaeaea;
-        border-radius: 10px;
-        transition: color 0.15s ease, border-color 0.15s ease;
-      }
-
-      .card:hover,
-      .card:focus,
-      .card:active {
-        color: #0070f3;
-        border-color: #0070f3;
-      }
-
-      .card h3 {
-        margin: 0 0 1rem 0;
-        font-size: 1.5rem;
-      }
-
-      .card p {
-        margin: 0;
-        font-size: 1.25rem;
-        line-height: 1.5;
-      }
-
-      @media (max-width: 600px) {
-        .grid {
-          width: 100%;
-          flex-direction: column;
-        }
-      }
+      
     `}</style>
 
-    <style jsx global>{`
-      html,
-      body {
-        padding: 0;
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-    `}</style>
   </div>
 )
 
