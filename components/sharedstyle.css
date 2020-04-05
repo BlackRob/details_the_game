@@ -1,5 +1,6 @@
 :root {
-  --mainbg: #282c34;
+  --headerbg: #282c34;
+  --mainbg: aliceblue;
   --bodybg: #1e1e1e;
   --logo_hover: lightslategray;
   --logo_active: darkslategray;
@@ -13,7 +14,7 @@
   --intrj: orange;
   --prep: lime;
   --pron: fuchsia;
-  --punc: aliceblue;/* #f8f8ff; */
+  --punc: lavender;/* #f8f8ff; */
 }
 
 html,
@@ -25,6 +26,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bodybg);
+  color: black;
 }
 
 * {
@@ -32,7 +34,6 @@ body {
 }
 
 .container {
-  background-color: var(--adj);
   height: 100vh;
   max-height: 100%;
   max-width: 960px;
@@ -56,75 +57,88 @@ body {
   }
 
 main {
-  padding: 15px 4vmin;
+  padding: 30px 4rem;
   display: grid;
+  width: 100%;
   grid-gap: 10px;
-  background-color: var(--punc); 
+  background-color: var(--mainbg); 
   grid-template-columns: 100%;
   grid-template-rows: auto auto auto;
-  grid-gap: 0 30px;
+  grid-gap: 10px 30px;
   grid-template-areas: "intro" "content" "sidebar";
 }
 @media screen and (min-width: 600px) {
   main {
-    grid-template-columns: 5fr 3fr;
+    grid-template-columns: 1fr 220px;
     grid-template-rows: auto auto;
-    grid-template-areas: 'intro intro' 'content sidebar';
+    grid-template-areas: 'intro sidebar' 'content sidebar';
   } 
 }
 
 .intro {
   grid-area: intro;
+  width: 100%;
 }
 
 .title {
-  margin: 0;
+  margin-top: 1rem;
   line-height: 1.15;
   font-size: 1.6em;
   font-weight: 600;
   text-align: center;
 }
 
-.description {
-  line-height: 1.5;
-  font-size: 1em;
-}
-
 .content {
   grid-area: content;
+  text-align: left;
+  width: 100%;
 }
 
 .sidebar {
   grid-area: sidebar;
   height: 100%;
+  position: relative;
+}
+
+h2, h3, p {
+  margin-top: 0.7rem;
+  margin-bottom: 0.3em;
+  width: 100%;
 }
 
 button {
   display: inline-block;
   background-color: inherit;
   padding: 1vmin 2vmin;
-  border: 2px solid var(--active_outline);
+  border: 1.5px solid black;
   border-radius: 0.5vmin;
   text-decoration: none;
   font-weight: 300;
   font-size: 0.7em;
-  color: var(--active_outline);
+  color: black;
   transition: all 0.2s;
   margin: 0px;
   min-width: fit-content;
   max-width: 150px;
 }
-
 button:hover {
   cursor: pointer;
 }
 
-a {
+.disabled {
+  border: 2px solid gray;
+  color: gray;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.45;
+  filter: alpha(opacity=45);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+a, a:visited {
   color: var(--active_outline);
   text-decoration: none;
-}
-a:visited {
-  color: var(--active_outline);
 }
 a:hover, a:active {
   color: var(--punc);
@@ -132,48 +146,117 @@ a:hover, a:active {
 
 .adj {
   background-color: var(--adj);
-  color: black;
-  border-color: black;
 }
-
 .noun {
   background-color: var(--noun);
-  color: black;
-  border-color: black;
 }
-
 .adv {
   background-color: var(--adv);
-  color: black;
-  border-color: black;
 }
-
 .verb {
   background-color: var(--verb);
-  color: black;
-  border-color: black;
 }
-
 .conj {
   background-color: var(--conj);
-  color: black;
-  border-color: black;
 }
-
 .prep {
   background-color: var(--prep);
-  color: black;
-  border-color: black;
 }
-
 .pron {
   background-color: var(--pron);
-  color: black;
-  border-color: black;
 }
-
 .intrj {
   background-color: var(--intrj);
+}
+.punc {
+  background-color: var(--punc);
+}
+
+li {
+  line-height: 1.4rem;
+}
+
+code {
+  background: #fafafa;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 0.35rem;
+  line-height: 1.7rem;
+  max-width: 100%;
+  display: inline-block;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+/* "c" means card word, "s" means sentence word */
+.cNoun, .cAdj, .cVerb, .cAdv, .cPron, .cConj, .cPunc, .cPrep, .cIntrj,
+.sNoun, .sAdj, .sVerb, .sAdv, .sPron, .sConj, .sPunc, .sPrep, .sIntrj {
+  background-color: var(--headerbg);
+  padding: 0px 0.3rem;
+  border: 1px solid black;
+  border-radius: 3px;
+  display: inline-block;
+  line-height: calc(1.4rem - 3px);
+  padding-bottom: 3px;
+}
+.cNoun, .cAdj, .cVerb, .cAdv, .cPron, .cConj, .cPunc, .cPrep, .cIntrj {
   color: black;
-  border-color: black;
+}
+.cAdj {
+  background-color: var(--adj);
+}
+.cNoun {
+  background-color: var(--noun);
+}
+.cAdv {
+  background-color: var(--adv);
+}
+.cVerb {
+  background-color: var(--verb);
+}
+.cPron {
+  background-color: var(--pron);
+}
+.cConj {
+  background-color: var(--conj);
+}
+.cPunc {
+  background-color: var(--punc);
+}
+.cPrep {
+  background-color: var(--prep);
+}
+.cIntrj {
+  background-color: var(--intrj);
+}
+.sNoun, .sAdj, .sVerb, .sAdv, .sPron, .sConj, .sPunc, .sPrep, .sIntrj {
+  background-color: var(--headerbg);
+}
+.sAdj {
+  color: var(--adj);
+}
+.sNoun {
+  color: var(--noun);
+}
+.sAdv {
+  color: var(--adv);
+}
+.sVerb {
+  color: var(--verb);
+}
+.sPron {
+  color: var(--pron);
+}
+.sConj {
+  color: var(--conj);
+}
+.sPunc {
+  color: var(--punc);
+}
+.sPrep {
+  color: var(--prep);
+}
+.sIntrj {
+  color: var(--intrj);
 }

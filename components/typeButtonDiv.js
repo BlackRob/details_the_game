@@ -2,25 +2,30 @@ import Link from 'next/link'
 
 
 export default function typeButtonDiv() {
-  return <div className="typeButtonDiv">
+  return <div name="learn" className="typeButtonDiv">
     <h3>Learn more about...</h3>
     <div className="typeButtons">
-      <Link href="/adjectives"><button className="adj" >adjective</button></Link>
-      <button className="noun">noun</button>
-      <button className="adv">adverb</button>
-      <button className="verb">verb</button>
-      <button className="prep">preposition</button>
-      <button className="conj">conjunction</button>
-      <button className="pron">pronoun</button>
-      <button className="intrj">interjection</button>
-      <button className="punc">punctuation</button>
+      <Link href="/adjectives"><button className="adj">adjectives</button></Link>
+      <Link href="/nouns"><button className="noun">nouns</button></Link>
+      <Link href="/adverbs"><button className="adv">adverbs</button></Link>
+      <Link href="/verbs"><button className="verb">verbs</button></Link>
+      <Link href="/prepositions"><button className="prep">prepositions</button></Link>
+      <Link href="/conjunctions"><button className="conj">conjunctions</button></Link>
+      <Link href="/pronouns"><button className="pron">pronouns</button></Link>
+      <Link href="/interjections"><button className="intrj">interjections</button></Link>
+      <Link href="/punctuation"><button className="punc">punctuation</button></Link>
     </div>
     <style jsx>{`
       .typeButtonDiv {
-        border: 1px solid var(--mainbg);
+        border: 1.5px solid black;
         border-radius: 7px;
         padding: 8px;
         text-align: center;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 30px;
+        margin-top: 20px;
+        font-size: 16px;
       } 
       .typeButtons {
         display: flex;
@@ -35,8 +40,8 @@ export default function typeButtonDiv() {
       .typeButtons button:hover,
       .typeButtons button:focus,
       .typeButtons button:active {
-        filter: drop-shadow(0 0 0.75rem var(--bodybg));
-        color: var(--punc);
+        border-color: var(--logo_active);
+        filter: drop-shadow(0 0 0.4rem var(--logo_hover));
       }
     `}</style>
   </div>

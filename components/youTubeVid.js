@@ -1,6 +1,6 @@
 // uses props
 // vidID (a valid youtube video id)
-// width
+
 
 export default function YouTubeVid(props) {
   return <div className="videoWrapper">
@@ -8,15 +8,16 @@ export default function YouTubeVid(props) {
       width="560"
       height="315"
       src={`https://www.youtube.com/embed/${props.vidID}`}
-      frameborder="0"
+      frameBorder="0"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
+      allowFullScreen>
     </iframe>
     <style jsx>{`
     .videoWrapper {
       position: relative;
       padding-bottom: 56.25%; /* 16:9 */
       height: 0;
+      margin: 20px 0px;
     }
     .videoWrapper iframe {
       position: absolute;

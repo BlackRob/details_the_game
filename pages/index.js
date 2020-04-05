@@ -16,7 +16,7 @@ const Home = () => (
     <main>
       <div className="intro">
         <h2 className="title">
-          Hi! Welcome to Grumbly Games!
+          Hi! Hello! Welcome!
         </h2>
         <p className="description">
           This site is intended to help you learn English grammar
@@ -29,7 +29,7 @@ const Home = () => (
       <div className="content">
         <section>
           <h3>How to play details</h3>
-          <p>Details is easy! When you start a game, you get a new sentence and
+          <p>details is easy! When you start a game, you get a new sentence and
           five cards. Each card corresponds to one of the eight types of words
           in English (nouns, verbs, etc.). To play, think of words or phrases
           that you could add to the sentence by using one or more of your cards.
@@ -41,18 +41,25 @@ const Home = () => (
         </section>
         <section>
           <h3>The rules of details</h3>
-          <p>Details doesn't really have a lot of rules, you can play it however you want.
-            <i>But</i> there are some facts you should know to make your game more fun.
-            <ul>
-              <li>You get articles for free. This means if you want to add a noun,
-              "vinegar", for example, you can write "the vinegar" or "a vinegar"
-              on the noun card, and the game will automatically separate them.</li>
-              <li>You can also add articles to adjectives: for example, to add an
-              adjective and a noun, "the red wolf", write "the red" on the
-              adjective card and "wolf" on the noun card.
-              </li>
-            </ul>
+          <p>details doesn't really have a lot of rules, you can play it however you
+            want. <i>But</i> there are some facts you should know to make your game more fun.
           </p>
+          <ul>
+            <li>
+              <b>You get articles for free.</b> This means if you want to add a noun,
+              "vinegar" for example, you can write <span className="cNoun">
+                the vinegar</span> or <span className="cNoun">a vinegar</span> on
+              the noun card, and the game will automatically separate it
+              into <span className="sAdj">the</span> <span className="sNoun">vinegar</span>
+            </li>
+            <li>
+              <b>You can also add articles to adjective cards.</b> For example, to add an
+              adjective and a noun, "the red wolf" for example, write <span className="cAdj">
+                the red</span> on the adjective card and <span className="cNoun">wolf</span> on
+              the noun card to get <span className="sAdj">the</span> <span className="sAdj">
+                red</span> <span className="sNoun">wolf</span>
+            </li>
+          </ul>
         </section>
       </div>
       <div className="sidebar">

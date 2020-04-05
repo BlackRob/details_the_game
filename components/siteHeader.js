@@ -10,17 +10,18 @@ export default function siteHeader() {
       <Link href="/"><a alt="logo">GAMES</a></Link>
     </div>
     <div className="Header_menu">
+      <Link href="#learn"><a alt="learn">Learn!</a></Link>
       <Link href="/blog"><a alt="blog">Blog</a></Link>
       <Link href="/about"><a alt="about">About</a></Link>
     </div>
     <div className="Header_game">
-      <a href="/details/index.html" alt="play"><div className="GameLink">Play<br />details</div></a>
+      <Link href="/details" ><a alt="play"><div className="GameLink">Play<br />details</div></a></Link>
     </div>
     <style jsx>
       {`
           header {
             font-size: 2em;
-            background-color: var(--mainbg);
+            background-color: var(--headerbg);
             height: auto;
             padding: 1.5vmin 4vmin;
             width: 100%;
@@ -54,7 +55,7 @@ export default function siteHeader() {
             color: var(--punc);
           }
           .Header_logo1 a:active, .Header_logo2 a:active {
-            color: var(--pun);
+            color: var(--punc);
           }
           .Header_logo1, .Header_logo2 {
             padding-right: 1rem;
@@ -99,6 +100,7 @@ export default function siteHeader() {
           .GameLink:focus,
           .GameLink:active {
             background-color: var(--intrj);
+            border: 2px solid var(--punc);
             filter: drop-shadow(0 0 0.75rem var(--adv));
             color: var(--punc);
           }

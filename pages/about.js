@@ -5,8 +5,8 @@ import TypeButtonDiv from '../components/typeButtonDiv'
 import YouTubeVid from '../components/youTubeVid'
 
 
-const About = () => {
-  return <div className="container">
+const About = () => (
+  <div className="container">
     <Head>
       <title>About this...</title>
       <link rel="icon" href="/favicon.ico" />
@@ -15,15 +15,32 @@ const About = () => {
     <main>
       <div className="intro">
         <h2 className="title">
-          Hi! Welcome to Grumbly Games!
+          About this...
         </h2>
         <p className="description">
-          This site is intended to help you learn English grammar
-          by playing games. Right now, we only have one game, "details".
-          In details you make long sentences by adding details to a
-          shorter sentence, then share them with your friends.
-          Try it! It's fun!
+          "Grumbly Games" was created to promote the game "details".
+          details is a game we invented to practice grammar: it was based
+          on the simple observation that one of the main differences between
+          native speakers and second-language learners is that native speakers
+          use longer sentences, and sentences get longer when we add details to them.
         </p>
+        <p>Details add information to a sentence. For example, take the sentence</p>
+        <code>The dog is hungry.</code>
+        <p>The speaker is telling the listener something, providing the listener with
+        information. Now, suppose there are two dogs, a brown one and a green one.
+        Maybe only one of them is hungry; the speaker can express this by adding
+          a detail:</p>
+        <code>The green dog is hungry.</code>
+        <p>The adjective "green" provides extra information: it answers the question,
+          "Which dog is hungry?"</p>
+        <p>Perhaps the green dog is not just hungry, and we want to share that fact.
+          No problem, just add another detail:</p>
+        <code>The green dog is hungry and sad.</code>
+        <p>Perhaps we also want to say something about the brown dog:</p>
+        <code>The green dog is hungry and sad but the brown dog is happy.</code>
+        <p>And maybe this situation we're describing is only true sometimes:</p>
+        <code>At sunrise, the green dog is hungry and sad but the brown dog is happy.</code>
+        <p>We can go on and on, making the sentence longer and longer just by adding details.</p>
       </div>
       <div className="content">
         <section>
@@ -38,56 +55,8 @@ const About = () => {
     <SiteFooter />
 
     <style jsx>{`
-      code {
-        background: #fafafa;
-        border-radius: 5px;
-        padding: 0.75rem;
-        font-size: 1.1rem;
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-      }
-
-      .grid {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-
-        max-width: 800px;
-        margin-top: 3rem;
-      }
-
-      .card {
-        margin: 1rem;
-        flex-basis: 45%;
-        padding: 1.5rem;
-        text-align: left;
-        color: inherit;
-        text-decoration: none;
-        border: 1px solid #eaeaea;
-        border-radius: 10px;
-        transition: color 0.15s ease, border-color 0.15s ease;
-      }
-
-      .card:hover,
-      .card:focus,
-      .card:active {
-        color: #0070f3;
-        border-color: #0070f3;
-      }
-
-      .card h3 {
-        margin: 0 0 1rem 0;
-        font-size: 1.5rem;
-      }
-
-      .card p {
-        margin: 0;
-        font-size: 1.25rem;
-        line-height: 1.5;
-      }
     `}</style>
   </div>
-}
+)
 
 export default About;

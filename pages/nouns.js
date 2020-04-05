@@ -7,31 +7,29 @@ import YouTubeVid from '../components/youTubeVid'
 const ThisPage = () => (
   <div className="container">
     <Head>
-      <title>Adjectives</title>
+      <title>Nouns</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <SiteHeader />
     <main>
       <div className="intro">
         <h2 className="title">
-          Adjectives
+          Nouns
         </h2>
-        <p className="description">
-          Adjectives are used before nouns or pronouns.
-          We say adjectives "modify" nouns, but that just means they give
-          extra information about the noun they're attached to.
+        <p className="description">Nouns describe a person, place, thing or idea.
+        "Noun" is the biggest category of words in English.
+        Dog is a noun. Cat is a noun. Love is a noun. Pizza is a noun...
+          ("You" and "I" are not <i>nouns</i>. "You" and "I", and "him" and "her", are <i>pronouns</i>. 🤨)
         </p>
       </div>
       <div className="content">
         <section>
-          <h3>How to use adjectives in details</h3>
-          <p>Consider the sentence, "I'm scared of bears".
-          You can change that sentence by adding an adjective to bears.
-          Any adjective would work --red, angry, Italian, crazy.
-          My choice:
+          <h3>How to use nouns in details</h3>
+          <p>
+            Nouns are very, very common, so you will need to use a lot of nouns when you play details.
+            Here are some ways that you can use noun cards:
           </p>
-          <code>I'm scared of mechanical bears.</code>
-          <YouTubeVid vidID="V1d4r9awjKE" />
+          <YouTubeVid vidID="LNxWTS25Tbk" />
         </section>
       </div>
       <div className="sidebar">

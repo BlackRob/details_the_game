@@ -8,15 +8,12 @@ export default function siteHeader() {
       <style jsx>{`
         footer {
           width: 100%;
-          background-color: var(--mainbg);
+          background-color: var(--headerbg);
+          color: var(--active_outline);
           display: flex;
           flex: 0 0 80px;
           justify-content: center;
           align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
         }
       `}</style>
     </footer>
