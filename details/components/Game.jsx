@@ -2,8 +2,8 @@ import React from 'react';
 import DrawSentence from './SentenceBlocks';
 import DrawCards from './Cards';
 import DrawButtons from './Buttons';
-import sentences from '../sentences.json';
-import { preInsertProcessing } from '../../../nonComponentFunctions/preInsertProcessing';
+import sentences from '../../data/sentences.json';
+import { preInsertProcessing } from '../../nonComponentFunctions/preInsertProcessing';
 
 class Game extends React.Component {
   constructor(props) {
@@ -61,8 +61,9 @@ class Game extends React.Component {
     // but other modes might be added in future
     let new_game = chooseNewGame(sentences, this.state.gameMode);
 
+    console.log(new_game.sentence);
     this.setState({
-      sentence: new_game.sentence,
+      sentence: (new_game.sentence),
     });
     this.setPlacing(false);
     this.clearWR();
@@ -194,7 +195,8 @@ class Game extends React.Component {
         undoable={this.state.undoable}
         workingCards={this.state.workingCards}
       />
-      <DrawSentence sentence={this.state.sentence}
+      <DrawSentence
+        sentence={this.state.sentence}
         placing={this.state.placing}
         insert={this.insert}
       />
@@ -266,7 +268,7 @@ const chooseNewGame = (sentences, mode) => {
     let randomKey = Math.floor(Math.random() * senties.length);
     returnValue = sentences[senties[randomKey]];
   }
-  console.log(returnValue);
+
   return returnValue;
 }
 

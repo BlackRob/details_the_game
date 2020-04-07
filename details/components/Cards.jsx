@@ -46,7 +46,7 @@ const DrawWorkingRowContent = ({ wR, removeFromWR, updateState, cards, toggleWor
     content = <div className="working_row_message">{rando}! &nbsp; You won! &nbsp; &nbsp; Cards inserted: {totalCardCount} &nbsp; &nbsp; Moves needed: {sentenceUpdateCount}</div>
   }
 
-  if (wR) {
+  if (wR.length > 0) {
     const workingCards = wR.map(x => cards.find(y => y.id === x));
     content =
       workingCards.map(z => <DrawWorkingCard element={z} key={z.id} updateState={updateState} removeFromWR={removeFromWR} toggleWorking={toggleWorking} />)
@@ -68,6 +68,9 @@ const DrawWorkingRowContent = ({ wR, removeFromWR, updateState, cards, toggleWor
         }
         .working_row_content::-webkit-scrollbar {
           display: none;
+        }
+        .working_row_message {
+          color: black;
         }
       `}
     </style>
@@ -190,8 +193,8 @@ const DrawPlaceButton = ({ cards, setPlacing, placing, undoable }) => {
   // currently waiting in the "undo" grace period, enable the button
   let somethingWritten = false;
   let cardsInWR = [];
-  if (cards) {
-    cards.filter(x => x.working);
+  if (Array.isArray(cards)) {
+    cardsInWR = cards.filter(x => x.working);
   }
   if (cardsInWR.length > 0) {
     somethingWritten = true;
@@ -225,8 +228,8 @@ const DrawPlaceButton = ({ cards, setPlacing, placing, undoable }) => {
 const DrawCardButton = ({ type, addToWR, cards, toggleWorking }) => {
   let activeClass = "disabled";
   let numType = [];
-  if (cards) {
-    cards.filter(element => (element.type === type && !element.working))
+  if (Array.isArray(cards)) {
+    numType = cards.filter(element => (element.type === type && !element.working))
   };
   if (numType.length > 0) {
     activeClass = type;

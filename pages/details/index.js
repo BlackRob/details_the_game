@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import DrawHeader from './components/Header';
-import DrawGame from './components/Game';
+import DrawHeader from '../../details/components/Header';
+import DrawGame from '../../details/components/Game';
 
 
 const Game = () => (
@@ -27,7 +27,7 @@ const Game = () => (
           --intrj: orange; /* #F2552C; orange; */
           --prep: lime;  /* #A6E22E */
           --pron: fuchsia;
-          --punc: white;
+          --punc: lavender;
         }
 
         body {
