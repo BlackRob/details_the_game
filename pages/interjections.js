@@ -3,12 +3,13 @@ import SiteHeader from '../components/siteHeader'
 import SiteFooter from '../components/siteFooter'
 import TypeButtonDiv from '../components/typeButtonDiv'
 import YouTubeVid from '../components/youTubeVid'
+import Fold from '../components/fold'
+import MyHeadStuff from '../components/myHeadStuff'
 
 const ThisPage = () => (
   <div className="container">
     <Head>
-      <title>Interjections</title>
-      <link rel="icon" href="/favicon.ico" />
+      <MyHeadStuff title="Interjections" />
     </Head>
     <SiteHeader />
     <main>
@@ -20,6 +21,7 @@ const ThisPage = () => (
         so they are usually written separately (not part of another sentence).
         A lot of swearing is done through interjections.
           </p>
+        <YouTubeVid vidID="FFwJMdeWqlw" caption="placeholder video" />
       </div>
       <div className="content">
         <h3>How to use interjections in details</h3>
@@ -64,7 +66,6 @@ const ThisPage = () => (
         polite "fu" word. When a word is used this way, it's called a <i>euphemism</i>,
         which just means that one word is taking the place of another one.
           </p>
-        <YouTubeVid vidID="FFwJMdeWqlw" />
       </div>
       <div className="sidebar">
         <TypeButtonDiv />

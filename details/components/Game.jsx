@@ -3,7 +3,7 @@ import DrawSentence from './SentenceBlocks';
 import DrawCards from './Cards';
 import DrawButtons from './Buttons';
 import sentences from '../../data/sentences.json';
-import { preInsertProcessing } from '../../nonComponentFunctions/preInsertProcessing';
+import { preInsertProcessing } from './preInsertProcessing';
 
 class Game extends React.Component {
   constructor(props) {

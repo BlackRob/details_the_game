@@ -1,10 +1,12 @@
-//next.config.js
 module.exports = {
-  webpack: function (config) {
-    config.module.rules.push({
-      test: /\.md$/,
-      use: 'raw-loader',
-    })
-    return config
-  },
+  webpack: (cfg) => {
+    cfg.module.rules.push(
+      {
+        test: /\.md$/,
+        loader: 'frontmatter-markdown-loader',
+        options: { mode: ['react-component'] }
+      }
+    )
+    return cfg;
+  }
 }

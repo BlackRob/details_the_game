@@ -7,7 +7,7 @@ import {
   TwitterShareButton, TwitterIcon,
   WhatsappShareButton, WhatsappIcon,
 } from "react-share";
-import styles from './header_pages/HeaderPage.module.css';
+//import styles from './header_pages/HeaderPage.module.css';
 
 
 // Clicking on the span opens an informative popup
@@ -257,9 +257,12 @@ const drawCanvas = ({ sentence, cards, canvasRef, workingCards }) => {
   ctx.fillStyle = "dodgerblue";
   let gamesWidth = ctx.measureText("games").width
   ctx.fillText("games", cw - 20 - gamesWidth, (rb - blo));
+  ctx.fillStyle = "lavender";
+  let dotWidth = ctx.measureText(".").width + 7
+  ctx.fillText(".", cw - 20 - dotWidth - gamesWidth, (rb - blo));
   ctx.fillStyle = "lightskyblue";
   let grumblyWidth = ctx.measureText("grumbly").width
-  ctx.fillText("grumbly", cw - 20 - grumblyWidth - wpr - gamesWidth, (rb - blo));
+  ctx.fillText("grumbly", cw - 20 - grumblyWidth - dotWidth - 7 - gamesWidth, (rb - blo));
 
   // top margin
   rb += top_bottom_sentence_margin;

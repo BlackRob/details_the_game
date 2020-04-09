@@ -129,7 +129,7 @@
   },
   "_2": {
     "header": {
-      "snum": 1,
+      "snum": 2,
       "stype": "error_message"
     },
     "sentence": [
@@ -155,6 +155,55 @@
       },
       {
         "id": 4,
+        "type": "p_exc",
+        "word": "!"
+      }
+    ],
+    "cards": []
+  },
+  "_3": {
+    "header": {
+      "snum": 3,
+      "stype": "sharingImage"
+    },
+    "sentence": [
+      {
+        "id": 0,
+        "type": "head",
+        "word": ""
+      },
+      {
+        "id": 1,
+        "type": "verb",
+        "word": "Play"
+      },
+      {
+        "id": 2,
+        "type": "noun",
+        "word": "details"
+      },
+      {
+        "id": 3,
+        "type": "prep",
+        "word": "at"
+      },
+      {
+        "id": 4,
+        "type": "adj",
+        "word": "grumbly"
+      },
+      {
+        "id": 5,
+        "type": "p_prd",
+        "word": "."
+      },
+      {
+        "id": 6,
+        "type": "noun",
+        "word": "games"
+      },
+      {
+        "id": 7,
         "type": "p_exc",
         "word": "!"
       }

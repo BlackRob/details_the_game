@@ -3,12 +3,13 @@ import SiteHeader from '../components/siteHeader'
 import SiteFooter from '../components/siteFooter'
 import TypeButtonDiv from '../components/typeButtonDiv'
 import YouTubeVid from '../components/youTubeVid'
+import Fold from '../components/fold'
+import MyHeadStuff from '../components/myHeadStuff'
 
 const ThisPage = () => (
   <div className="container">
     <Head>
-      <title>Adjectives</title>
-      <link rel="icon" href="/favicon.ico" />
+      <MyHeadStuff title="Adjectives" />
     </Head>
     <SiteHeader />
     <main>
@@ -18,21 +19,18 @@ const ThisPage = () => (
         </h2>
         <p className="description">
           Adjectives are used before nouns or pronouns.
-          We say adjectives "modify" nouns, but that just means they give
-          extra information about the noun they're attached to.
+          People say adjectives "modify" nouns, but that just means they give
+          extra information about the word they're attached to.
         </p>
+        <YouTubeVid vidID="V1d4r9awjKE" caption="placeholder video" />
       </div>
       <div className="content">
-        <section>
-          <h3>How to use adjectives in details</h3>
+        <Fold title={<h3>How to use adjectives in details</h3>} content={<>
           <p>Consider the sentence, "I'm scared of bears".
           You can change that sentence by adding an adjective to bears.
           Any adjective would work --red, angry, Italian, crazy.
-          My choice:
           </p>
-          <code>I'm scared of mechanical bears.</code>
-          <YouTubeVid vidID="V1d4r9awjKE" />
-        </section>
+          <code>I'm scared of mechanical bears.</code> </>} />
       </div>
       <div className="sidebar">
         <TypeButtonDiv />

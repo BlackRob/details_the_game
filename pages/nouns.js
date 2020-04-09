@@ -3,12 +3,13 @@ import SiteHeader from '../components/siteHeader'
 import SiteFooter from '../components/siteFooter'
 import TypeButtonDiv from '../components/typeButtonDiv'
 import YouTubeVid from '../components/youTubeVid'
+import Fold from '../components/fold'
+import MyHeadStuff from '../components/myHeadStuff'
 
 const ThisPage = () => (
   <div className="container">
     <Head>
-      <title>Nouns</title>
-      <link rel="icon" href="/favicon.ico" />
+      <MyHeadStuff title="Nouns" />
     </Head>
     <SiteHeader />
     <main>
@@ -23,14 +24,12 @@ const ThisPage = () => (
         </p>
       </div>
       <div className="content">
-        <section>
-          <h3>How to use nouns in details</h3>
-          <p>
-            Nouns are very, very common, so you will need to use a lot of nouns when you play details.
-            Here are some ways that you can use noun cards:
+        <h3>How to use nouns in details</h3>
+        <p>
+          Nouns are very, very common, so you will need to use a lot of nouns when you play details.
+          Here are some ways that you can use noun cards:
           </p>
-          <YouTubeVid vidID="LNxWTS25Tbk" />
-        </section>
+        <YouTubeVid vidID="LNxWTS25Tbk" />
       </div>
       <div className="sidebar">
         <TypeButtonDiv />

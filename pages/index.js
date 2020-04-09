@@ -3,13 +3,13 @@ import SiteHeader from '../components/siteHeader'
 import SiteFooter from '../components/siteFooter'
 import TypeButtonDiv from '../components/typeButtonDiv'
 import YouTubeVid from '../components/youTubeVid'
+import MyHeadStuff from '../components/myHeadStuff'
 
 
 const Home = () => (
   <div className="container">
     <Head>
-      <title>Grumbly Games</title>
-      <link rel="icon" href="/favicon.ico" />
+      <MyHeadStuff title="Grumbly Games" />
     </Head>
 
     <SiteHeader />

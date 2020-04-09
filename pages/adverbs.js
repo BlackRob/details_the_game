@@ -3,12 +3,13 @@ import SiteHeader from '../components/siteHeader'
 import SiteFooter from '../components/siteFooter'
 import TypeButtonDiv from '../components/typeButtonDiv'
 import YouTubeVid from '../components/youTubeVid'
+import Fold from '../components/fold'
+import MyHeadStuff from '../components/myHeadStuff'
 
 const ThisPage = () => (
   <div className="container">
     <Head>
-      <title>Adverbs</title>
-      <link rel="icon" href="/favicon.ico" />
+      <MyHeadStuff title="Adverbs" />
     </Head>
     <SiteHeader />
     <main>
@@ -25,25 +26,25 @@ const ThisPage = () => (
         <code>My cat is evil.</code>
         <p>"How evil is your cat?"</p>
         <code>My cat is <span className="sAdv">very</span> evil.</code>
+        <YouTubeVid vidID="5R1RGl4WQP8" caption="placeholder video" />
       </div>
       <div className="content">
-        <section>
-          <h3>Using adverbs</h3>
-          <p>
-            In the real world, adverbs are <span className="sAdv">extremely</span> common
-            in spoken speech, but in writing they are considered bad style. When you write,
-            you should try not to use <span className="sAdv">too</span> many of them.
-            But when people talk, they use them <span className="sAdv">constantly</span>.<sup>1</sup>
+        <h3>Using adverbs</h3>
+        <p>In the real world, adverbs are extremely common in spoken speech,
+        but in writing it is considered bad style to use too many of them.
+        When you write, you should try to avoid unnecessary adverbs.
+          But when people talk, they use them constantly!<sup>1</sup>
+        </p>
+        <Fold title={<h4>Adverbs with verbs</h4>} content={
+          <p>The most basic use of adjectives is to modify verbs, to
+          describe how (or in what manner) the action of the verb happened.
+            <code>The doctor <span className="sAdv">slowly</span> drank his coffee.</code>
           </p>
-          <h4>Adverbs with verbs</h4>
-          <h4>Adverbs with adjectives</h4>
-          <h4>Adverbs with adverbs!</h4>
-          <YouTubeVid vidID="5R1RGl4WQP8" />
-          <p>
-            <sup>1</sup> Adverbs are often not used literally. People use them for
-            emphasis, so sometimes they exaggeragate.
-          </p>
-        </section>
+        } />
+        <Fold title={<h4>Adverbs with adjectives</h4>} content={<p>poop</p>} />
+        <Fold title={<h4>Adverbs with adverbs!</h4>} content={<p>poop</p>} />
+        <p><sup>1</sup>Adverbs are often not used literally. People use them for
+        emphasis, and sometimes people exaggerate. "I am <i>so</i> happy for you!"</p>
       </div>
       <div className="sidebar">
         <TypeButtonDiv />

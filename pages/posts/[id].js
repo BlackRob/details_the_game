@@ -1,7 +1,7 @@
 import * as React from 'react'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
-import Layout from '../components/BlogLayout'
+import Layout from '../../components/BlogLayout'
 const glob = require('glob')
 
 

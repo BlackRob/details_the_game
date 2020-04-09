@@ -60,18 +60,6 @@ const Block = (x, index, placing, insert) => {
   </div>
 }
 
-/* const Blocks = ({ sentence, placing, insert }) => {
-  if (Array.isArray(sentence)) {
-    sentence.map((element, index) => {
-      return Block(element, index, placing, insert);
-    })
-  } else {
-    return null;
-  }
-} */
-
-// <Blocks sentence={sentence} placing={placing} insert={insert} />
-
 export default ({ sentence, placing, insert }) => (
   <div className="active_sentence_slot">
     <div className="active_sentence_top_effect"></div>

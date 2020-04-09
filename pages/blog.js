@@ -1,51 +1,52 @@
-import matter from 'gray-matter'
-import Layout from "../components/BlogLayout";
-import BlogList from "../components/BlogList";
+//import Layout from "../components/BlogLayout";
+//import BlogList from "../components/BlogList";
 
-const Index = (props) => {
-  return (
-    <Layout pathname="/blog" siteTitle={props.title} siteDescription={props.description}>
-      <section>
-        <BlogList allBlogs={props.allBlogs} />
-      </section>
-    </Layout>
-  );
-};
+import Head from "next/head"
+import { Component } from 'react'
+import SiteHeader from '../components/siteHeader'
+import SiteFooter from '../components/siteFooter'
+import TypeButtonDiv from '../components/typeButtonDiv'
+import MyHeadStuff from '../components/myHeadStuff'
+import { attributes, react as HomeContent } from '../posts/home.md';
 
-export default Index;
+export default class Blog extends Component {
+  render() {
+    let { title, cats } = attributes;
 
-Index.getInitialProps = async function () {
-  const siteConfig = await import(`../data/config.json`)
-  // get all .md files from the src/posts dir
-  const posts = (context => {
-    // grab all the files matching this context
-    const keys = context.keys()
-    // grab the values from these files
-    const values = keys.map(context)
-    // go through each file
-    const data = keys.map((key, index) => {
-      // Create slug from filename
-      const slug = key
-        .replace(/^.*[\\\/]/, '')
-        .split('.')
-        .slice(0, -1)
-        .join('.')
-      // get the current file value
-      const value = values[index]
-      // Parse frontmatter & markdownbody for the current file
-      const document = matter(value.default)
-      // return the .md content & pretty slug
-      return {
-        document,
-        slug,
-      }
-    })
-    // return all the posts
-    return data;
-  })(require.context('../posts', true, /\.md$/))
+    return <div className="container">
+      <Head>
+        <MyHeadStuff title="Blog" />
+      </Head>
+      <SiteHeader />
+      <main>
+        <div className="intro">
+          <h2 className="title">The Grumbly Blog</h2>
+          <p className="description">Punctuation isn't grammar, but it's still
+          really important to know if you want to play details (or write well).
+          Always remember when playing details, you are responsible for your own
+          punctuation!
+          </p>
+        </div>
+        <div className="content">
+          <h1>{title}</h1>
+          <HomeContent />
+          <ul>
+            {cats.map((cat, k) => (
+              <li key={k}>
+                <h2>{cat.name}</h2>
+                <p>{cat.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="sidebar">
+          <TypeButtonDiv />
+        </div>
+      </main>
+      <SiteFooter />
+      <style jsx>{`
 
-  return {
-    allBlogs: posts,
-    ...siteConfig.default,
+    `}</style>
+    </div >
   }
 }
