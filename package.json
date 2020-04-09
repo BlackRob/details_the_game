@@ -9,7 +9,6 @@
     "export": "npm run build && next export"
   },
   "dependencies": {
-    "netlify-cms": "^2.10.42",
     "next": "^9.3.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

@@ -7,7 +7,7 @@ import SiteHeader from '../components/siteHeader'
 import SiteFooter from '../components/siteFooter'
 import TypeButtonDiv from '../components/typeButtonDiv'
 import MyHeadStuff from '../components/myHeadStuff'
-import { attributes, react as HomeContent } from '../posts/home.md';
+import { attributes, react as HomeContent } from '../posts/home.md'
 
 export default class Blog extends Component {
   render() {
@@ -21,10 +21,8 @@ export default class Blog extends Component {
       <main>
         <div className="intro">
           <h2 className="title">The Grumbly Blog</h2>
-          <p className="description">Punctuation isn't grammar, but it's still
-          really important to know if you want to play details (or write well).
-          Always remember when playing details, you are responsible for your own
-          punctuation!
+          <p className="description">These posts share news about Grumbly Games, details,
+          or
           </p>
         </div>
         <div className="content">
