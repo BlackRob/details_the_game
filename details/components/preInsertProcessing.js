@@ -142,6 +142,16 @@ const puncStartCheck = (werd) => {
       punc.content = "(";
       punc.newWerd = werd.slice(1).trim();
       break;
+    case (werd[0] === "."):
+      punc.type = "p_prd";
+      punc.content = ".";
+      punc.newWerd = werd.slice(1).trim();
+      break;
+    case (werd.substring(0, 2) === "--"):
+      punc.type = "p_dbldashL";
+      punc.content = "--";
+      punc.newWerd = werd.slice(2).trim();
+      break;
     default:
       punc.type = "nopunc";
   }
@@ -188,6 +198,11 @@ const puncEndCheck = (werd) => {
       punc.type = "p_parR";
       punc.content = ")";
       punc.newWerd = werd.slice(0, end).trim();
+      break;
+    case (werd.substring(werd.length - 2) === "--"):
+      punc.type = "p_dbldashR";
+      punc.content = "--";
+      punc.newWerd = werd.slice(0, werd.length - 2).trim();
       break;
     default:
       punc.type = "nopunc";

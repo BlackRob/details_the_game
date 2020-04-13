@@ -61,7 +61,6 @@ class Game extends React.Component {
     // but other modes might be added in future
     let new_game = chooseNewGame(sentences, this.state.gameMode);
 
-    console.log(new_game.sentence);
     this.setState({
       sentence: (new_game.sentence),
     });
@@ -260,8 +259,10 @@ const chooseNewGame = (sentences, mode) => {
   let returnValue = {};
   let senties = [];
   for (let key in sentences) {
-    if (sentences.hasOwnProperty(key)) {
+    // all normal sentences have IDs >= 1000
+    if (sentences.hasOwnProperty(key) && key.length > 4) {
       senties.push(key);
+      console.log(key)
     }
   }
   if (mode === "default") {
