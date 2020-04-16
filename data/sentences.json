@@ -384,5 +384,244 @@
       }
     ],
     "cards": []
+  },
+  "_1005": {
+    "header": {
+      "snum": 1005,
+      "stype": "sv"
+    },
+    "sentence": [
+      {
+        "id": 0,
+        "type": "head",
+        "word": ""
+      },
+      {
+        "id": 1,
+        "type": "adj",
+        "word": "The"
+      },
+      {
+        "id": 2,
+        "type": "noun",
+        "word": "hedgehog"
+      },
+      {
+        "id": 3,
+        "type": "verb",
+        "word": "is"
+      },
+      {
+        "id": 4,
+        "type": "verb",
+        "word": "laughing"
+      },
+      {
+        "id": 5,
+        "type": "p_prd",
+        "word": "."
+      }
+    ],
+    "cards": []
+  },
+  "_1006": {
+    "header": {
+      "snum": 1006,
+      "stype": "q"
+    },
+    "sentence": [
+      {
+        "id": 0,
+        "type": "head",
+        "word": ""
+      },
+      {
+        "id": 1,
+        "type": "verb",
+        "word": "Does"
+      },
+      {
+        "id": 2,
+        "type": "pron",
+        "word": "anyone"
+      },
+      {
+        "id": 3,
+        "type": "verb",
+        "word": "like"
+      },
+      {
+        "id": 4,
+        "type": "noun",
+        "word": "spiders"
+      },
+      {
+        "id": 5,
+        "type": "p_qm",
+        "word": "?"
+      }
+    ],
+    "cards": []
+  },
+  "_1007": {
+    "header": {
+      "snum": 1007,
+      "stype": "sv"
+    },
+    "sentence": [
+      {
+        "id": 0,
+        "type": "head",
+        "word": ""
+      },
+      {
+        "id": 1,
+        "type": "adj",
+        "word": "The"
+      },
+      {
+        "id": 2,
+        "type": "noun",
+        "word": "bread"
+      },
+      {
+        "id": 3,
+        "type": "verb",
+        "word": "smells"
+      },
+      {
+        "id": 4,
+        "type": "adj",
+        "word": "wonderful"
+      },
+      {
+        "id": 5,
+        "type": "p_exc",
+        "word": "!"
+      }
+    ],
+    "cards": []
+  },
+  "_1008": {
+    "header": {
+      "snum": 1008,
+      "stype": "sv"
+    },
+    "sentence": [
+      {
+        "id": 0,
+        "type": "head",
+        "word": ""
+      },
+      {
+        "id": 1,
+        "type": "noun",
+        "word": "Mice"
+      },
+      {
+        "id": 2,
+        "type": "verb",
+        "word": "live"
+      },
+      {
+        "id": 3,
+        "type": "noun",
+        "word": "outside"
+      },
+      {
+        "id": 4,
+        "type": "p_prd",
+        "word": "."
+      }
+    ],
+    "cards": []
+  },
+  "_1009": {
+    "header": {
+      "snum": 1009,
+      "stype": "svo"
+    },
+    "sentence": [
+      {
+        "id": 0,
+        "type": "head",
+        "word": ""
+      },
+      {
+        "id": 1,
+        "type": "adj",
+        "word": "The"
+      },
+      {
+        "id": 2,
+        "type": "noun",
+        "word": "doctor"
+      },
+      {
+        "id": 3,
+        "type": "verb",
+        "word": "told"
+      },
+      {
+        "id": 4,
+        "type": "pron",
+        "word": "me"
+      },
+      {
+        "id": 5,
+        "type": "p_prd",
+        "word": "."
+      }
+    ],
+    "cards": []
+  },
+  "_1010": {
+    "header": {
+      "snum": 1010,
+      "stype": "sv"
+    },
+    "sentence": [
+      {
+        "id": 0,
+        "type": "head",
+        "word": ""
+      },
+      {
+        "id": 1,
+        "type": "noun",
+        "word": "Sally"
+      },
+      {
+        "id": 2,
+        "type": "verb",
+        "word": "asked"
+      },
+      {
+        "id": 3,
+        "type": "p_com",
+        "word": ","
+      },
+      {
+        "id": 4,
+        "type": "p_Lqt",
+        "word": "\""
+      },
+      {
+        "id": 5,
+        "type": "adv",
+        "word": "Why"
+      },
+      {
+        "id": 6,
+        "type": "p_qm",
+        "word": "?"
+      },
+      {
+        "id": 7,
+        "type": "p_Rqt",
+        "word": "\""
+      }
+    ],
+    "cards": []
   }
 }

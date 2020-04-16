@@ -134,7 +134,7 @@ export default ({ sentence, placing, insert }) => (
           line-height: 1.3em;
         }
 
-        .head, .p_exc, .p_com, .p_cln, .p_semi, .p_prd, .p_parL, .p_parR, .p_qm, .p_dbldashL, .p_dbldashR  {
+        .head, .p_exc, .p_com, .p_cln, .p_semi, .p_prd, .p_parL, .p_parR, .p_qm, .p_dbldashL, .p_dbldashR, .p_Rqt, .p_Lqt  {
           color: var(--punc);
           width: auto;
           margin-right: auto;
@@ -144,7 +144,7 @@ export default ({ sentence, placing, insert }) => (
           text-align: left;
         }
 
-        .p_parL, .p_dbldashL {
+        .p_parL, .p_dbldashL, .p_Lqt {
           padding-right: 0.1em;
           text-align: right;
         }

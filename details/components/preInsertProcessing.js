@@ -152,6 +152,11 @@ const puncStartCheck = (werd) => {
       punc.content = "--";
       punc.newWerd = werd.slice(2).trim();
       break;
+    case (werd[0] === '"'):
+      punc.type = "p_Lqt";
+      punc.content = '"';
+      punc.newWerd = werd.slice(1).trim();
+      break;
     default:
       punc.type = "nopunc";
   }
@@ -203,6 +208,11 @@ const puncEndCheck = (werd) => {
       punc.type = "p_dbldashR";
       punc.content = "--";
       punc.newWerd = werd.slice(0, werd.length - 2).trim();
+      break;
+    case (werd[end] === '"'):
+      punc.type = "p_Rqt";
+      punc.content = '"';
+      punc.newWerd = werd.slice(0, end).trim();
       break;
     default:
       punc.type = "nopunc";

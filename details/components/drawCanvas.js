@@ -188,9 +188,9 @@ const prePrintSentence = (sentence, rm, rh, cw, wpr, margin, ctx) => {
       printArray[i].wordX += puncShift(printArray[i].type)
     }
     //// temporary adjustment to let period-as-separator (like in URL) work
-    if (printArray[i].type === "p_prd") {
-      currentRowOffset -= 40
-    }
+    //// if (printArray[i].type === "p_prd") {
+    ////   currentRowOffset -= 40
+    //// }
     currentRowOffset = currentRowOffset + printArray[i].width;
     printArray[i].wordY = rh * currentRow + rm * (currentRow - 1);
     // if there is a next element, look ahead and see if we need
@@ -351,10 +351,11 @@ const isPunc = (type) => {
 
 // sometimes punctuation needs to be adjusted,
 // moved a little left or right depending on the type
-// types: p_exc, p_com, p_cln, p_semi, p_prd, p_parL, p_parR, p_qm, p_dbldashL, p_dbldashR
+// types: p_exc, p_com, p_cln, p_semi, p_prd, p_parL, p_parR, p_qm, 
+// p_dbldashL, p_dbldashR, p_Lqt, p_Rqt
 const puncShift = (type) => {
   let shift = -20
-  if (type == "p_parL" || type == "p_dbldashL") {
+  if (type == "p_parL" || type == "p_dbldashL" || "p_Lqt") {
     shift = 20
   }
   return shift

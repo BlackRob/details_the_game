@@ -67,7 +67,9 @@ export const strToGameState = ({ canvasURLstring }) => {
     "p_exc": "!",
     "p_parR": ")",
     "p_qm": "?",
-    "p_dbldashR": "--"
+    "p_dbldashR": "--",
+    "p_Lqt": '"',
+    "p_Rqt": '"'
   }
 
   sArray.forEach((x) => {
@@ -107,7 +109,7 @@ export const strToGameState = ({ canvasURLstring }) => {
     })
   })
 
-  console.log(gameState)
+  //console.log(gameState)
 
   return gameState
 }
@@ -148,6 +150,12 @@ const wordShorthand = (wordObj) => {
       break;
     case (x === "p_dbldashR"):
       typeCode = `${wordObj.id}j`;
+      break;
+    case (x === "p_Rqt"):
+      typeCode = `${wordObj.id}l`;
+      break;
+    case (x === "p_Lqt"):
+      typeCode = `${wordObj.id}m`;
       break;
     case (x === "head"):
       // we don't write anything for head
@@ -276,6 +284,12 @@ const decodeType = (x) => {
     case (x === "j"):
       typeCode = "p_dbldashR";
       break;
+    case (x === "l"):
+      typeCode = "p_Rqt";
+      break;
+    case (x === "m"):
+      typeCode = "p_Lqt";
+      break;
     // notice, we skip from the beginning of the alphabet
     // for letters to stand for punctuation types, but skip to
     // the end and go backwards for word types
@@ -310,15 +324,3 @@ const decodeType = (x) => {
 
   return typeCode
 }
-
-let sentence = [{ id: 0, type: "head", word: "" },
-{ id: 1, type: "noun", word: "Donkeys" },
-{ id: 2, type: "verb", word: "hate" },
-{ id: 3, type: "noun", word: "cucumbers" },
-{ id: 4, type: "p_prd", word: "." }]
-
-let cards = [{ id: 0, type: "adv", word: "", working: false },
-{ id: 1, type: "verb", word: "poop", working: true },
-{ id: 2, type: "adv", word: "", working: false },
-{ id: 3, type: "prep", word: "", working: false },
-{ id: 4, type: "conj", word: "", working: false }]

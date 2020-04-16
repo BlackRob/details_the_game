@@ -1,7 +1,5 @@
 import * as React from 'react'
-import ReactMarkdown from 'frontmatter-markdown-loader'
 // import Layout from '../../components/BlogLayout'
-//const glob = require('glob')
 
 
 export default function BlogTemplate({ frontmatter, markdownBody, siteTitle }) {
@@ -11,7 +9,7 @@ export default function BlogTemplate({ frontmatter, markdownBody, siteTitle }) {
   }
 
   return (
-    <div><p>poop</p>
+    <div><p>{slug}</p>
       <style jsx>
         {`
           .blog h1 {
@@ -139,4 +137,11 @@ export default function BlogTemplate({ frontmatter, markdownBody, siteTitle }) {
       </style>
     </div>
   )
+}
+
+
+BlogTemplate.getInitialProps = async (context) => {
+  const { slug } = context.query
+
+  return { slug }
 }

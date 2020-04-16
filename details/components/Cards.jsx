@@ -124,7 +124,7 @@ const DrawType = ({ wordType }) => {
 }
 
 const DrawRemoveButton = ({ updateState, cardId, removeFromWR, toggleWorking }) => {
-  return <button
+  return <button tabIndex="-1"
     onClick={(e) => {
       e.preventDefault();
       updateState(cardId, "");

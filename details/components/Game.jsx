@@ -262,7 +262,6 @@ const chooseNewGame = (sentences, mode) => {
     // all normal sentences have IDs >= 1000
     if (sentences.hasOwnProperty(key) && key.length > 4) {
       senties.push(key);
-      console.log(key)
     }
   }
   if (mode === "default") {

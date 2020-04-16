@@ -1,50 +1,67 @@
-//import Layout from "../components/BlogLayout";
-//import BlogList from "../components/BlogList";
+// the blog is a modification of the blog-starter example from next.js 
+// https://github.com/zeit/next.js/tree/canary/examples/blog-starter
 
-import Head from "next/head"
-import { Component } from 'react'
+import MoreStories from '../blogComponents/more-stories'
+import HeroPost from '../blogComponents/hero-post'
+import { getAllPosts } from '../blogLib/api'
+import Head from 'next/head'
+import React from 'react'
 import SiteHeader from '../components/siteHeader'
 import SiteFooter from '../components/siteFooter'
 import TypeButtonDiv from '../components/typeButtonDiv'
-import MyHeadStuff from '../components/myHeadStuff'
-import { attributes, react as HomeContent } from '../posts/home.md'
+import MyBlogHeadStuff from '../blogComponents/myBlogHeadStuff'
 
-export default class Blog extends Component {
-  render() {
-    let { title, cats } = attributes;
+export default function Index({ allPosts }) {
+  const heroPost = allPosts[0]
+  const morePosts = allPosts.slice(1)
 
-    return <div className="container">
-      <Head>
-        <MyHeadStuff title="Blog" />
-      </Head>
-      <SiteHeader />
-      <main>
-        <div className="intro">
-          <h2 className="title">The Grumbly Blog</h2>
-          <p className="description">These posts share news about Grumbly Games, details,
-          or
+  return <div className="container">
+    <Head>
+      <MyBlogHeadStuff title="Blog" thumbnail="/public/" />
+    </Head>
+    <SiteHeader />
+    <main>
+      <div className="intro">
+        <h2 className="title">The Grumbly Blog</h2>
+        <p className="description">These posts share news about Grumbly Games, grammar tips
+        and advice on how to play details.
           </p>
-        </div>
-        <div className="content">
-          <h1>{title}</h1>
-          <HomeContent />
-          <ul>
-            {cats.map((cat, k) => (
-              <li key={k}>
-                <h2>{cat.name}</h2>
-                <p>{cat.description}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="sidebar">
-          <TypeButtonDiv />
-        </div>
-      </main>
-      <SiteFooter />
-      <style jsx>{`
+        {heroPost && (
+          <HeroPost
+            title={heroPost.title}
+            coverImage={heroPost.coverImage}
+            date={heroPost.date}
+            author={heroPost.author}
+            slug={heroPost.slug}
+            excerpt={heroPost.excerpt}
+          />
+        )}
+      </div>
+      <div className="content">
+        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+      </div>
+      <div className="sidebar">
+        <TypeButtonDiv />
+      </div>
+    </main>
+    <SiteFooter />
+    <style jsx>{`
 
     `}</style>
-    </div >
+  </div >
+}
+
+export async function getStaticProps() {
+  const allPosts = getAllPosts([
+    'title',
+    'date',
+    'slug',
+    'author',
+    'coverImage',
+    'excerpt',
+  ])
+
+  return {
+    props: { allPosts },
   }
 }
