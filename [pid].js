@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 
 const PostTemplate = () => {
-  //const router = useRouter()
+  const router = useRouter()
   //const glob = require('glob')
   //let files = []
 
@@ -22,19 +22,19 @@ const PostTemplate = () => {
 
   }); */
 
-  console.log('poop')
   //console.log(files)
 
-  //const { pid } = router.query
+  const pid = router.query
+  console.log(pid)
 
-  return <p>Post: poop</p>
+  return <p>Post: {pid}</p>
 }
 
 export default PostTemplate
 
-/*
-export async function getStaticProps(context) {
-  // const { slug } = context.query
-  // return { slug }
-  return { props: {} }
-} */
+
+export async function getServerSideProps(context) {
+  const { slug } = context.query
+  return { slug }
+  // return { props: {} }
+}

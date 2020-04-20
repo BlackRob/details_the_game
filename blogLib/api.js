@@ -30,6 +30,8 @@ export function getPostBySlug(slug, fields = []) {
     }
   })
 
+  console.log(items)
+
   return items
 }
 

@@ -1,10 +1,10 @@
 export default function siteHeader() {
   return (
     <footer>
-      <a href="http://workingclasshouses.com/coding.html"
-        target="_blank" rel="noopener noreferrer">
-        designed and coded by robert austin
-        </a>
+      <p>
+        questions or comments?<br />
+      write to <a href="mailto:wallycoyote@protonmail.com">wallycoyote@protonmail.com</a>
+      </p>
       <style jsx>{`
         footer {
           width: 100%;
@@ -14,6 +14,7 @@ export default function siteHeader() {
           flex: 0 0 80px;
           justify-content: center;
           align-items: center;
+          text-align:center;
         }
       `}</style>
     </footer>

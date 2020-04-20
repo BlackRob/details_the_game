@@ -57,17 +57,17 @@ body {
   }
 
 main {
-  padding: 30px 4rem;
+  padding: 30px 10%;
   display: grid;
   width: 100%;
   grid-gap: 10px;
   background-color: var(--mainbg); 
   grid-template-columns: 100%;
   grid-template-rows: auto auto auto;
-  grid-gap: 10px 30px;
+  grid-gap: 10px 3rem;
   grid-template-areas: "intro" "content" "sidebar";
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
   main {
     grid-template-columns: 1fr 220px;
     grid-template-rows: auto 1fr;
@@ -104,9 +104,25 @@ main {
 }
 
 h2, h3, p {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   width: 100%;
+}
+
+.example {
+  color: white;
+  background-color: var(--headerbg);
+  padding: 5px 8px;
+  width: calc(100% - 2.4rem);
+  border-radius: 3px;
+  margin-left: 1.2rem;
+  margin-right: 1.2rem;
+}
+
+img {
+  width: 100%;
+  border: 1px solid black;
+  box-shadow: 1px 1px 3px var(--headerbg) ;
 }
 
 button {
@@ -186,8 +202,9 @@ code {
   margin: 10px;
   padding: 0.35rem;
   line-height: 1.7rem;
-  max-width: 100%;
+  width: 100%;
   display: inline-block;
+  overflow-x: scroll;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
     DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 }
@@ -197,7 +214,6 @@ code {
 .sNoun, .sAdj, .sVerb, .sAdv, .sPron, .sConj, .sPunc, .sPrep, .sIntrj {
   background-color: var(--headerbg);
   padding: 0px 0.3rem;
-  border: 1px solid black;
   border-radius: 3px;
   display: inline-block;
   line-height: calc(1.4rem - 3px);
@@ -205,6 +221,7 @@ code {
 }
 .cNoun, .cAdj, .cVerb, .cAdv, .cPron, .cConj, .cPunc, .cPrep, .cIntrj {
   color: black;
+  border: 1px solid black;
 }
 .cAdj {
   background-color: var(--adj);

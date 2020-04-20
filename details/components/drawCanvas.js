@@ -4,7 +4,7 @@ import { createCanvas } from 'canvas';
 
 export const drawCanvas = ({ sentence, cards, workingCards }) => {
   const cw = 1920 // canvas width
-  const ch = 1080 // canvas height; this is a minimun, it might change
+  const ch = 1010 // canvas height; this is a minimun, it might change
 
   const canvas = createCanvas(cw, ch)
   const ctx = canvas.getContext('2d')

@@ -27,17 +27,14 @@ export default function HeroPost({
             <Date dateString={date} />
           </div>
         </div>
-        <div>
-          <p className="">{excerpt}</p>
-          <Avatar name={author.name} picture={author.picture} />
-        </div>
       </div>
       <style jsx>
         {`
           .heroPostImageDiv {
             width: 100%;
           }
-          .heroPostContent {}
+          .heroPostContent {
+            width: 100%;}
           .heroPostTitle {}
           .heroPostTitleLink {}
           .dateDiv {}

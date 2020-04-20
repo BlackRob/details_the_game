@@ -21,9 +21,8 @@ export default function YouTubeVid(props) {
     <style jsx>{`
     .videoWrapper {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
-    
-      margin: 20px 0px;
+      padding-bottom: 56.25%;
+      margin: 20px 0px 40px 0px;
       display: flex;
       flex-flow: column;
     }
@@ -34,13 +33,14 @@ export default function YouTubeVid(props) {
       left: 0;
       width: 100%;
       height: 100%;
+      border: 1px solid black;
+      box-shadow: 1px 1px 3px var(--headerbg) ;
     }
     figcaption {
       position: absolute;
       width: 100%;
       bottom: -27px;
       font-size: 90%;
-      style: italics;
       text-align: center;
     }
     `}</style>

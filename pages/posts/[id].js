@@ -1,147 +1,138 @@
-import * as React from 'react'
-// import Layout from '../../components/BlogLayout'
+import { useRouter } from 'next/router'
+import ErrorPage from 'next/error'
+import { getPostSlugs, getPostBySlug } from '../../blogLib/api'
+import Date from '../../blogComponents/date'
+import markdownToHtml from '../../blogLib/markdownToHtml'
+import Link from 'next/link'
+import Head from 'next/head'
+import React from 'react'
+import SiteHeader from '../../components/siteHeader'
+import SiteFooter from '../../components/siteFooter'
+import TypeButtonDiv from '../../components/typeButtonDiv'
+import MyBlogHeadStuff from '../../blogComponents/myBlogHeadStuff'
 
 
-export default function BlogTemplate({ frontmatter, markdownBody, siteTitle }) {
-  function reformatDate(fullDate) {
-    const date = new Date(fullDate)
-    return date.toDateString().slice(4)
+export default function BlogTemplate({ post }) {
+  const router = useRouter()
+  if (!router.isFallback && !post?.slug) {
+    return <ErrorPage statusCode={404} />
   }
-
-  return (
-    <div><p>{slug}</p>
-      <style jsx>
-        {`
-          .blog h1 {
-            margin-bottom: 0.7rem;
-          }
-          .blog__hero {
-            min-height: 300px;
-            height: 60vh;
-            width: 100%;
-            margin: 0;
-            overflow: hidden;
-          }
-          .blog__hero img {
-            margin-bottom: 0;
-            object-fit: cover;
-            min-height: 100%;
-            min-width: 100%;
-            object-position: center;
-          }
-          .blog__info {
-            padding: 1.5rem 1.25rem;
-            width: 100%;
-            max-width: 768px;
-            margin: 0 auto;
-          }
-          .blog__info h1 {
-            margin-bottom: 0.66rem;
-          }
-          .blog__info h3 {
-            margin-bottom: 0;
-          }
-          .blog__body {
-            width: 100%;
-            padding: 0 1.25rem;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-          }
-          .blog__body a {
-            padding-bottom: 1.5rem;
-          }
-          .blog__body:last-child {
-            margin-bottom: 0;
-          }
-          .blog__body h1 h2 h3 h4 h5 h6 p {
-            font-weight: normal;
-          }
-          .blog__body p {
-            color: inherit;
-          }
-          .blog__body ul {
-            list-style: initial;
-          }
-          .blog__body ul ol {
-            margin-left: 1.25rem;
-            margin-bottom: 1.25rem;
-            padding-left: 1.45rem;
-          }
-          .blog__footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 1.25rem;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-          }
-          .blog__footer h2 {
-            margin-bottom: 0;
-          }
-          .blog__footer a {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          }
-          .blog__footer a svg {
-            width: 20px;
-          }
-          @media (min-width: 768px) {
-            .blog {
-              display: flex;
-              flex-direction: column;
-            }
-            .blog__body {
-              max-width: 800px;
-              padding: 0 2rem;
-            }
-            .blog__body span {
-              width: 100%;
-              margin: 1.5rem auto;
-            }
-            .blog__body ul ol {
-              margin-left: 1.5rem;
-              margin-bottom: 1.5rem;
-            }
-            .blog__hero {
-              min-height: 600px;
-              height: 75vh;
-            }
-            .blog__info {
-              text-align: center;
-              padding: 2rem 0;
-            }
-            .blog__info h1 {
-              max-width: 500px;
-              margin: 0 auto 0.66rem auto;
-            }
-            .blog__footer {
-              padding: 2.25rem;
-            }
-          }
-          @media (min-width: 1440px) {
-            .blog__hero {
-              height: 70vh;
-            }
-            .blog__info {
-              padding: 3rem 0;
-            }
-            .blog__footer {
-              padding: 2rem 2rem 3rem 2rem;
-            }
-          }
-        `}
-      </style>
-    </div>
-  )
+  return <div className="container">
+    <Head>
+      <MyBlogHeadStuff slug={post.slug} thumbnail={post.ogImage} />
+    </Head>
+    <SiteHeader />
+    <main>
+      <div className="intro">
+        <div className="postNav">
+          <div><Link href={`/posts/${post.prev}`} as={`/posts/${post.prev}`} ><a>Previous Post</a></Link></div>
+          <div><Link href="/blog" as="/blog"><a>All Posts</a></Link></div>
+          <div><Link href={`/posts/${post.next}`} as={`/posts/${post.next}`} ><a>Next Pos</a></Link></div>
+        </div>
+      </div>
+      <div className="content">
+        <h2 className="postTitle">{post.title}</h2>
+        <div className="dateAndTagsDiv">
+          <Date dateString={post.date} />
+          <div className="tags">{post.categories}</div>
+        </div>
+        <div className="dangerousContent" dangerouslySetInnerHTML={{ __html: post.content }}>
+        </div>
+      </div>
+      <div className="sidebar">
+        <TypeButtonDiv />
+      </div>
+    </main>
+    <SiteFooter />
+    <style jsx>
+      {`
+        .dangerousContent {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        .postNav {
+          display: flex;
+          width: 100%;
+          padding: 0px;
+          justify-content: space-between;
+        }
+        .postNav a {
+          color: var(--headerbg);
+          text-decoration: underline;
+          font-size: 90%;
+          padding: 7px;
+          border-radius: 3px;
+          transition: all 0.3s;
+        }
+        .postNav a:hover {
+          background-color: var(--headerbg);
+          color: var(--punc);
+          text-decoration: underline;
+          font-size: 90%;
+        }
+        .postTitle {}
+        .dateAndTagsDiv {
+          font-size: 80%;
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+        }
+        .tags {
+          font-weight: 600;
+        }
+      `}
+    </style>
+  </div >
 }
 
+export async function getStaticProps({ params }) {
+  const post = getPostBySlug(params.id, [
+    'title',
+    'date',
+    'slug',
+    'author',
+    'categories',
+    'excerpt',
+    'content',
+  ])
+  const content = await markdownToHtml(post.content || '')
+  //const slug = params.id
 
-BlogTemplate.getInitialProps = async (context) => {
-  const { slug } = context.query
+  const slugs = getPostSlugs().map(slug => { return slug.substring(0, slug.length - 3) })
+  const thisSlugIndex = slugs.indexOf(params.id)
+  let prev = ""
+  let next = ""
+  if (slugs.length === 0) {
+    prev = post.slug
+    next = post.slug
+  } else if (thisSlugIndex === 0) {
+    prev = slugs[slugs.length - 1]
+    next = slugs[1]
+  } else if (thisSlugIndex === slugs.length - 1) {
+    prev = slugs[slugs.length - 2]
+    next = slugs[0]
+  } else {
+    prev = slugs[thisSlugIndex - 1]
+    next = slugs[thisSlugIndex + 1]
+  }
 
-  return { slug }
+  return {
+    props: {
+      post: {
+        ...post,
+        content,
+        prev,
+        next,
+      },
+    },
+  }
+}
+
+export async function getStaticPaths() {
+  const slugs = getPostSlugs().map(slug => { return slug.substring(0, slug.length - 3) })
+
+  return {
+    paths: slugs.map(slug => { return { params: { id: slug } } }),
+    fallback: false,
+  };
 }
