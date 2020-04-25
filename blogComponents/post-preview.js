@@ -10,22 +10,53 @@ export default function PostPreview({
   date,
   slug,
   excerpt,
+  categories,
 }) {
   const classes = useStyles();
 
   return (
     <li>
-      <HtmlTooltip title={excerpt} enterDelay={200} leaveDelay={200} classes={{ tooltip: classes.customWidth }}>
+      <HtmlTooltip title={excerpt} enterDelay={200} leaveDelay={0} classes={{ tooltip: classes.customWidth }}>
         <h3>
           <Link as={`/posts/${slug}`} href="/posts/[slug]">
-            <a className="">{title}</a>
+            <a>{title}</a>
           </Link>
         </h3>
       </HtmlTooltip>
-
-      <div className="dateDiv">
+      <div className="dateAndTagsDiv">
         <Date dateString={date} />
+        <div className="tags">{categories}</div>
       </div>
+      <style jsx>
+        {`  
+          li {
+            padding: 4px 7px;
+            border-radius: 3px;
+            transition: all 0.2s;
+            color: black;
+          }
+          .dateAndTagsDiv {
+            font-size: 80%;
+            display: flex;
+            width: 100%;
+          }
+          .tags {
+            margin-left: 20px;
+            font-weight: 600;
+          }
+          a, a:visited {
+            color: inherit;
+            text-decoration: none;
+          }
+          a:hover {
+            color: var(--punc);
+          }
+          li:hover {
+            background-color: var(--headerbg);
+            color: var(--punc);
+          }
+        `}
+      </style>
     </li>
   )
 }

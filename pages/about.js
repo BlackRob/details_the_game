@@ -3,8 +3,8 @@ import SiteHeader from '../components/siteHeader'
 import SiteFooter from '../components/siteFooter'
 import TypeButtonDiv from '../components/typeButtonDiv'
 import YouTubeVid from '../components/youTubeVid'
-import Fold from '../components/fold'
 import MyHeadStuff from '../components/myHeadStuff'
+import { Conj, Noun, Verb, Adj, Adv, Pron, Prep, Punc } from '../components/elementAliases'
 
 
 const About = () => (
@@ -31,21 +31,30 @@ const About = () => (
       <div className="content">
         <h3>An example</h3>
         <p>Details add information to a sentence. For example, take the sentence</p>
-        <code>The dog is hungry.</code>
+        <p className="example"><Adj x="The" /> <Noun x="dog" /> <Verb x='is' />&nbsp;
+        <Adj x="hungry" /><Punc x="." /></p>
         <p>The speaker is telling the listener something, providing the listener with
         information. Now, suppose there are two dogs, a brown one and a green one.
         Maybe only one of them is hungry; the speaker can express this by adding
         a detail:</p>
-        <code>The green dog is hungry.</code>
+        <p className="example"><Adj x="The" /> <Adj x="green" /> <Noun x="dog" />&nbsp;
+        <Verb x='is' /> <Adj x="hungry" /><Punc x="." /></p>
         <p>The adjective "green" provides extra information: it answers the question,
         "Which dog is hungry?"</p>
         <p>Perhaps the green dog feels something in addition to hunger, and we want to share that fact.
         No problem, just add another detail:</p>
-        <code>The green dog is hungry and sad.</code>
+        <p className="example"><Adj x="The" /> <Adj x="green" /> <Noun x="dog" />&nbsp;
+        <Verb x='is' />&nbsp;<Adj x="hungry" />&nbsp;<Conj x="and" />&nbsp;<Adj x="sad" /><Punc x="." /></p>
         <p>Perhaps we also want to say something about the brown dog:</p>
-        <code>The green dog is hungry and sad but the brown dog is happy.</code>
+        <p className="example"><Adj x="The" /> <Adj x="green" /> <Noun x="dog" />&nbsp;
+        <Verb x='is' /> <Adj x="hungry" /> <Conj x="and" /> <Adj x="sad" />&nbsp;
+        <Conj x="but" /> <Adj x="the" /> <Adj x="brown" /> <Noun x="dog" />&nbsp;
+        <Verb x='is' /> <Adj x="happy" /><Punc x="." /></p>
         <p>And maybe this situation we're describing is only true sometimes:</p>
-        <code>At sunrise, the green dog is hungry and sad but the brown dog is happy.</code>
+        <p className="example"><Prep x='At' /> <Noun x="sunrise" /><Punc x="," />&nbsp;
+        <Adj x="the" /> <Adj x="green" /> <Noun x="dog" /> <Verb x='is' /> <Adj x="hungry" />&nbsp;
+        <Conj x="and" /> <Adj x="sad" /> <Conj x="but" /> <Adj x="the" />&nbsp;
+        <Adj x="brown" /> <Noun x="dog" /> <Verb x='is' /> <Adj x="happy" /><Punc x="." /></p>
         <p>We can go on and on, making the sentence longer and longer just by adding details.</p>
 
         <h3>details is about sharing</h3>
@@ -54,8 +63,15 @@ const About = () => (
           Sharing! details was designed to make it easy to play with other people. All you have to do
           is click the "share" button while you're playing. A popup will open that will let
           you share your sentence on various social media platforms. Anyone who sees it
-          can click on the screenshot and start playing the game.
+          can click on the screenshot and start playing the game. In fact, you can click on the
+          image below and add more details to this sentence.
         </p>
+        <figure>
+          <a href="/details/1vAt~2zsunrise~3a~4xthe~5xgreen~6zdog~7yis~8xhungry~9uand~10xsad~11ubut~12xthe~13xbrown~14zdog~15yis~16xhappy~17f~~0t~1y~2u~3v~4z">
+            <img src="/greenandbrown.png"></img>
+            <figcaption>click to play!</figcaption>
+          </a>
+        </figure>
       </div>
       <div className="sidebar">
         <TypeButtonDiv />

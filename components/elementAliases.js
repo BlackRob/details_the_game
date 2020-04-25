@@ -3,6 +3,7 @@
 // in many, many sentences, and it's super tedious to
 // write <span className="dhsdhg"> over and over again
 
+
 export const Adj = (props) => {
   return <span style={{ color: 'var(--adj)' }}>{props.x}</span>
 }
@@ -36,5 +37,5 @@ export const Intrj = (props) => {
 }
 
 export const Punc = (props) => {
-  return <span style={{ color: 'var(--pun)' }}>{props.x}</span>
+  return <span style={{ color: 'var(--punc)' }}>{props.x}</span>
 }

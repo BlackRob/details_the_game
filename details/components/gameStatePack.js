@@ -32,27 +32,52 @@ export const gameStateToStr = ({ sentence, cards }) => {
 
 // reverse the process (expand the string back into a useable game state)
 export const strToGameState = ({ canvasURLstring }) => {
+  // this shouldn't be necessary, but just in case
   let myString = decodeURI(canvasURLstring)
-  let gameState = { "cards": null, "sentence": null }
-  gameState.cards = []
-  gameState.sentence = []
 
-  let sI = 0 // sentence index so we iterate through it
-  let sTL = 0 // sentence temp length so we iterate through it
-  let sE = myString.indexOf("~~")
+  // there will be cases where the sent string won't
+  // be a valid sentence : any non-number nonsense
+  // someone types in as the URL path, the routing will
+  // bring it here, so we check at each step to make 
+  // sure the string is valid 
+  let nonsense = false
+  // we return an error message sentence if the URL path is nonsense
+  const errorSentence = [{ id: 0, type: "head", word: "" },
+  { id: 1, type: "adj", word: "The" },
+  { id: 2, type: "verb", word: "sent" },
+  { id: 3, type: "noun", word: "link" },
+  { id: 4, type: "verb", word: "is" },
+  { id: 5, type: "adv", word: "not" },
+  { id: 6, type: "adj", word: "a" },
+  { id: 7, type: "adj", word: "valid" },
+  { id: 8, type: "noun", word: "sentence" },
+  { id: 9, type: "p_prd", word: "." }]
+  const errorCards = []
+  // 1xThe~2ysent~3zlink~4yis~5wnot~6xa~7xvalid~8zsentence~9f~~
 
-  // we skip the "head" element when we encode a sentence, so we
-  // start by adding it at the beginning
-  gameState.sentence.push({ id: 0, type: "head", word: "" })
   // method: look at each character in turn, determine
   // what it is based by it's position, content, place it into
   // the gameState object; but we split it into two arrays first
-  let sArray = myString.substring(0, sE).split("~")
-  let cArray = myString.substring(sE + 2).split("~")
+  let sArray = [] // sentence array
+  let cArray = [] // card array
+  let gameState = { "cards": [], "sentence": [] }
 
-  // console.log(sArray)
-  // console.log(cArray)
+  // every good string will have two consecutive tildes
+  // in it: if not, nonsense!
+  let sE = myString.indexOf("~~")
+  if (sE === -1) {
+    nonsense = true
+  } else {
+    // split into substrings --which might still be nonsense!
+    sArray = myString.substring(0, sE).split("~")
+    // a valid string is "sentence encoded"~~"cards encoded"
+    // if there are no cards, this next part fails, so check first
+    if (sE + 2 > myString.length) {
+      cArray = myString.substring(sE + 2).split("~")
+    }
+  }
 
+  ////// a few more constants we'll need //////
   // regular expressions for separating the ID
   // from the rest of the string
   const idRE = /^\d*/
@@ -72,6 +97,10 @@ export const strToGameState = ({ canvasURLstring }) => {
     "p_Rqt": '"'
   }
 
+  // try to build break 
+  // we skip the "head" element when we encode a sentence, so we
+  // start by adding it at the beginning
+  gameState.sentence.push({ id: 0, type: "head", word: "" })
   sArray.forEach((x) => {
     let xID = x.match(idRE)[0]
     let xTypecode = x[xID.length]
@@ -109,9 +138,54 @@ export const strToGameState = ({ canvasURLstring }) => {
     })
   })
 
+  if (nonsense === true) {
+    gameState.cards = errorCards
+    gameState.sentence = errorSentence
+  }
   //console.log(gameState)
 
   return gameState
+}
+
+
+// check if string represents a properly formatted game state
+export const stringIsValid = ({ sentenceString }) => {
+  let good = true     // #optimism
+
+  let sArray = []
+  let cArray = []
+  // every good string will have two consecutive tildes
+  // in it: if not, nonsense!
+  // console.log(sentenceString)
+  let sE = sentenceString.indexOf("~~")
+  if (sE === -1) {
+    //console.log("no tildes")
+    good = false
+  } else {
+    // split into substrings --which might still be nonsense!
+    sArray = sentenceString.substring(0, sE).split("~")
+    // a valid string is "sentence encoded"~~"cards encoded"
+    // if there are no cards, this next part fails, so check first
+    if (sE + 2 > sentenceString.length) {
+      cArray = sentenceString.substring(sE + 2).split("~")
+    }
+    // test each substring against a pattern
+    const sArrayRE = /^\d*[a-ms-z]\w*$/
+    sArray.forEach((x) => {
+      if (!sArrayRE.test(x)) {
+        //console.log(x)
+        good = false
+      }
+    })
+    const cArrayRE = /^t*\d*[s-z]\w*$/
+    cArray.forEach((x) => {
+      if (!cArrayRE.test(x)) {
+        //console.log(x)
+        good = false
+      }
+    })
+  }
+  return good
 }
 
 // convert "word" object into a string

@@ -4,6 +4,7 @@ import DrawCards from './Cards';
 import DrawButtons from './Buttons';
 import sentences from '../../data/sentences.json';
 import { preInsertProcessing } from './preInsertProcessing';
+import { strToGameState } from './gameStatePack';
 
 class Game extends React.Component {
   constructor(props) {
@@ -42,7 +43,22 @@ class Game extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ sentence: sentences._0.sentence })
+    const defaultSentence = "1sHello~2a~3zWorld~4g~~"
+    let temp = {}
+    if (!this.props.hasOwnProperty("gameState")) {
+      temp = strToGameState({ canvasURLstring: defaultSentence })
+    } else {
+      temp = strToGameState({ canvasURLstring: this.props.gameState })
+    }
+    // sometimes the game coming from server has cards, sometimes not
+    if (temp.cards.length === 0) {
+      // for now, every new game starts with five cards
+      for (var i = 0; i < 5; i++) {
+        temp.cards.push(newRandomCard(i));
+      }
+    }
+    this.setState({ oldSentence: [], lastCards: [], active: true, winner: false, sentenceUpdateCount: 0 });
+    this.setState({ sentence: temp.sentence, cards: temp.cards, totalCardCount: temp.cards.length, })
   }
 
   updateSentence(longerSentence) {

@@ -106,6 +106,7 @@ main {
 h2, h3, p {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  line-height: 1.6rem;
   width: 100%;
 }
 
@@ -113,16 +114,41 @@ h2, h3, p {
   color: white;
   background-color: var(--headerbg);
   padding: 5px 8px;
-  width: calc(100% - 2.4rem);
   border-radius: 3px;
-  margin-left: 1.2rem;
-  margin-right: 1.2rem;
 }
 
-img {
+figure {
   width: 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  margin: 20px 0px 40px 0px;
+  display: flex;
+  flex-flow: column;
+}
+figure iframe, figure img {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   border: 1px solid black;
   box-shadow: 1px 1px 3px var(--headerbg) ;
+}
+figure a, figure a:visited {
+  color: black;
+  text-decoration: none;
+}
+figure a:hover, figure a:active {
+  color: black;
+}
+
+figcaption {
+  position: absolute;
+  width: 100%;
+  bottom: -27px;
+  font-size: 90%;
+  text-align: center;
 }
 
 button {
@@ -192,7 +218,7 @@ a:hover, a:active {
 }
 
 li {
-  line-height: 1.4rem;
+  line-height: 1.6rem;
 }
 
 code {
@@ -211,17 +237,17 @@ code {
 
 /* "c" means card word, "s" means sentence word */
 .cNoun, .cAdj, .cVerb, .cAdv, .cPron, .cConj, .cPunc, .cPrep, .cIntrj,
-.sNoun, .sAdj, .sVerb, .sAdv, .sPron, .sConj, .sPunc, .sPrep, .sIntrj {
+.sNoun, .sAdj, .sVerb, .sAdv, .sPron, .sConj, .sPunc, .sPrep, .sIntrj, .sBG {
   background-color: var(--headerbg);
   padding: 0px 0.3rem;
   border-radius: 3px;
-  display: inline-block;
-  line-height: calc(1.4rem - 3px);
+  display: inline;
+  line-height: calc(1.5rem - 3px);
   padding-bottom: 3px;
 }
 .cNoun, .cAdj, .cVerb, .cAdv, .cPron, .cConj, .cPunc, .cPrep, .cIntrj {
   color: black;
-  border: 1px solid black;
+  border: 0px;
 }
 .cAdj {
   background-color: var(--adj);

@@ -60,7 +60,7 @@ const Fold = ({ title, content }) => {
             margin-bottom: 20px;
           }
           .unFolded p {
-            padding: 0.3rem 0px 0.3rem 1.2rem;
+            padding: 0.3rem 0px 0.3rem 0rem;
           }
         `}
       </style>

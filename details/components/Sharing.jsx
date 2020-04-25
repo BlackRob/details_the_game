@@ -27,7 +27,7 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
   const canvasDataURL = drawCanvas({ sentence, cards, workingCards })
   const canvasURLstring = gameStateToStr({ sentence, cards })
   //console.log(cards)
-  //console.log(canvasURLstring)
+  console.log(canvasURLstring)
   const gameFromString = strToGameState({ canvasURLstring })
   // console.log(gameFromString)
   return <div className="z2">

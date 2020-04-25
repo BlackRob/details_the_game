@@ -1,23 +1,17 @@
-import Head from 'next/head'
+import sentences from '../../data/sentences.json';
+import React from 'react';
+import SuperHead from '../../details/components/SuperHead';
 import DrawHeader from '../../details/components/Header';
 import DrawGame from '../../details/components/Game';
+import { stringIsValid, gameStateToStr } from '../../details/components/gameStatePack';
 
 
-const Game = () => (
+const Game = ({ returnString }) => (
   <div className="container">
-    <Head>
-      <title>details</title>
-      <link rel="icon" href="/favicon.ico" />
-      <meta property="og:image" content="https://grumbly.games/default_thumbnail.png" />
-      <meta property="fb:app_id" content="220488252548780" />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://grumbly.games/details" />
-      <meta property="og:title" content="click the image to play the game" />
-      <meta property="og:description" content="details is a grammar game where you add words to make a sentence longer" />
-    </Head>
+    <SuperHead gameState={returnString} />
     <div className="gameContent">
       <DrawHeader />
-      <DrawGame />
+      <DrawGame gameState={returnString} />
     </div>
     <style jsx global>
       {`
@@ -77,5 +71,39 @@ const Game = () => (
   </div>
 );
 
+// This gets called on every request
+export async function getServerSideProps(context) {
+  let returnString = ""
+  const errorSentence = "1xThe~2ysent~3zlink~4yis~5wnot~6xa~7xvalid~8zsentence~9f~~"
+
+  // page requested ("game") may be a number corresponding to 
+  // a particular starter sentence or reflect a game state
+  // or be nothing
+  if (isNaN(context.query.game)) {
+    // most likely case is the "game" requested is from
+    // someone clicking a shared link, which means the link
+    // contains the full state of a game _or_
+    // it contains nonsense; this function handles both cases
+    if (stringIsValid({ sentenceString: context.query.game })) {
+      returnString = context.query.game
+    } else {
+      returnString = errorSentence
+    }
+  } else if (sentences.hasOwnProperty(`_${context.query.game}`)) {
+    // if it is a number we check if that number matches a 
+    // known starter sentence and respond appropriately
+    returnString = gameStateToStr({
+      sentence: sentences[`_${context.query.game}`].sentence,
+      cards: sentences[`_${context.query.game}`].cards
+    })
+  } else {
+    // if the number requested doesn't exist, respond with sentence 4
+    // which states that the requested sentence doesn't exist
+    returnString = errorSentence
+  }
+
+  // Pass data to the page via props
+  return { props: { returnString } }
+}
 
 export default Game

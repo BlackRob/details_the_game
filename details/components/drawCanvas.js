@@ -2,46 +2,69 @@
   on a canvas, so that it can be shared as an image */
 import { createCanvas } from 'canvas';
 
-export const drawCanvas = ({ sentence, cards, workingCards }) => {
-  const cw = 1920 // canvas width
-  const ch = 1010 // canvas height; this is a minimun, it might change
+// workingCards, width, height are optional
+export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => {
+  // default canvas size
+  let cw = 1200 // canvas width
+  let ch = 630 // canvas height; this is a minimun, it might change
+  // if given different canvas size, update
+  if (width && !height) {
+    cw = width
+    ch = Math.floor(width / 1.91)
+  }
+  if (height && width) {
+    cw = width
+    ch = height
+  }
+  if (height && !width) {
+    ch = height
+    cw = Math.floor(height * 1.91)
+  }
 
   const canvas = createCanvas(cw, ch)
   const ctx = canvas.getContext('2d')
 
   // we have to set and adjust the font several times
-  // and firefox complains about "multiline support", 
-  // so these lines are looooong
-  //const font36 = 'normal normal 36px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'; // "comic sans ms"
-  const font48 = 'normal normal 48px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif';
-  const font72 = 'normal normal 72px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif';
-  const font84 = 'normal normal 84px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif';
-  const font96 = 'normal normal 96px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif';
+  // so we set constants, but they have to be proportional
+  // to the width, so
+  const sF = Math.floor(cw / 40)
+  const mF = Math.floor(cw / 30)
+  const lF = Math.floor(cw / 20)
+
+  const sFont = `normal normal ${sF}px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", \
+  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", \
+  "Droid Sans", "Helvetica Neue", sans-serif`
+  const mFont = `normal normal ${mF}px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", \
+  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", \
+  "Droid Sans", "Helvetica Neue", sans-serif`
+  const lFont = `normal normal ${lF}px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", \
+  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", \
+  "Droid Sans", "Helvetica Neue", sans-serif`
+
   // sentence left/right margin
-  const margin = 40;
+  const margin = cw / 60
   // top banner should always be the same
-  const top_banner_height = 120;
+  const top_banner_height = cw / 18
   // margin at top of sentence should have a minimum value
-  let top_bottom_sentence_margin = 50;
+  let top_bottom_sentence_margin = cw / 55
   // calculated height of sentence
-  let sentence_height = 0;
-  // if working row is empty, we don't show it
-  let working_row_height = 200;
+  let sentence_height = 0
+  // if working row is empty, we don't show it //// currently not used!
+  let working_row_height = ch / 6
   // if sentence is complete (no cards left), we don't show card row
-  let card_row_height = 175;
+  let card_row_height = ch / 7;
 
   // I don't know if this is necessary, but I want to use the same font as
   // the rest of the game is played in
-  ctx.font = font96;
+  ctx.font = lFont
 
   // when working with text, with this font and size, assuming a lineheight
   // of 80px with the baseline at 60 looks good 
   // some convenience variables
-  const rm = 56; // "row margin" for between rows
-  const rh = 136; // average "row height" 
-  const blo = 36; // baseline offset
-  const wpr = 40; // word padding right
-  //const cw = canvas.width; // canvas width
+  const rm = cw / 35 // "row margin" for between rows
+  const rh = lF * 1.4 // average "row height" 
+  const blo = lF / 3; // baseline offset
+  const wpr = lF / 3.5; // word padding right
   let rb = top_banner_height; // "row beginning" w/ initial value
 
   // do some pre-printing work, return an augmented array
@@ -57,11 +80,10 @@ export const drawCanvas = ({ sentence, cards, workingCards }) => {
     // working_row_height + margin +
     card_row_height + margin;
   // if a short sentence, we don't want our image to be too short
-
   canvas.height = Math.max(ch, working_height);
 
   // resetting canvas height messes up the font, so set it again
-  ctx.font = font96;
+  ctx.font = lFont;
 
   // if we're using minimum size, sentence margins to center sentence
   if (ch > working_height) {
@@ -74,24 +96,24 @@ export const drawCanvas = ({ sentence, cards, workingCards }) => {
   ctx.fillRect(0, 0, cw, canvas.height);
 
   // header
-  ctx.font = font72;
-  ctx.fillStyle = "lightgray";
-  ctx.fillText("details", margin, (rb - blo));
-  ctx.fillStyle = "dodgerblue";
+  ctx.font = mFont;
+  ctx.fillStyle = "lightgray"
+  ctx.fillText("details", margin, (rb - blo))
+  ctx.fillStyle = "dodgerblue"
   let gamesWidth = ctx.measureText("games").width
-  ctx.fillText("games", cw - margin - gamesWidth, (rb - blo));
-  ctx.fillStyle = "lavender";
-  let dotWidth = ctx.measureText(".").width + 12
-  ctx.fillText(".", cw - margin - dotWidth - gamesWidth, (rb - blo));
-  ctx.fillStyle = "lightskyblue";
+  ctx.fillText("games", cw - margin - gamesWidth, (rb - blo))
+  ctx.fillStyle = "lavender"
+  let dotWidth = ctx.measureText(".").width + lF / 9
+  ctx.fillText(".", cw - margin - dotWidth - gamesWidth, (rb - blo))
+  ctx.fillStyle = "lightskyblue"
   let grumblyWidth = ctx.measureText("grumbly").width
-  ctx.fillText("grumbly", cw - margin - grumblyWidth - dotWidth - 12 - gamesWidth, (rb - blo));
+  ctx.fillText("grumbly", cw - margin - grumblyWidth - dotWidth - lF / 9 - gamesWidth, (rb - blo))
 
   // top margin
   rb += top_bottom_sentence_margin;
 
   // sentence
-  ctx.font = font96;
+  ctx.font = lFont;
   printSentence(printArray, rb, wpr, blo, cw, ctx);
   rb += sentence_height;
 
@@ -107,13 +129,14 @@ export const drawCanvas = ({ sentence, cards, workingCards }) => {
   /////rb += margin;
 
   // card row
-  ctx.lineWidth = 10;
-  printCardRow(cards, margin, rb, cw, card_row_height, font48, ctx);
+  ctx.lineWidth = lFont / 10;
+  printCardRow(cards, margin, rb, cw, card_row_height, sFont, ctx);
   rb += card_row_height;
 
   // final margin
   rb += margin;
 
+  //////console.log(canvas.toDataURL())
   // return canvas as dataURL so I can share it ;)
   return canvas.toDataURL();
 }
@@ -185,7 +208,7 @@ const prePrintSentence = (sentence, rm, rh, cw, wpr, margin, ctx) => {
     printArray[i].wordX = currentRowOffset;
     // adjust for puctuation  :)
     if (isPunc(printArray[i].type)) {
-      printArray[i].wordX += puncShift(printArray[i].type)
+      printArray[i].wordX += puncShift(printArray[i].type, cw)
     }
     //// temporary adjustment to let period-as-separator (like in URL) work
     //// if (printArray[i].type === "p_prd") {
@@ -252,16 +275,16 @@ const printWorkingRow = (cards, margin, rb, cw, working_row_height, workingCards
 
 const printCardRow = (cards, margin, rb, cw, card_row_height, font, ctx) => {
   const cardbuttons = ["adj", "adv", "conj", "pron", "noun", "verb", "prep", "intrj"];
-  const w = 200; // card width
+  const w = cw / 9.4; // card width
   const gap = (cw - margin - margin - 8 * w) / 7;  // between cards
-  const r = 16; // corner radius of button
+  const r = cw / 150; // corner radius of button
   const y = rb;
   const h = card_row_height;
-  const r1y = y + 72;
-  const r2y = y + 144;
+  const r1y = y + card_row_height / 2.5;
+  const r2y = y + card_row_height / 1.25;
   let x = margin; // cards are arranged horizontally, this is initial value
 
-  ctx.lineWidth = 7;
+  ctx.lineWidth = cw / 400;
   ctx.textAlign = "center";
 
   cardbuttons.forEach(element => {
@@ -353,10 +376,10 @@ const isPunc = (type) => {
 // moved a little left or right depending on the type
 // types: p_exc, p_com, p_cln, p_semi, p_prd, p_parL, p_parR, p_qm, 
 // p_dbldashL, p_dbldashR, p_Lqt, p_Rqt
-const puncShift = (type) => {
-  let shift = -20
-  if (type == "p_parL" || type == "p_dbldashL" || "p_Lqt") {
-    shift = 20
+const puncShift = (type, cw) => {
+  let shift = -cw / 100
+  if (type === "p_parL" || type === "p_dbldashL" || type === "p_Lqt") {
+    shift = cw / 100
   }
   return shift
 }

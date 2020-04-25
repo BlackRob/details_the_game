@@ -20,7 +20,7 @@ const ThisPage = () => (
         </h2>
         <p className="description">Nouns describe a person, place, thing or idea.
         "Noun" is the biggest category of words in English.
-        Dog is a noun. Cat is a noun. Love is a noun. Pizza is a noun...
+        Dog is a noun. Cat is a noun. Love is a noun. Pizza is a noun.
           ("You" and "I" are not <i>nouns</i>. "You" and "I", and "him" and "her", are <i>pronouns</i>. 🤨)
         </p>
         <YouTubeVid vidID="LNxWTS25Tbk" caption="placeholder video" />
@@ -29,7 +29,7 @@ const ThisPage = () => (
         <Fold title={<h3>How to use nouns in details</h3>} content={<>
           <p>Nouns are very, very common, so you will need to use a lot
           of them when you play details! Nouns are used as subjects
-          (they "do" whatever the verb is) and objects (the action of the verb gets done to them).
+          (they "do" whatever the verb describes) and objects (the action of the verb gets done to them).
           Example:</p>
           <p className="example"><Noun x='Clowns' /> eat <Noun x='pineapples' />.</p>
           <p>"Clowns" is the subject of the sentence (what "does" the eating),
@@ -46,7 +46,7 @@ const ThisPage = () => (
           <p>We can add another noun to the subject, and turn it into
           a "compound subject", but we also need a conjunction.</p>
           <p className="example"><Noun x='Flowers' /> <Conj x='and' /> <Noun x='cookies' /> smell nice.</p>
-          <p>If we already have a compund subject (it already has a conjunction),
+          <p>If the sentence already has a compound subject (i.e. there's already a conjunction),
           we can add one or more extra nouns to the subject just by using commas.</p>
           <p className="example"><Noun x='Flowers' />, <Noun x='babies' />, <Noun x='coffee' /> <Conj x='and' /> <Noun x='cookies' /> smell nice.</p>
         </>} />
