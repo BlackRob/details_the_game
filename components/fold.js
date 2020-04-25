@@ -59,9 +59,6 @@ const Fold = ({ title, content }) => {
             display: block;
             margin-bottom: 20px;
           }
-          .unFolded p {
-            padding: 0.3rem 0px 0.3rem 0rem;
-          }
         `}
       </style>
     </>
