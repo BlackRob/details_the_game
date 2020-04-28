@@ -44,12 +44,14 @@ export default function siteHeader() {
           } 
           .Header_logo1 a, .Header_logo1 a:visited {
             color: var(--adj);
+            text-decoration: none;
           }
           .Header_logo2 {
             grid-area: logo2;
           }
           .Header_logo2 a, .Header_logo2 a:visited {
             color: var(--noun);
+            text-decoration: none;
           }     
           .Header_logo1 a:hover, .Header_logo2 a:hover {
             color: var(--punc);
@@ -72,8 +74,13 @@ export default function siteHeader() {
             align-items: center;
             justify-content: center;
           }
-          .Header_menu a {
+          .Header_menu a, .Header_menu a:visited {
             padding: 7px;
+            color: var(--active_outline);
+            text-decoration: none;
+          }
+          .Header_menu a:hover, .Header_menu a:active {}
+            color: var(--punc);
           }
           .Header_menu {
             grid-area: menu;
@@ -87,6 +94,9 @@ export default function siteHeader() {
           .Header_game {
             grid-area: game;
           }
+          .Header_game a {
+            text-decoration: none;
+          }
 
           .GameLink {
             text-align: center;
@@ -95,7 +105,7 @@ export default function siteHeader() {
             border-radius: 0.5vmin;
             padding: 10px;
             transition: filter 0.15s ease, background-color 0.15s ease;
-          }        
+          }
           .GameLink:hover,
           .GameLink:focus,
           .GameLink:active {

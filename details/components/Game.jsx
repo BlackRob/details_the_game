@@ -46,9 +46,9 @@ class Game extends React.Component {
     const defaultSentence = "1sHello~2a~3zWorld~4g~~"
     let temp = {}
     if (!this.props.hasOwnProperty("gameState")) {
-      temp = strToGameState({ canvasURLstring: defaultSentence })
+      temp = JSON.parse(strToGameState({ canvasURLstring: defaultSentence }))
     } else {
-      temp = strToGameState({ canvasURLstring: this.props.gameState })
+      temp = JSON.parse(strToGameState({ canvasURLstring: this.props.gameState }))
     }
     // sometimes the game coming from server has cards, sometimes not
     if (temp.cards.length === 0) {

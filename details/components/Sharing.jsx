@@ -26,9 +26,11 @@ const Sharing = ({ sentence, cards, showSharing, setShowSharing, workingCards })
 const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
   const canvasDataURL = drawCanvas({ sentence, cards, workingCards })
   const canvasURLstring = gameStateToStr({ sentence, cards })
+  const gameURL = `https://grumbly.games/details/${canvasURLstring}`
+  const imageURL = `https://grumbly.games/api/${canvasURLstring}`
   //console.log(cards)
   console.log(canvasURLstring)
-  const gameFromString = strToGameState({ canvasURLstring })
+  const gameFromString = JSON.parse(strToGameState({ canvasURLstring: canvasURLstring }))
   // console.log(gameFromString)
   return <div className="z2">
     <div className="sharing_popup">
@@ -43,12 +45,12 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
         defaultValue="I'm playing details (the game)!"
         name="my_comment" rows="4" />
       <div className="sharing_button_row">
-        <EmailShareButton children={<EmailIcon size={32} round={true} />} url={canvasDataURL} />
-        <FacebookShareButton children={<FacebookIcon size={32} round={true} />} url={canvasDataURL} />
-        <TelegramShareButton children={<TelegramIcon size={32} round={true} />} url={canvasDataURL} />
-        <RedditShareButton children={<RedditIcon size={32} round={true} />} url={canvasDataURL} />
-        <TwitterShareButton children={<TwitterIcon size={32} round={true} />} url={canvasDataURL} />
-        <WhatsappShareButton children={<WhatsappIcon size={32} round={true} />} url={canvasDataURL} />
+        <EmailShareButton children={<EmailIcon size={32} round={true} />} url={gameURL} subject="I'm playing details" body={my_comment} />
+        <FacebookShareButton children={<FacebookIcon size={32} round={true} />} url={gameURL} quote={my_comment} hashtag="ClickToPlay" />
+        <TelegramShareButton children={<TelegramIcon size={32} round={true} />} url={gameURL} title="grumbly.games" />
+        <WeiboShareButton children={<WeiboIcon size={32} round={true} />} url={gameURL} title="grumbly.games" image={imageURL} />
+        <TwitterShareButton children={<TwitterIcon size={32} round={true} />} url={gameURL} title="grumbly.games" hashtags={["ClickToPlay", "GrumblyGames"]} />
+        <WhatsappShareButton children={<WhatsappIcon size={32} round={true} />} url={gameURL} title="grumbly.games" />
       </div>
     </div>
     <style jsx>

@@ -111,7 +111,7 @@ h2, h3, p {
 }
 
 .example {
-  color: white;
+  color:var(--mainbg);
   background-color: var(--headerbg);
   padding: 5px 8px;
   border-radius: 3px;
@@ -186,8 +186,7 @@ button:hover {
 }
 
 a, a:visited {
-  color: var(--active_outline);
-  text-decoration: none;
+  color: black;
 }
 a:hover, a:active {
   color: var(--punc);

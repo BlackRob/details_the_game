@@ -1,6 +1,7 @@
 /* this function redraws the current sentence and cards
   on a canvas, so that it can be shared as an image */
-import { createCanvas } from 'canvas';
+import { registerFont, createCanvas } from 'canvas';
+
 
 // workingCards, width, height are optional
 export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => {
@@ -21,6 +22,11 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
     cw = Math.floor(height * 1.91)
   }
 
+  // 
+  if (registerFont !== undefined) {
+    //console.log(path) //.join(__dirname, '..', 'Roboto', 'Roboto-Regular.ttf'))
+    registerFont('public/Roboto/Roboto-Regular.ttf', { family: 'Roboto' })
+  }
   const canvas = createCanvas(cw, ch)
   const ctx = canvas.getContext('2d')
 
@@ -31,15 +37,10 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
   const mF = Math.floor(cw / 30)
   const lF = Math.floor(cw / 20)
 
-  const sFont = `normal normal ${sF}px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", \
-  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", \
-  "Droid Sans", "Helvetica Neue", sans-serif`
-  const mFont = `normal normal ${mF}px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", \
-  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", \
-  "Droid Sans", "Helvetica Neue", sans-serif`
-  const lFont = `normal normal ${lF}px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", \
-  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", \
-  "Droid Sans", "Helvetica Neue", sans-serif`
+
+  const sFont = `normal normal ${sF}px Roboto`
+  const mFont = `normal normal ${mF}px Roboto`
+  const lFont = `normal normal ${lF}px Roboto`
 
   // sentence left/right margin
   const margin = cw / 60

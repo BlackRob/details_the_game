@@ -5,7 +5,7 @@ import TypeButtonDiv from '../components/typeButtonDiv'
 import YouTubeVid from '../components/youTubeVid'
 import Fold from '../components/fold'
 import MyHeadStuff from '../components/myHeadStuff'
-import { Conj, Noun, Verb, Adj, Adv, Pron, Prep } from '../components/elementAliases'
+import { Conj, Noun, Verb, Adj, Adv, Pron, Prep, Punc } from '../components/elementAliases'
 
 const ThisPage = () => (
   <div className="container">
@@ -54,6 +54,32 @@ const ThisPage = () => (
             prepositions <span className="sBG"><Prep x="inside" />&nbsp;<Conj x="and" />&nbsp;<Prep x="outside" /></span>.
             (Conjunctions are really important!)
             </p>
+        </>} />
+        <Fold title={<h3 name="subbyConj">Subordinating conjunctions</h3>} content={<>
+          <p>When a sentence has a main clause and a subordinate clause, if the
+          subordinate clause goes first it's followed by a comma.</p>
+          <p>This might sound complicated, but it isn't really. You just need to
+          remember a few things:</p>
+          <ol>
+            <li>A clause is a group of words that has a noun and a verb, but isn't
+              it's own sentence</li>
+            <li>Some sentences have two clauses: a main clause, and a
+            subordinate clause; the subordinate clause is used to add details
+              to (provide extra information about) the main clause</li>
+            <li>Subordinate clauses start with a <i>subordinating conjunction</i>, like
+            "but", "so", "because", "although", <i>et cetera</i></li>
+            <li>The subordinate clause can come before or after the main clause,
+              but if it comes first it has to be followed by a comma</li>
+          </ol>
+          <p>Which just means that you can write </p>
+          <p className="example">I gave my daughter a cookie <Conj x='because' /> she was hungry.</p>
+          <p>or</p>
+          <p className="example"><Conj x='Because' /> she was hungry<Punc x=',' /> I gave my daughter a cookie.</p>
+          <p>Note that the <i>main clause</i> is "I gave my daughter a cookie",
+          and the <i>subordinate clause</i> is "she was hungry". It should be
+          clear that the main clause is more important. The subordinate clause only
+          exists to provide extra details about the main clause (in this case,
+          answering <i>why?</i>).</p>
         </>} />
       </div>
       <div className="sidebar">

@@ -72,13 +72,13 @@ export const strToGameState = ({ canvasURLstring }) => {
     sArray = myString.substring(0, sE).split("~")
     // a valid string is "sentence encoded"~~"cards encoded"
     // if there are no cards, this next part fails, so check first
-    if (sE + 2 > myString.length) {
+    if (myString.length > sE + 2) {
       cArray = myString.substring(sE + 2).split("~")
     }
   }
 
   ////// a few more constants we'll need //////
-  // regular expressions for separating the ID
+  // regular expression for separating the ID
   // from the rest of the string
   const idRE = /^\d*/
   // a dictionary for matching punctuation to type
@@ -97,7 +97,6 @@ export const strToGameState = ({ canvasURLstring }) => {
     "p_Rqt": '"'
   }
 
-  // try to build break 
   // we skip the "head" element when we encode a sentence, so we
   // start by adding it at the beginning
   gameState.sentence.push({ id: 0, type: "head", word: "" })
@@ -144,7 +143,7 @@ export const strToGameState = ({ canvasURLstring }) => {
   }
   //console.log(gameState)
 
-  return gameState
+  return JSON.stringify(gameState)
 }
 
 

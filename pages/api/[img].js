@@ -6,10 +6,10 @@ export default ({ query: { img } }, res) => {
   const fallbackString = "1xThe~2ysent~3zlink~4yis~5wnot~6xa~7xvalid~8zsentence~9f~~"
   let output = null
   if (stringIsValid({ sentenceString: img })) {
-    let data = strToGameState({ canvasURLstring: img });
+    let data = JSON.parse(strToGameState({ canvasURLstring: img }))
     output = drawCanvas({ sentence: data.sentence, cards: data.cards })
   } else {
-    let data = strToGameState({ canvasURLstring: fallbackString });
+    let data = JSON.parse(strToGameState({ canvasURLstring: fallbackString }))
     output = drawCanvas({ sentence: data.sentence, cards: data.cards })
   }
 
