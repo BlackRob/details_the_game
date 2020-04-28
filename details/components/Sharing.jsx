@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   EmailShareButton, EmailIcon,
   FacebookShareButton, FacebookIcon,
   TelegramShareButton, TelegramIcon,
-  RedditShareButton, RedditIcon,
+  WeiboShareButton, WeiboIcon,
   TwitterShareButton, TwitterIcon,
   WhatsappShareButton, WhatsappIcon,
 } from "react-share";
@@ -28,6 +28,8 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
   const canvasURLstring = gameStateToStr({ sentence, cards })
   const gameURL = `https://grumbly.games/details/${canvasURLstring}`
   const imageURL = `https://grumbly.games/api/${canvasURLstring}`
+
+  const [comment, changeComment] = useState("I'm playing details!");
   //console.log(cards)
   console.log(canvasURLstring)
   const gameFromString = JSON.parse(strToGameState({ canvasURLstring: canvasURLstring }))
@@ -42,11 +44,11 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
 
       <label htmlFor="my_comment">Enter your comment</label><br />
       <textarea id="my_comment"
-        defaultValue="I'm playing details (the game)!"
+        value={comment} onChange={() => changeComment(comment)}
         name="my_comment" rows="4" />
       <div className="sharing_button_row">
-        <EmailShareButton children={<EmailIcon size={32} round={true} />} url={gameURL} subject="I'm playing details" body={my_comment} />
-        <FacebookShareButton children={<FacebookIcon size={32} round={true} />} url={gameURL} quote={my_comment} hashtag="ClickToPlay" />
+        <EmailShareButton children={<EmailIcon size={32} round={true} />} url={gameURL} subject="I'm playing details" body={comment} />
+        <FacebookShareButton children={<FacebookIcon size={32} round={true} />} url={gameURL} quote={comment} hashtag="ClickToPlay" />
         <TelegramShareButton children={<TelegramIcon size={32} round={true} />} url={gameURL} title="grumbly.games" />
         <WeiboShareButton children={<WeiboIcon size={32} round={true} />} url={gameURL} title="grumbly.games" image={imageURL} />
         <TwitterShareButton children={<TwitterIcon size={32} round={true} />} url={gameURL} title="grumbly.games" hashtags={["ClickToPlay", "GrumblyGames"]} />
