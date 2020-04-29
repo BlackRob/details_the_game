@@ -2,7 +2,6 @@ import Head from 'next/head'
 import DrawHeader from '../../details/components/Header';
 import DrawGame from '../../details/components/Game';
 
-
 const Game = () => (
   <div className="container">
     <Head>
