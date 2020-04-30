@@ -28,7 +28,7 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
   if (registerFont !== undefined) {
     //console.log(path) //.join(, '..', 'Roboto', 'Roboto-Regular.ttf'))
     console.log(process.cwd())
-    registerFont('./public/fonts/Roboto-Regular.ttf', { family: 'Roboto' })
+    registerFont('./fonts/Roboto-Regular.ttf', { family: 'Roboto' })
   }
   const canvas = createCanvas(cw, ch)
   const ctx = canvas.getContext('2d')
