@@ -12,10 +12,9 @@ export default ({ query: { img } }, res) => {
     let data = JSON.parse(strToGameState({ canvasURLstring: fallbackString }))
     output = drawCanvas({ sentence: data.sentence, cards: data.cards })
   }
-  console.log(process.cwd())
+
   const buffy = new Buffer.from(output.split(',')[1], 'base64')
   res.statusCode = 200
   res.setHeader('Content-Type', 'image/png')
-  //res.setHeader("charset", "utf-8")
   res.end(buffy)
 }
