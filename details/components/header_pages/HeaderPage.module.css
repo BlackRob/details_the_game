@@ -54,7 +54,7 @@
       }
 
       .header_punctuation button:hover {
-        color: lightslategray;
+        color: var(--logo_hover);
         cursor: pointer;
       }
 

@@ -79,7 +79,7 @@ export default function siteHeader() {
             color: var(--active_outline);
             text-decoration: none;
           }
-          .Header_menu a:hover, .Header_menu a:active {}
+          .Header_menu a:hover, .Header_menu a:active {
             color: var(--punc);
           }
           .Header_menu {

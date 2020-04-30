@@ -123,10 +123,6 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
           width: 100%;
           height: auto;
         }
-
-        .sharing_button_row button {
-          margin: 0px;
-        }
         
         .z2 {
           display: block;
@@ -178,6 +174,20 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
         .z2_hide:hover {
           cursor: pointer;
         } 
+      `}
+    </style>
+    <style jsx global>
+      {`
+        button[class="react-share__ShareButton"] {
+          margin: 0px;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+        }
+        button[class="react-share__ShareButton"]:hover, button[class="react-share__ShareButton"]:focus {
+          outline: 0;
+          box-shadow: 0 0 3px 3px rgba(0, 0, 0, .5);
+        }
       `}
     </style>
   </div>

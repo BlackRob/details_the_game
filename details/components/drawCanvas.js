@@ -1,7 +1,7 @@
 /* this function redraws the current sentence and cards
   on a canvas, so that it can be shared as an image */
 import { registerFont, createCanvas } from 'canvas';
-//import RobotoR from '../../public/Roboto/Roboto-Regular.ttf'
+//import RobotoR from '../../public/fonts/Roboto-Regular.woff2'
 
 
 // workingCards, width, height are optional
@@ -23,12 +23,13 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
     cw = Math.floor(height * 1.91)
   }
 
-  /* console.log(process.cwd())
-  console.log(RobotoR)
+  // console.log(process.cwd())
+  //console.log(RobotoR)
   if (registerFont !== undefined) {
-    //console.log(path) //.join(__dirname, '..', 'Roboto', 'Roboto-Regular.ttf'))
-    registerFont(RobotoR, { family: 'Roboto' })
-  } */
+    //console.log(path) //.join(, '..', 'Roboto', 'Roboto-Regular.ttf'))
+    console.log(process.cwd())
+    registerFont('./public/fonts/Roboto-Regular.ttf', { family: 'Roboto' })
+  }
   const canvas = createCanvas(cw, ch)
   const ctx = canvas.getContext('2d')
 
@@ -40,9 +41,9 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
   const lF = Math.floor(cw / 20)
 
 
-  const sFont = `normal normal ${sF}px`
-  const mFont = `normal normal ${mF}px`
-  const lFont = `normal normal ${lF}px`
+  const sFont = `${sF}px 'Roboto'`
+  const mFont = `${mF}px 'Roboto'`
+  const lFont = `${lF}px 'Roboto'`
 
   // sentence left/right margin
   const margin = cw / 60

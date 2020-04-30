@@ -33,6 +33,14 @@ body {
   box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "Roboto";
+    src: url("../public/fonts/Roboto-Regular.woff2") format("woff2"),
+        url("../public/fonts/Roboto-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
 .container {
   height: 100vh;
   max-height: 100%;
@@ -124,7 +132,7 @@ h2, h3, p {
 figure {
   width: 100%;
   position: relative;
-  padding-bottom: 56.25%;
+  padding-bottom: 50%;
   margin: 20px 0px 40px 0px;
   display: flex;
   flex-flow: column;
@@ -135,7 +143,7 @@ figure iframe, figure img {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
   border: 1px solid black;
   box-shadow: 1px 1px 3px var(--headerbg) ;
 }
@@ -150,7 +158,7 @@ figure a:hover, figure a:active {
 figcaption {
   position: absolute;
   width: 100%;
-  bottom: -27px;
+  bottom: -2.6rem;
   font-size: 90%;
   text-align: center;
 }
@@ -173,6 +181,7 @@ button {
 button:hover {
   cursor: pointer;
 }
+button:focus {outline:0;}
 
 .disabled {
   border: 2px solid gray;

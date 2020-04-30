@@ -4,7 +4,7 @@ import Sharing from './Sharing';
 const UndoButton = ({ action, undoable }) => {
   let optionalClass = "disabled";
   if (undoable) {
-    optionalClass = "";
+    optionalClass = "enabled";
   }
   return <button
     className={optionalClass}
@@ -26,7 +26,7 @@ const NewGameButton = ({ action }) => {
 }
 
 const NewCardButton = ({ action, active }) => {
-  let enabledState = "";
+  let enabledState = "enabled";
   if (!active) {
     enabledState = "disabled";
   }
@@ -87,12 +87,13 @@ export default ({ ...props }) => (
         grid-area: rightbutt;
         text-align: right;
       }
-
-      .rightbutt :global(button) {
+    `}</style>
+    <style jsx global>{`
+      .rightbutt button {
         margin-left: 1em;
       }
 
-      .button_row :global(button) {
+      .enabled, .disabled {
         width: 6em;
         color: var(--active_outline);
         border-color: var(--active_outline);
@@ -100,7 +101,7 @@ export default ({ ...props }) => (
         padding: 0.3em 0.4em;
       }
 
-      .button_row :global(button):hover{
+      button.enabled:hover, button.disabled:hover {
         color: #000000;
         background-color: #FFFFFF;
         border-color: #FFFFFF;
