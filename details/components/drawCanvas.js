@@ -1,13 +1,13 @@
 /* this function redraws the current sentence and cards
   on a canvas, so that it can be shared as an image */
 import { registerFont, createCanvas } from 'canvas';
-import Roboto from '../../public/fonts/Roboto-Regular.ttf'
+//import Roboto from '../../public/fonts/Roboto-Regular.ttf'
 
 
 // workingCards, width, height are optional
 export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => {
   const path = require('path')
-  //const RobotoR = require('./Roboto-Regular.ttf')
+  const Roboto = require('./Roboto-Regular.ttf')
   // default canvas size
   let cw = 1200 // canvas width
   let ch = 630 // canvas height; this is a minimun, it might change
@@ -25,13 +25,13 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
     cw = Math.floor(height * 1.91)
   }
 
-  console.log(path.resolve(Roboto))
-  //console.log(process.env)
-  let theFontPath = path.resolve(Roboto)
+  //console.log(path.resolve(Roboto.default))
+
+  let theFontPath = path.resolve(Roboto.default)
   if (process.env.NODE_ENV === "development") {
     theFontPath = './public/fonts/Roboto-Regular.ttf'
   }
-  //console.log(RobotoR)
+
   if (registerFont !== undefined) {
     //console.log(path) //.join(, '..', 'Roboto', 'Roboto-Regular.ttf'))path.resolve(RobotoR.default)
     registerFont(theFontPath, { family: 'Roboto' })

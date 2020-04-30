@@ -73,6 +73,14 @@ export default ({ sentence, placing, insert }) => (
     <div className="active_sentence_bottom_effect"></div>
     <style jsx>
       {`
+        @font-face {
+            font-family: "Roboto";
+            src: url("/fonts/Roboto-Regular.woff2") format("woff2"),
+                url("/fonts/Roboto-Regular.woff") format("woff");
+            font-weight: normal;
+            font-style: normal;
+        }
+
         .active_sentence_slot {
           grid-area: mid;
           position: relative;
@@ -126,6 +134,7 @@ export default ({ sentence, placing, insert }) => (
           flex-wrap: wrap;
           align-items: flex-start;
           justify-content: center;
+          font-family: Roboto;
           align-content: flex-start;
           font-size: 1.3em;
           padding: 10px;
