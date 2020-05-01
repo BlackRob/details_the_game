@@ -9,7 +9,7 @@ import RobotoR from '../../public/fonts/Roboto-Regular.ttf'
 export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => {
   const path = require('path')
   //let RobotoR = require('../../public/Roboto-Regular.ttf')
-  console.log(path.resolve(RobotoR))
+  //console.log(path.resolve(RobotoR))
   //if (process.env.NODE_ENV === "production") {
   //  RobotoR = require('/node_modules/Roboto-Regular.ttf')
   //}
@@ -38,11 +38,11 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
 
   if (registerFont !== undefined) {
     if (process.env.NODE_ENV === "production") {
-      theFontPath = RobotoR
+      theFontPath = '/node_modules/canvas/Roboto-Regular.ttf'
     }
     //console.log(path.resolve('Roboto-Regular.ttf'))
     //console.log(process.env.NODE_ENV, theFontPath) //.join(, '..', 'Roboto', 'Roboto-Regular.ttf'))path.resolve(RobotoR.default)
-    registerFont(RobotoR, { family: 'Roboto' })
+    registerFont(theFontPath, { family: 'Roboto' })
   }
   const canvas = createCanvas(cw, ch)
   const ctx = canvas.getContext('2d')

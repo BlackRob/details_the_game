@@ -4,9 +4,9 @@ import path from 'path'
 
 export default (req, res) => {
 
-  let thisPoop = fs.readdirSync(path.join(process.cwd(), 'node_modules'))
+  let thisPoop = fs.readdirSync(path.join(process.cwd(), 'node_modules/canvas'))
   //thisPoop.push(`cwd = ${fs.readdirSync(process.cwd()).join(',')}`)
-  let message = "" + thisPoop.join('\n') + '\n__________' + path.resolve('Roboto-Regular.ttf') + '______\n' + fs.readdirSync('/var/task').join('\n')
+  let message = "" + thisPoop.join('\n') + '\n__________' + path.resolve('Roboto-Regular.ttf') + '______\n' + fs.readdirSync('/var/task/node_modules').join('\n')
   console.log(message)
 
   res.statusCode = 200
