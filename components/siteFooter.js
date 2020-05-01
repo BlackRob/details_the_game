@@ -16,8 +16,12 @@ export default function siteHeader() {
           align-items: center;
           text-align:center;
         }
-        a {
-          color: var(--active_outline)
+        a, a:visited {
+          color: var(--active_outline);
+          text-decoration: none;
+        }
+        a:hover {
+          color: var(--punc);
         }
       `}</style>
     </footer>
