@@ -2,14 +2,14 @@
   on a canvas, so that it can be shared as an image */
 import { registerFont, createCanvas } from 'canvas';
 //import { } from 'roboto-fontface'
-//import Roboto from '../../public/fonts/Roboto-Regular.ttf'
+import RobotoR from '../../public/fonts/Roboto-Regular.ttf'
 
 
 // workingCards, width, height are optional
 export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => {
   const path = require('path')
-  let RobotoR = require('../../node_modules/Roboto-Regular.ttf')
-  console.log(RobotoR)
+  //let RobotoR = require('../../public/Roboto-Regular.ttf')
+  console.log(path.resolve(RobotoR))
   //if (process.env.NODE_ENV === "production") {
   //  RobotoR = require('/node_modules/Roboto-Regular.ttf')
   //}
@@ -38,7 +38,7 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
 
   if (registerFont !== undefined) {
     if (process.env.NODE_ENV === "production") {
-      theFontPath = path.join(__dirname, 'node_modules/Roboto-Regular.ttf')
+      theFontPath = path.resolve(RobotoR)
     }
     //console.log(path.resolve('Roboto-Regular.ttf'))
     //console.log(process.env.NODE_ENV, theFontPath) //.join(, '..', 'Roboto', 'Roboto-Regular.ttf'))path.resolve(RobotoR.default)
