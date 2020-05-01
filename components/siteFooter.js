@@ -16,6 +16,9 @@ export default function siteHeader() {
           align-items: center;
           text-align:center;
         }
+        a {
+          color: var(--active_outline)
+        }
       `}</style>
     </footer>
   )
