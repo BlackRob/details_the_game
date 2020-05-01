@@ -42,7 +42,7 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
     }
     //console.log(path.resolve('Roboto-Regular.ttf'))
     //console.log(process.env.NODE_ENV, theFontPath) //.join(, '..', 'Roboto', 'Roboto-Regular.ttf'))path.resolve(RobotoR.default)
-    registerFont('/Roboto-Regular.ttf', { family: 'Roboto' })
+    registerFont(RobotoR, { family: 'Roboto' })
   }
   const canvas = createCanvas(cw, ch)
   const ctx = canvas.getContext('2d')
