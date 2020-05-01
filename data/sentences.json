@@ -781,5 +781,39 @@
       }
     ],
     "cards": []
+  },
+  "_1011": {
+    "header": {
+      "snum": 1011,
+      "stype": "sv"
+    },
+    "sentence": [
+      {
+        "id": 0,
+        "type": "head",
+        "word": ""
+      },
+      {
+        "id": 1,
+        "type": "noun",
+        "word": "Witches"
+      },
+      {
+        "id": 2,
+        "type": "verb",
+        "word": "are"
+      },
+      {
+        "id": 3,
+        "type": "noun",
+        "word": "delicious"
+      },
+      {
+        "id": 4,
+        "type": "p_prd",
+        "word": "."
+      }
+    ],
+    "cards": []
   }
 }
