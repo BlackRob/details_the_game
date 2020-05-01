@@ -5,7 +5,7 @@ import { join } from 'path'
 
 export default (req, res) => {
 
-  let thisPoop = fs.readdirSync(join(process.cwd(), '.next'))
+  let thisPoop = fs.readdirSync(join(process.cwd(), '.next/serverless'))
   //thisPoop.push(`cwd = ${fs.readdirSync(process.cwd()).join(',')}`)
   console.log(thisPoop.join(','))
 
