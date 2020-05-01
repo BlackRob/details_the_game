@@ -37,7 +37,7 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
   if (registerFont !== undefined) {
     if (process.env.NODE_ENV === "production") {
       console.log(path.resolve(RobotoR.default))
-      theFontPath = path.join(process.cwd, '.next/serverless', RobotoR.default)
+      theFontPath = path.join(process.cwd(), '.next/serverless/pages', RobotoR.default)
       console.log(theFontPath)
     }
     console.log(theFontPath) //.join(, '..', 'Roboto', 'Roboto-Regular.ttf'))path.resolve(RobotoR.default)
