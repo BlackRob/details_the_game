@@ -7,7 +7,10 @@ import { registerFont, createCanvas } from 'canvas';
 // workingCards, width, height are optional
 export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => {
   const path = require('path')
-  const Roboto = require('./Roboto-Regular.ttf')
+  let RobotoR = null
+  if (process.env.NODE_ENV === "production") {
+    RobotoR = require('./Roboto-Regular.ttf')
+  }
   // default canvas size
   let cw = 1200 // canvas width
   let ch = 630 // canvas height; this is a minimun, it might change
@@ -25,15 +28,18 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
     cw = Math.floor(height * 1.91)
   }
 
-  //console.log(path.resolve(Roboto.default))
 
-  let theFontPath = path.resolve(Roboto.default)
-  if (process.env.NODE_ENV === "development") {
-    theFontPath = './public/fonts/Roboto-Regular.ttf'
-  }
+  let theFontPath = path.join(process.cwd(), 'public/fonts/Roboto-Regular.ttf')
+  //if (process.env.NODE_ENV === "development") {
+  //  theFontPath = './public/fonts/Roboto-Regular.ttf'
+  //}
 
   if (registerFont !== undefined) {
-    //console.log(path) //.join(, '..', 'Roboto', 'Roboto-Regular.ttf'))path.resolve(RobotoR.default)
+    if (process.env.NODE_ENV === "production") {
+      console.log(path.resolve(RobotoR.default))
+      theFontPath = path.resolve(RobotoR.default)
+    }
+    console.log(theFontPath) //.join(, '..', 'Roboto', 'Roboto-Regular.ttf'))path.resolve(RobotoR.default)
     registerFont(theFontPath, { family: 'Roboto' })
   }
   const canvas = createCanvas(cw, ch)
