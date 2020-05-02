@@ -2,12 +2,12 @@
   on a canvas, so that it can be shared as an image */
 import { registerFont, createCanvas } from 'canvas';
 import RobotoR from "../../public/Roboto-Regular.ttf"
+import fs from 'fs'
+import path from 'path'
 
 
 // workingCards, width, height are optional
 export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => {
-  const path = require('path')
-  const fs = require('fs')
 
   // default canvas size
   let cw = 1200 // canvas width
