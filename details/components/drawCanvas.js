@@ -7,6 +7,7 @@ import RobotoR from "../../public/Roboto-Regular.ttf"
 // workingCards, width, height are optional
 export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => {
   const path = require('path')
+  const fs = require('fs')
 
   // default canvas size
   let cw = 1200 // canvas width
@@ -30,7 +31,14 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
 
   if (registerFont !== undefined) {
     if (process.env.NODE_ENV === "production") {
-      theFontPath = path.resolve(RobotoR)
+      try {
+        if (fs.existsSync(path.resolve(RobotoR))) {
+          //file exists
+          theFontPath = path.resolve(RobotoR)
+        }
+      } catch (err) {
+        console.error(err)
+      }
     }
     registerFont(theFontPath, { family: 'Roboto' })
   }
@@ -45,9 +53,9 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
   const lF = Math.floor(cw / 20)
 
 
-  const sFont = `${sF}px Roboto`
-  const mFont = `${mF}px Roboto`
-  const lFont = `${lF}px Roboto`
+  const sFont = `${sF}px ${RobotoR}, sans-serif`
+  const mFont = `${mF}px Roboto, sans-serif`
+  const lFont = `${lF}px Roboto, sans-serif`
 
   // sentence left/right margin
   const margin = cw / 60
