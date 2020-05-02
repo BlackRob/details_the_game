@@ -6,9 +6,9 @@ import path from 'path'
 
 export default ({ query: { img } }, res) => {
 
-  let poop1 = fs.readdirSync(__dirname)
-  let poop2 = fs.readdirSync(path.join(__dirname, 'usr'))
-  let poop3 = fs.readdirSync(path.join(__dirname, 'usr/share/'))
+  let poop1 = fs.readdirSync(path.join(__dirname, 'usr/local/share/'))
+  let poop2 = fs.readdirSync(path.join(__dirname, 'etc/'))
+  let poop3 = fs.readdirSync(path.join(__dirname, 'usr/share/ghostscript/'))
   //let poop3 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/compiled/'))
   //let poop1 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/next-server/lib/router/utils/'))
   //let poop2 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/next-server/server/lib/'))
