@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "cp canvas_lib64/*so.1 node_modules/canvas/build/Release/ && next build && cp public/Roboto-Regular.ttf node_modules/canvas/build/ ",
+    "build": "cp canvas_lib64/*so.1 node_modules/canvas/build/Release/ && next build && cp public/Roboto-Regular.ttf build/server/static/bestever/pages/api/ ",
     "start": "next start",
     "export": "npm run build && next export"
   },

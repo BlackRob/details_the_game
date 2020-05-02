@@ -32,7 +32,7 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
 
   if (registerFont !== undefined) {
     if (process.env.NODE_ENV === "production") {
-      theFontPath = path.join(process.cwd(), 'node_modules/canvas/lib/Roboto-Regular.ttf')
+      theFontPath = path.join(process.cwd(), './Roboto-Regular.ttf')
     }
     registerFont(theFontPath, { family: 'Roboto' })
   }
