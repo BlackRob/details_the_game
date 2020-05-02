@@ -39,10 +39,10 @@ const ThisPage = () => (
           types of pronouns can also serve as the subject of a sentence.</p>
           <p className="example"><Pron x='She' /> doesn't like robots.</p>
           <p>When playing details, every starter sentence already has a subject,
-          so if you want to add a personal pronoun, you also need a conjunction
+          so if you want to add a subject pronoun, you'll also need a conjunction
           card (usually). For example, we can add <span className="cConj">and</span>&nbsp;
-            and <span className="cPron">I</span> to
-            the sentence "The elephant ate cupcakes" to get </p>
+          and <span className="cPron">I</span> to
+           the sentence "The elephant ate cupcakes" to get </p>
           <p className="example">The elephant <Conj x="and" /> <Pron x='I' /> ate cupcakes.</p>
           <p>But be careful doing this: in some tenses, some verbs have different
           endings depending on whether the subject is singular or plural, i.e
@@ -50,7 +50,7 @@ const ThisPage = () => (
             "he and she <i>eat</i>". You can't change "He likes cookies" to</p>
           <p className="example">❌ <Pron x='He' /> <Conj x='and' /> <Pron x='she' /> likes cookies.</p>
           <p>That would be wrong, wrong, wrong!
-          Don't do it! "Likes" as a verb needs a singular subject. So this would be fine:</p>
+          Don't do it! "Likes" as a verb needs a singular subject. But this would be fine:</p>
           <p className="example"><Pron x='He' /> <Conj x='or' /> <Pron x='she' /> likes cookies.</p>
         </>} />
         <Fold title={<h3>Personal pronouns for objects</h3>} content={<>
@@ -67,7 +67,7 @@ const ThisPage = () => (
           apostrophe: with an apostrophe, "it's" is a contraction of "it is".
             Possessive pronouns can function as ether subjects or objects:</p>
           <p className="example"><Pron x='Mine' /> are yellow.</p>
-          <p className="example">The dog ate yours <Pron x='yours' />.</p>
+          <p className="example">The dog ate <Pron x='yours' />.</p>
           Possessive pronouns are often confused with possessive adjectives, because
           they look the same or similar ("my", "your", "his", "her", "its", "our", "their"),
           but they are used differently. You can say <span className="sBG"><Adj x="your" /> <Noun x="dog" /></span>&nbsp;
