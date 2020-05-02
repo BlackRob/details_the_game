@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/[img].js": {
-      "includeFiles": "public/Roboto-Regular.ttf"
-    }
-  }
-}
