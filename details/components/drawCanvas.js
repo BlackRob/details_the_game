@@ -1,6 +1,7 @@
 /* this function redraws the current sentence and cards
   on a canvas, so that it can be shared as an image */
 import { registerFont, createCanvas } from 'canvas';
+import RobotoR from "../../public/Roboto-Regular.ttf"
 
 
 // workingCards, width, height are optional
@@ -29,7 +30,7 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
 
   if (registerFont !== undefined) {
     if (process.env.NODE_ENV === "production") {
-      theFontPath = '/Roboto-Regular.ttf'
+      theFontPath = path.resolve(RobotoR)
     }
     registerFont(theFontPath, { family: 'Roboto' })
   }
