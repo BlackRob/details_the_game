@@ -7,7 +7,6 @@ import path from 'path'
 
 // workingCards, width, height are optional
 export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => {
-  const fs = require('fs');
 
   // default canvas size
   let cw = 1200 // canvas width
