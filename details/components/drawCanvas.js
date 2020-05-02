@@ -6,7 +6,7 @@ import { registerFont, createCanvas } from 'canvas';
 // workingCards, width, height are optional
 export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => {
   const path = require('path')
-
+  console.log("poop")
   //if (process.env.NODE_ENV === "production") {
   //  RobotoR = require('/node_modules/Roboto-Regular.ttf')
   //}
