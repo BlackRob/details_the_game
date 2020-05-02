@@ -2,7 +2,7 @@ import { drawCanvas } from "../../details/components/drawCanvas"
 import { stringIsValid, strToGameState } from '../../details/components/gameStatePack'
 import fs from 'fs'
 import path from 'path'
-import "/Roboto-Regular.ttf"
+import "../../public/Roboto-Regular.ttf"
 
 
 export default ({ query: { img } }, res) => {
