@@ -5,7 +5,7 @@ import TypeButtonDiv from '../components/typeButtonDiv'
 import YouTubeVid from '../components/youTubeVid'
 import Fold from '../components/fold'
 import MyHeadStuff from '../components/myHeadStuff'
-import { Pron } from '../components/elementAliases'
+import { Pron, Adj, Noun, Conj } from '../components/elementAliases'
 
 const ThisPage = () => (
   <div className="container">
@@ -63,12 +63,16 @@ const ThisPage = () => (
           <p className="example">We threw apples at <Pron x='them' />.</p>
         </>} />
         <Fold title={<h3>Possessive pronouns</h3>} content={<>
-          <p>Often just called "object pronouns" (incorrectly --lots of other pronouns
-          can functions as "objects" in the grammatical sense), these pronouns
-          are used as the object of a verb or preposition. The personal object
-          pronouns in English are "me", "us", "you", "her", "him", "it" and "them". </p>
-          <p className="example">The girls all hate <Pron x='him' />.</p>
-          <p className="example">We threw apples at <Pron x='them' />.</p>
+          <p>In English the possessive pronouns are "mine", "yours", "his",
+          "hers", "its", "ours" and "theirs" Please note that "its" has no
+          apostrophe: with an apostrophe, "it's" is a contraction of "it is".
+            Possessive pronouns can function as ether subjects or objects:</p>
+          <p className="example"><Pron x='Mine' /> are yellow.</p>
+          <p className="example">The dog ate yours <Pron x='yours' />.</p>
+          Possessive pronouns are often confused with possessive adjectives, because
+          they look the same or similar ("my", "your", "his", "her", "our", "their"),
+          but they are used differently. You can say <span className="sBG"><Adj x="your" /> <Noun x="dog" /></span>&nbsp;
+          but not <span className="sBG">❌ <Pron x="yours" /> <Noun x="dog" /></span>.
         </>} />
         <h4>Reflexive pronouns</h4>
         <h4>Intensive pronouns</h4>
