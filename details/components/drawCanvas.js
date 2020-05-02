@@ -29,17 +29,9 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
   let theFontPath = path.join(process.cwd(), 'public/fonts/Roboto-Regular.ttf')
 
   if (registerFont !== undefined) {
-    if (process.env.NODE_ENV === "production") {
-      try {
-        if (fs.existsSync(path.resolve(RobotoR))) {
-          //file exists
-          theFontPath = path.resolve(RobotoR)
-        }
-      } catch (err) {
-        console.error(err)
-      }
+    if (process.env.NODE_ENV !== "production") {
+      registerFont(theFontPath, { family: 'Roboto' })
     }
-    registerFont(theFontPath, { family: 'Roboto' })
   }
   const canvas = createCanvas(cw, ch)
   const ctx = canvas.getContext('2d')

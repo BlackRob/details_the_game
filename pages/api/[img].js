@@ -6,7 +6,7 @@ import path from 'path'
 
 export default ({ query: { img } }, res) => {
 
-  let poop1 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/next-server/lib/router/'))
+  let poop1 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/next-server/lib/router/utils/'))
   let poop2 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/next-server/server/lib/'))
   let poop3 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/compiled/'))
   let poop4 = fs.readdirSync(path.join(process.cwd(), '.next/serverless/pages/api/'))
