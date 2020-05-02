@@ -1,6 +1,7 @@
 /* this function redraws the current sentence and cards
   on a canvas, so that it can be shared as an image */
 import { registerFont, createCanvas } from 'canvas';
+import "../../node_modules/roboto-fontface/fonts/roboto/Roboto-Regular.ttf"
 
 
 // workingCards, width, height are optional
