@@ -4,7 +4,7 @@ import path from 'path'
 
 export default (req, res) => {
 
-  let thisPoop = fs.readdirSync(path.join(process.cwd(), 'posts'))
+  let thisPoop = fs.readdirSync(path.join(process.cwd(), '.'))
   //thisPoop.push(`cwd = ${fs.readdirSync(process.cwd()).join(',')}`)
   let message = "" + thisPoop.join('\n') + '\n__________' + path.resolve('./Roboto-Regular.ttf') + '______\n' + fs.readdirSync(path.join(process.cwd(), '_next')).join('\n')
   console.log(message)
