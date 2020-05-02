@@ -73,7 +73,7 @@ const ThisPage = () => (
           but they are used differently. You can say <span className="sBG"><Adj x="your" /> <Noun x="dog" /></span>&nbsp;
           but not <span className="sBG">❌ <Pron x="yours" /> <Noun x="dog" /></span>.
         </>} />
-        <Fold title={<h3>Reflexive pronouns</h3>} content={<>
+        <Fold title={<h3>Reflexive and Intensive pronouns</h3>} content={<>
           <p>Reflexive pronouns end in <i>-self</i> or <i>-selves</i>, and there
           are only nine<sup>2</sup> of them: "myself", "yourself", "himself", "herself",
           "itself", "oneself", "ourselves", "yourselves", "themselves".
@@ -83,12 +83,53 @@ const ThisPage = () => (
           <p className="example">The snake ate <Pron x='itself' />.</p>
           <p className="example">I bought <Pron x='myself' /> a new phone.</p>
           <p className="example">The winemakers kept the best wine for <Pron x='themselves' />.</p>
-          <p>Reflexive pronouns are sometimes used right after a noun for emphasis --they
-            essentialy say "and not anyone else":</p>
-          <p className="example">The Mayor <Pron x='himself' /> always drinks coffee at sunset.</p>
+          <p>Intensive pronouns are pronouns used right after a noun for emphasis. They look
+          the same as reflexive pronouns, but are used differently. While reflexive pronouns
+          perform are a grammatical function --they're an important part
+          of the sentence-- intensive pronouns do not. You can remove an intensive
+          pronoun and the sentence says the same thing. Like interjections, intensive
+          pronouns are "extra" words that show how the speaker feels about a fact. They
+            can be removed from the sentence without changing its meaning.</p>
+          <p className="example">The Mayor <Pron x='himself' /> thanked me for my volunteer work.</p>
+          <p>The intensive pronoun shows that "my volunteer work" was important, because
+            even an important person like the mayor thanked me.</p>
+          <p className="example">Alice cooked dinner <Pron x='herself' />.</p>
+          <p>"Herself" indicates that this is significant: maybe Alice is only a child,
+          or maybe it was a huge and excellent meal, we don't know, but we do know
+            that no one else helped.</p>
+          <p className="example">The big fish eat smaller fish, but the big fish <Pron x='themselves' /> are
+          sometimes eaten by bears.</p>
         </>} />
-        <h4>Intensive pronouns</h4>
-        <h4>Indefinite pronouns</h4>
+        <Fold title={<h3>Indefinite pronouns</h3>} content={<>
+          <p>Indefinite pronouns don't refer to any specific person or thing, they
+          refer to any one of a particular type of thing. "Anyone" is an indefinite
+          pronoun --it doesn't just mean one person, it could be "any" person. Their
+            are traditionally twelve indefinite pronouns in English.</p>
+          <h4>anybody, anyone, anything</h4>
+          <p>These are singular pronouns: they refer to one thing out of a group, but
+            it doesn't matter which one.</p>
+          <p className="example"><Pron x='Anyone' /> can learn how to cook.</p>
+          <p className="example">I'll dance with <Pron x='anybody' />.</p>
+          <p className="example">Do you have <Pron x='anything' /> to eat?</p>
+          <h4>nobody, no one, nothing</h4>
+          <p>These are the negative indefinite pronouns: they mean "not any" of
+            whatever.</p>
+          <p className="example"><Pron x='No one' /> can beat me at chess.</p>
+          <p className="example">I have <Pron x='nobody' /> to go to the dance with.</p>
+          <p className="example">There's <Pron x='nothing' /> to eat.</p>
+          <h4>somebody, someone, something</h4>
+          <p>These are also singular indefinite pronouns, but they refer to some
+            specific but unknown thing.</p>
+          <p className="example"><Pron x='Somebody' /> sent me flowers.</p>
+          <p className="example">I wish <Pron x='someone' /> would tell me the answer to the riddle.</p>
+          <p className="example">I want to eat <Pron x='something' /> sweet.</p>
+          <h4>everybody, everyone, everything</h4>
+          <p>These are the plural indefinite pronouns: they refer to <i>all</i> of
+            whatever.</p>
+          <p className="example"><Pron x='Everything' /> smells like strawberries.</p>
+          <p className="example">I think <Pron x='everybody' /> should know how to play a musical instrument.</p>
+          <p className="example">I'd be happy if <Pron x='everyone' /> stopped yelling at me.</p>
+        </>} />
         <h4>Demonstrative pronouns</h4>
         <h4>Interrogative pronouns</h4>
         <h4>Relative pronouns</h4>
