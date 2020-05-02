@@ -1,8 +1,4 @@
 module.exports = {
-  generateBuildId: async () => {
-    // You can, for example, get the latest git commit hash here
-    return 'bestever';
-  },
   webpack: (cfg) => {
     cfg.module.rules.push(
       {
@@ -21,6 +17,10 @@ module.exports = {
 
 /*
 
+  generateBuildId: async () => {
+    // You can, for example, get the latest git commit hash here
+    return 'bestever';
+  },
       {
         test: /\.ttf$/,
         use: [
