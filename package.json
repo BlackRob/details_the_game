@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "cp canvas_lib64/*so.1 node_modules/canvas/build/Release/ && cp public/Roboto-Regular.ttf node_modules/roboto-fontface/fonts/roboto/ && next build ",
+    "build": "cp canvas_lib64/*so.1 node_modules/canvas/build/Release/ && next build ",
     "start": "next start",
     "export": "npm run build && next export"
   },
@@ -12,6 +12,7 @@
     "@material-ui/core": "^4.9.12",
     "canvas": "^2.6.1",
     "date-fns": "^2.12.0",
+    "fonttrick": "file:fonttrick",
     "glob": "^7.1.6",
     "gray-matter": "^4.0.2",
     "next": "^9.3.6",

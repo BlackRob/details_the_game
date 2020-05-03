@@ -1,0 +1,16 @@
+{
+	"name": "fonttrick",
+	"version": "1.0.3",
+	"description": "a trick to get canvas registerfont to work in a Vercel serverless function",
+	"license": "MIT",
+	"homepage": "https://grumbly.games",
+	"main": "index.js",
+	"keywords": [
+		"registerfont",
+		"canvas",
+		"vercel",
+		"zeit",
+		"nextjs"
+	],
+	"dependencies": {}
+}
