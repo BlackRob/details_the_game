@@ -4,7 +4,7 @@ import { stringIsValid, strToGameState } from '../../details/components/gameStat
 import fs from 'fs'
 import path from 'path'
 //import RobotoR from '../../public/Roboto-Regular.ttf'
-import fonttrick from 'fonttrick'
+//import fonttrick from 'fonttrick'
 
 
 export default ({ query: { img } }, res) => {
@@ -20,7 +20,6 @@ export default ({ query: { img } }, res) => {
 
   //let message = "" + poop1.join('\n') + '\n_____\n' + poop2 + '\n_____\n' + poop3.join('\n')
   console.log(poop1.join('\n'))
-  console.log(process.cwd())
 
   /* const { COPYFILE_EXCL } = fs.constants;
   const { COPYFILE_FICLONE } = fs.constants;
@@ -38,22 +37,22 @@ export default ({ query: { img } }, res) => {
   //let poof=fonttrick()
   //console.log(fs.readdirSync('/tmp'))
 
-  registerFont(fonttrick(), { family: 'Roboto' })
+  /* registerFont(fonttrick(), { family: 'Roboto' })
   const canvas = createCanvas(1000, 1000)
   const ctx = canvas.getContext('2d')
   ctx.font = "40px Roboto"
   ctx.fillStyle = "red"
   ctx.fillText("poop", 200, 200)
-  let output = canvas.toDataURL();
+  let output = canvas.toDataURL(); */
 
   const fallbackString = "1xThe~2ysent~3zlink~4yis~5wnot~6xa~7xvalid~8zsentence~9f~~"
 
   if (stringIsValid({ sentenceString: img })) {
     let data = JSON.parse(strToGameState({ canvasURLstring: img }))
-    //output = drawCanvas({ sentence: data.sentence, cards: data.cards, fontPath: path.resolve(RobotoR) })
+    output = drawCanvas({ sentence: data.sentence, cards: data.cards })
   } else {
     let data = JSON.parse(strToGameState({ canvasURLstring: fallbackString }))
-    //output = drawCanvas({ sentence: data.sentence, cards: data.cards, fontPath: path.resolve(RobotoR) })
+    output = drawCanvas({ sentence: data.sentence, cards: data.cards })
   }
 
   const buffy = new Buffer.from(output.split(',')[1], 'base64')

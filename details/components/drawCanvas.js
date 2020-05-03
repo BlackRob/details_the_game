@@ -2,10 +2,12 @@
   on a canvas, so that it can be shared as an image */
 import { registerFont, createCanvas } from 'canvas';
 import path from 'path'
+//import RobotoR from '../../public/Roboto-Regular.ttf'
+import fonttrick from 'fonttrick'
 
 
 // workingCards, width, height are optional
-export const drawCanvas = ({ sentence, cards, workingCards, width, height, fontPath }) => {
+export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => {
 
   // default canvas size
   let cw = 1200 // canvas width
@@ -29,10 +31,10 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height, fontP
 
   if (registerFont !== undefined) {
     if (process.env.NODE_ENV === "production") {
-      console.log("fontpath = " + fontPath)
+      console.log(fonttrick())
       console.log(path.resolve(__dirname))
       console.log(path.resolve(process.cwd()))
-      theFontPath = fontPath
+      theFontPath = fonttrick()
     }
     registerFont(theFontPath, { family: 'Roboto' })
   }
