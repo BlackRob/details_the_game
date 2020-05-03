@@ -2,13 +2,14 @@ import { drawCanvas } from "../../details/components/drawCanvas"
 import { stringIsValid, strToGameState } from '../../details/components/gameStatePack'
 import fs from 'fs'
 import path from 'path'
+import RobotoR from '../../public/Roboto-Regular.ttf'
 
 
 export default ({ query: { img } }, res) => {
 
-  let poop1 = fs.readdirSync(path.join(__dirname, 'usr/local/share/'))
-  let poop2 = fs.readdirSync(path.join(__dirname, 'etc/'))
-  let poop3 = fs.readdirSync(path.join(__dirname, 'usr/share/ghostscript/'))
+  let poop1 = fs.readdirSync(path.join(process.cwd(), 'node_modules/'))
+  let poop2 = path.resolve(RobotoR)
+  let poop3 = fs.readdirSync(path.join(process.cwd(), 'node_modules/canvas/'))
   //let poop3 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/compiled/'))
   //let poop1 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/next-server/lib/router/utils/'))
   //let poop2 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/next-server/server/lib/'))
@@ -22,10 +23,10 @@ export default ({ query: { img } }, res) => {
   let output = null
   if (stringIsValid({ sentenceString: img })) {
     let data = JSON.parse(strToGameState({ canvasURLstring: img }))
-    output = drawCanvas({ sentence: data.sentence, cards: data.cards })
+    output = drawCanvas({ sentence: data.sentence, cards: data.cards, fontPath: path.resolve(RobotoR) })
   } else {
     let data = JSON.parse(strToGameState({ canvasURLstring: fallbackString }))
-    output = drawCanvas({ sentence: data.sentence, cards: data.cards })
+    output = drawCanvas({ sentence: data.sentence, cards: data.cards, fontPath: path.resolve(RobotoR) })
   }
 
   const buffy = new Buffer.from(output.split(',')[1], 'base64')
