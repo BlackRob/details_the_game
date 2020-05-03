@@ -4,7 +4,7 @@ import { stringIsValid, strToGameState } from '../../details/components/gameStat
 import fs from 'fs'
 import path from 'path'
 //import RobotoR from '../../public/Roboto-Regular.ttf'
-//import fonttrick from 'fonttrick'
+import fonttrick from 'fonttrick'
 
 
 export default ({ query: { img } }, res) => {
@@ -49,10 +49,10 @@ export default ({ query: { img } }, res) => {
 
   if (stringIsValid({ sentenceString: img })) {
     let data = JSON.parse(strToGameState({ canvasURLstring: img }))
-    output = drawCanvas({ sentence: data.sentence, cards: data.cards })
+    output = drawCanvas({ sentence: data.sentence, cards: data.cards, fontPath: fonttrick() })
   } else {
     let data = JSON.parse(strToGameState({ canvasURLstring: fallbackString }))
-    output = drawCanvas({ sentence: data.sentence, cards: data.cards })
+    output = drawCanvas({ sentence: data.sentence, cards: data.cards, fontPath: fonttrick() })
   }
 
   const buffy = new Buffer.from(output.split(',')[1], 'base64')

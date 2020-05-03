@@ -3,11 +3,11 @@
 import { registerFont, createCanvas } from 'canvas';
 import path from 'path'
 //import RobotoR from '../../public/Roboto-Regular.ttf'
-import fonttrick from 'fonttrick'
+//import fonttrick from 'fonttrick'
 
 
 // workingCards, width, height are optional
-export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => {
+export const drawCanvas = ({ sentence, cards, workingCards, width, height, fontPath }) => {
 
   // default canvas size
   let cw = 1200 // canvas width
@@ -31,10 +31,8 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height }) => 
 
   if (registerFont !== undefined) {
     if (process.env.NODE_ENV === "production") {
-      console.log(fonttrick())
-      console.log(path.resolve(__dirname))
-      console.log(path.resolve(process.cwd()))
-      theFontPath = fonttrick()
+      console.log(fontPath)
+      theFontPath = fontPath
     }
     registerFont(theFontPath, { family: 'Roboto' })
   }
