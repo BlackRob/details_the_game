@@ -1,6 +1,7 @@
 module.exports = function fonttrick() {
   const fs = require('fs')
   const path = require('path')
+  const RobotoR = require.resolve('./Roboto-Regular.ttf')
   const { COPYFILE_EXCL } = fs.constants;
   const { COPYFILE_FICLONE } = fs.constants;
 
@@ -10,7 +11,7 @@ module.exports = function fonttrick() {
     if (fs.existsSync('/tmp/Roboto-Regular.ttf')) {
       console.log("Roboto lives in tmp!!!!")
     } else {
-      fs.copyFileSync('./Roboto-Regular.ttf', '/tmp/Roboto-Regular.ttf', COPYFILE_FICLONE | COPYFILE_EXCL)
+      fs.copyFileSync(RobotoR, '/tmp/Roboto-Regular.ttf', COPYFILE_FICLONE | COPYFILE_EXCL)
     }
   } catch (err) {
     console.error(err)

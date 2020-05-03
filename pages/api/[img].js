@@ -22,7 +22,7 @@ export default ({ query: { img } }, res) => {
   console.log(poop1.join('\n'))
   console.log(process.cwd())
 
-  const { COPYFILE_EXCL } = fs.constants;
+  /* const { COPYFILE_EXCL } = fs.constants;
   const { COPYFILE_FICLONE } = fs.constants;
   const pathToRoboto = path.join(process.cwd(), 'node_modules/fonttrick/Roboto-Regular.ttf')
 
@@ -34,11 +34,11 @@ export default ({ query: { img } }, res) => {
     }
   } catch (err) {
     console.error(err)
-  }
+  } */
   //let poof=fonttrick()
   //console.log(fs.readdirSync('/tmp'))
 
-  registerFont(pathToRoboto, { family: 'Roboto' })
+  registerFont(fonttrick(), { family: 'Roboto' })
   const canvas = createCanvas(1000, 1000)
   const ctx = canvas.getContext('2d')
   ctx.font = "40px Roboto"
