@@ -9,7 +9,7 @@ import fonttrick from 'fonttrick'
 
 export default ({ query: { img } }, res) => {
 
-  let poop1 = fs.readdirSync(path.join(process.cwd(), 'node_modules/'))
+  let poop1 = fs.readdirSync(path.join(process.cwd(), 'node_modules/fonttrick/'))
   //let poop2 = path.resolve(RobotoR)
   //let poop3 = "ppop3" //fs.readdirSync(path.join(process.cwd(), 'node_modules/canvas/lib/'))
   //let poop3 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/compiled/'))
@@ -20,13 +20,11 @@ export default ({ query: { img } }, res) => {
 
   //let message = "" + poop1.join('\n') + '\n_____\n' + poop2 + '\n_____\n' + poop3.join('\n')
   console.log(poop1.join('\n'))
-  /* console.log(process.cwd())
-
-  console.log(path.resolve(RobotoR))
+  console.log(process.cwd())
 
   const { COPYFILE_EXCL } = fs.constants;
   const { COPYFILE_FICLONE } = fs.constants;
-  const pathToRoboto = path.join(process.cwd(), 'node_modules/registerfonttrick/Roboto-Regular.ttf')
+  const pathToRoboto = path.join(process.cwd(), 'node_modules/fonttrick/Roboto-Regular.ttf')
 
   try {
     if (fs.existsSync(pathToRoboto)) {
@@ -36,11 +34,11 @@ export default ({ query: { img } }, res) => {
     }
   } catch (err) {
     console.error(err)
-  } */
-
+  }
+  //let poof=fonttrick()
   //console.log(fs.readdirSync('/tmp'))
 
-  registerFont(fonttrick(), { family: 'Roboto' })
+  registerFont(pathToRoboto, { family: 'Roboto' })
   const canvas = createCanvas(1000, 1000)
   const ctx = canvas.getContext('2d')
   ctx.font = "40px Roboto"
