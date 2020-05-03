@@ -7,9 +7,9 @@ import RobotoR from '../../public/Roboto-Regular.ttf'
 
 export default ({ query: { img } }, res) => {
 
-  let poop1 = fs.readdirSync(path.join(process.cwd(), 'node_modules/'))
+  let poop1 = fs.readdirSync(path.join(process.cwd(), 'node_modules/canvas/build/'))
   let poop2 = path.resolve(RobotoR)
-  let poop3 = fs.readdirSync(path.join(process.cwd(), 'node_modules/canvas/'))
+  let poop3 = fs.readdirSync(path.join(process.cwd(), 'node_modules/canvas/lib/'))
   //let poop3 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/compiled/'))
   //let poop1 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/next-server/lib/router/utils/'))
   //let poop2 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/next-server/server/lib/'))

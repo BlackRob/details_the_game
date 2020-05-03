@@ -29,6 +29,9 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height, fontP
 
   if (registerFont !== undefined) {
     if (process.env.NODE_ENV === "production") {
+      console.log("fontpath = " + fontPath)
+      console.log(path.resolve(__dirname))
+      console.log(path.resolve(process.cwd()))
       theFontPath = fontPath
     }
     registerFont(theFontPath, { family: 'Roboto' })
