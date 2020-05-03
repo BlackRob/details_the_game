@@ -16,7 +16,7 @@ export default ({ query: { img } }, res) => {
   //let poop3 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/compiled/'))
   let poop4 = fs.readdirSync(path.join(process.cwd(), '.next/serverless/pages/api/'))
 
-  let message = "" + poop1.join('\n') + '\n_____\n' + poop2.join('\n') + '\n_____\n' + poop3.join('\n')
+  let message = "" + poop1.join('\n') + '\n_____\n' + poop2 + '\n_____\n' + poop3.join('\n')
   console.log(message)
 
   const fallbackString = "1xThe~2ysent~3zlink~4yis~5wnot~6xa~7xvalid~8zsentence~9f~~"
