@@ -146,7 +146,7 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height, fontP
   // final margin
   rb += margin;
 
-  //////console.log(canvas.toDataURL())
+  console.log(canvas.toDataURL())
   // return canvas as dataURL so I can share it ;)
   return canvas.toDataURL();
 }

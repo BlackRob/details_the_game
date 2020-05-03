@@ -21,22 +21,6 @@ export default ({ query: { img } }, res) => {
   //let message = "" + poop1.join('\n') + '\n_____\n' + poop2 + '\n_____\n' + poop3.join('\n')
   console.log(poop1.join('\n'))
 
-  /* const { COPYFILE_EXCL } = fs.constants;
-  const { COPYFILE_FICLONE } = fs.constants;
-  const pathToRoboto = path.join(process.cwd(), 'node_modules/fonttrick/Roboto-Regular.ttf')
-
-  try {
-    if (fs.existsSync(pathToRoboto)) {
-      console.log("Roboto lives in tmp!!!!")
-    } else {
-      fs.copyFileSync(pathToRoboto, '/tmp/Roboto-Regular.ttf', COPYFILE_FICLONE | COPYFILE_EXCL)
-    }
-  } catch (err) {
-    console.error(err)
-  } */
-  //let poof=fonttrick()
-  //console.log(fs.readdirSync('/tmp'))
-
   /* registerFont(fonttrick(), { family: 'Roboto' })
   const canvas = createCanvas(1000, 1000)
   const ctx = canvas.getContext('2d')
@@ -45,13 +29,17 @@ export default ({ query: { img } }, res) => {
   ctx.fillText("poop", 200, 200)
   let output = canvas.toDataURL(); */
 
+  let output = null
+
   const fallbackString = "1xThe~2ysent~3zlink~4yis~5wnot~6xa~7xvalid~8zsentence~9f~~"
 
   if (stringIsValid({ sentenceString: img })) {
     let data = JSON.parse(strToGameState({ canvasURLstring: img }))
+    console.log("poop1-", data)
     output = drawCanvas({ sentence: data.sentence, cards: data.cards, fontPath: fonttrick() })
   } else {
     let data = JSON.parse(strToGameState({ canvasURLstring: fallbackString }))
+    console.log("poop1-", data)
     output = drawCanvas({ sentence: data.sentence, cards: data.cards, fontPath: fonttrick() })
   }
 
@@ -61,8 +49,3 @@ export default ({ query: { img } }, res) => {
   res.end(buffy)
 }
 
-function canRead(path, callback) {
-  fs.access(path, fs.R_OK, function (err) {
-    callback(null, !err);
-  });
-}
