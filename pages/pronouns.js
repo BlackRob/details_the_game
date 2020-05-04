@@ -103,7 +103,7 @@ const ThisPage = () => (
         <Fold title={<h3>Indefinite pronouns</h3>} content={<>
           <p>Indefinite pronouns don't refer to any specific person or thing, they
           refer to any one of a particular type of thing. "Anyone" is an indefinite
-          pronoun --it doesn't just mean one person, it could be "any" person. Their
+          pronoun --it doesn't just mean one person, it could be "any" person. There
             are traditionally twelve indefinite pronouns in English.</p>
           <h4>anybody, anyone, anything</h4>
           <p>These are singular pronouns: they refer to one thing out of a group, but

@@ -1,46 +1,45 @@
 import { drawCanvas } from "../../details/components/drawCanvas"
-import { registerFont, createCanvas } from 'canvas';
 import { stringIsValid, strToGameState } from '../../details/components/gameStatePack'
-import fs from 'fs'
-import path from 'path'
-//import RobotoR from '../../public/Roboto-Regular.ttf'
 import fonttrick from 'fonttrick'
 
 
-export default ({ query: { img } }, res) => {
+export default (req, res) => {      // { query: { img } }
+  // some constants
+  const fallbackString = "1xThe~2ysent~3zlink~4yis~5wnot~6xa~7xvalid~8zsentence~9f~~"
 
-  let poop1 = fs.readdirSync(path.join(process.cwd(), 'node_modules/fonttrick/'))
-  //let poop2 = path.resolve(RobotoR)
-  //let poop3 = "ppop3" //fs.readdirSync(path.join(process.cwd(), 'node_modules/canvas/lib/'))
-  //let poop3 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/compiled/'))
-  //let poop1 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/next-server/lib/router/utils/'))
-  //let poop2 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/next-server/server/lib/'))
-  //let poop3 = fs.readdirSync(path.join(process.cwd(), 'node_modules/next/dist/compiled/'))
-  //let poop4 = fs.readdirSync(path.join(process.cwd(), '.next/serverless/pages/api/'))
+  // some variables
+  let imageWidth = 1200     // standard for fb ogimage
+  let imageHeight = 630     // standard for fb ogimage
 
-  //let message = "" + poop1.join('\n') + '\n_____\n' + poop2 + '\n_____\n' + poop3.join('\n')
-  console.log(poop1.join('\n'))
+  // if we can get information from the request that indicates it's
+  // from a site that prefers a different ration, we'll set
+  // height and width correspondingly
+  console.log(req)
 
-  /* registerFont(fonttrick(), { family: 'Roboto' })
-  const canvas = createCanvas(1000, 1000)
-  const ctx = canvas.getContext('2d')
-  ctx.font = "40px Roboto"
-  ctx.fillStyle = "red"
-  ctx.fillText("poop", 200, 200)
-  let output = canvas.toDataURL(); */
+  // we need to remove the initial "/api/" before we can use the image string
+  const img = req.url.split('/')[2]
+  //console.log(img)
 
   let output = null
 
-  const fallbackString = "1xThe~2ysent~3zlink~4yis~5wnot~6xa~7xvalid~8zsentence~9f~~"
-
   if (stringIsValid({ sentenceString: img })) {
     let data = JSON.parse(strToGameState({ canvasURLstring: img }))
-    console.log("poop1-", data)
-    output = drawCanvas({ sentence: data.sentence, cards: data.cards, fontPath: fonttrick() })
+    output = drawCanvas({
+      sentence: data.sentence,
+      cards: data.cards,
+      width: imageWidth,
+      height: imageHeight,
+      fontPath: fonttrick()
+    })
   } else {
     let data = JSON.parse(strToGameState({ canvasURLstring: fallbackString }))
-    console.log("poop1-", data)
-    output = drawCanvas({ sentence: data.sentence, cards: data.cards, fontPath: fonttrick() })
+    output = drawCanvas({
+      sentence: data.sentence,
+      cards: data.cards,
+      width: imageWidth,
+      height: imageHeight,
+      fontPath: fonttrick()
+    })
   }
 
   const buffy = new Buffer.from(output.split(',')[1], 'base64')

@@ -2,16 +2,13 @@
   on a canvas, so that it can be shared as an image */
 import { registerFont, createCanvas } from 'canvas';
 import path from 'path'
-//import RobotoR from '../../public/Roboto-Regular.ttf'
-//import fonttrick from 'fonttrick'
 
 
-// workingCards, width, height are optional
-export const drawCanvas = ({ sentence, cards, workingCards, width, height, fontPath }) => {
-
+// width and height are optional
+export const drawCanvas = ({ sentence, cards, width, height, fontPath }) => {
   // default canvas size
   let cw = 1200 // canvas width
-  let ch = 630 // canvas height; this is a minimun, it might change
+  let ch = 630 // canvas height
   // if given different canvas size, update
   if (width && !height) {
     cw = width
@@ -26,12 +23,20 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height, fontP
     cw = Math.floor(height * 1.91)
   }
 
-
+  // this path is only used for api calls in development mode
   let theFontPath = path.join(process.cwd(), 'public/fonts/Roboto-Regular.ttf')
-
+  // when run in browser, registerfont isn't available,
+  // but we don't need it; when run from an API call,
+  // there is no css loaded, so we can't get fonts from @fontface
+  // and the canvas element has no fonts installed by default;
+  // in dev mode we can load them from local, but when run serverless
+  // it gets complicated: basically, we have a local module whose only
+  // job is to get loaded and piggyback the font file into the serverless
+  // function (thread); the module default function copies the font to
+  // /tmp then returns its absolute path; the function in the api 
+  // then passes that path here so we can load the font from it  
   if (registerFont !== undefined) {
     if (process.env.NODE_ENV === "production") {
-      console.log(fontPath)
       theFontPath = fontPath
     }
     registerFont(theFontPath, { family: 'Roboto' })
@@ -42,65 +47,67 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height, fontP
   // we have to set and adjust the font several times
   // so we set constants, but they have to be proportional
   // to the width, so
-  const sF = Math.floor(cw / 40)
-  const mF = Math.floor(cw / 30)
-  const lF = Math.floor(cw / 20)
+  const sF = Math.floor(cw / 40)  // originally small font, for buttons
+  const mF = Math.floor(cw / 30)  // medium font, for branding
+  let lF = Math.floor(cw / 20)    // this is the base sentence font size
 
-
+  // there is no sans-serif fallback font when run outside of browser
   const sFont = `${sF}px Roboto, sans-serif`
   const mFont = `${mF}px Roboto, sans-serif`
-  const lFont = `${lF}px Roboto, sans-serif`
+  let lFont = `${lF}px Roboto, sans-serif`  // this is reset as needed
 
-  // sentence left/right margin
-  const margin = cw / 60
-  // top banner should always be the same
-  const top_banner_height = cw / 18
-  // margin at top of sentence should have a minimum value
-  let top_bottom_sentence_margin = cw / 55
-  // calculated height of sentence
-  let sentence_height = 0
-  // if working row is empty, we don't show it //// currently not used!
-  let working_row_height = ch / 6
-  // if sentence is complete (no cards left), we don't show card row
-  let card_row_height = ch / 7;
+  // some constants for writing our sentence
+  const margin = cw / 60  // sentence left/right margin
+  const top_banner_height = cw / 18   // top banner should always be the same
+  const card_row_height = ch / 7    // height of bottom row, the card buttons
 
-  // I don't know if this is necessary, but I want to use the same font as
-  // the rest of the game is played in
-  ctx.font = lFont
+  // room available for sentence
+  let top_bottom_sentence_margin = cw / 55  // minimum value
+  const space4sentence = ch - top_banner_height - top_bottom_sentence_margin -
+    top_bottom_sentence_margin - card_row_height - margin
 
-  // when working with text, with this font and size, assuming a lineheight
-  // of 80px with the baseline at 60 looks good 
-  // some convenience variables
-  const rm = cw / 35 // "row margin" for between rows
-  const rh = lF * 1.4 // average "row height" 
-  const blo = lF / 3; // baseline offset
-  const wpr = lF / 3.5; // word padding right
-  let rb = top_banner_height; // "row beginning" w/ initial value
+  // and some variables  
+  let sentence_height = 0  // calculated height of sentence
 
-  // do some pre-printing work, return an augmented array
+  let rm = lF / 1.7   // "row margin" for between rows
+  let rh = lF * 1.4   // average "row height" 
+  let blo = lF / 3    // baseline offset
+  let wpr = lF / 3.5  // word padding right
+
+  // do some pre-printing work, return an array with size and spacing info
   // it's important that the font is set to the correct font now for sizing
+  ctx.font = lFont
   let printArray = prePrintSentence(sentence, rm, rh, cw, wpr, margin, ctx);
+  // calculate how tall the sentence block should be
+  let numRows = printArray[printArray.length - 1].row
+  sentence_height = numRows * rh + rm * (numRows - 1)
 
-  // calculate how tall sentence block should be
-  let numRows = printArray[printArray.length - 1].row;
-  sentence_height = numRows * rh + rm * (numRows - 1);
-
-  let working_height = top_banner_height + top_bottom_sentence_margin +
-    sentence_height + top_bottom_sentence_margin +
-    // working_row_height + margin +
-    card_row_height + margin;
-  // if a short sentence, we don't want our image to be too short
-  canvas.height = Math.max(ch, working_height);
-
-  // resetting canvas height messes up the font, so set it again
-  ctx.font = lFont;
-
-  // if we're using minimum size, sentence margins to center sentence
-  if (ch > working_height) {
-    top_bottom_sentence_margin = top_bottom_sentence_margin + (ch - working_height) / 2;
-    working_height = ch;
+  // some weirdness:
+  // we want the whole sentence to fit on one image, but the bigger a sentence
+  // is, the more room it needs, so we start at a big font, calculate how
+  // many rows and how tall it would be; if that's too tall, we bump the font
+  // down and recalculate until it fits
+  while (sentence_height > space4sentence) {
+    lF = Math.floor(lF * 0.85)    // "large font" for the sentence itself
+    rm = rm * 0.85    // "row margin" for between rows
+    rh = rh * 0.85    // average "row height" 
+    blo = blo * 0.85  // baseline offset
+    wpr = wpr * 0.85  // word padding right
+    lFont = `${lF}px Roboto, sans-serif`
+    ctx.font = lFont
+    printArray = prePrintSentence(sentence, rm, rh, cw, wpr, margin, ctx);
+    numRows = printArray[printArray.length - 1].row
+    sentence_height = numRows * rh + rm * (numRows - 1)
   }
 
+  // because of how we adjusted the font size to make it fit, we have to 
+  // adjust the spacing above and below it
+  let working_height = top_banner_height + top_bottom_sentence_margin +
+    sentence_height + top_bottom_sentence_margin + card_row_height + margin;
+  top_bottom_sentence_margin = top_bottom_sentence_margin + (ch - working_height) / 2;
+
+  //////////////////////////////////// start drawing //////////////////////////
+  let rb = top_banner_height; // "row beginning", initial value
   // background
   ctx.fillStyle = "#282c34";
   ctx.fillRect(0, 0, cw, canvas.height);
@@ -130,14 +137,6 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height, fontP
   // bottom margin
   rb += top_bottom_sentence_margin;
 
-  // working row --- not implemented, not sure if I want to show it
-  /////ctx.fillStyle = 'whitesmoke';
-  /////printWorkingRow(cards, margin, rb, cw, working_row_height, workingCards, ctx);
-  /////rb += working_row_height;
-
-  // between rows
-  /////rb += margin;
-
   // card row
   ctx.lineWidth = lFont / 10;
   printCardRow(cards, margin, rb, cw, card_row_height, sFont, ctx);
@@ -146,7 +145,6 @@ export const drawCanvas = ({ sentence, cards, workingCards, width, height, fontP
   // final margin
   rb += margin;
 
-  console.log(canvas.toDataURL())
   // return canvas as dataURL so I can share it ;)
   return canvas.toDataURL();
 }

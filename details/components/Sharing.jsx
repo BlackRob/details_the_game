@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   EmailShareButton, EmailIcon,
   FacebookShareButton, FacebookIcon,
@@ -24,6 +24,27 @@ const Sharing = ({ sentence, cards, showSharing, setShowSharing, workingCards })
 }
 
 const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
+  // have to run a script to get the skype button
+  const skypeButtonRef = React.createRef()
+  useEffect(() => {
+    (function (r, d, s) {
+      r.loadSkypeWebSdkAsync = r.loadSkypeWebSdkAsync || function (p) {
+        var js, sjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(p.id)) { return; }
+        js = d.createElement(s);
+        js.id = p.id;
+        js.src = p.scriptToLoad;
+        js.onload = p.callback
+        sjs.parentNode.insertBefore(js, sjs);
+      };
+      var p = {
+        scriptToLoad: 'https://swx.cdn.skype.com/shared/v/latest/skypewebsdk.js',
+        id: 'skype_web_sdk'
+      };
+      r.loadSkypeWebSdkAsync(p);
+    })(window, document, 'script');
+  }, []);
+
   const canvasDataURL = drawCanvas({ sentence, cards, workingCards })
   const canvasURLstring = gameStateToStr({ sentence, cards })
   const gameURL = `https://grumbly.games/details/${canvasURLstring}`
@@ -53,6 +74,8 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
         <WeiboShareButton children={<WeiboIcon size={32} round={true} />} url={gameURL} title="grumbly.games" image={imageURL} />
         <TwitterShareButton children={<TwitterIcon size={32} round={true} />} url={gameURL} title="grumbly.games" hashtags={["ClickToPlay", "GrumblyGames"]} />
         <WhatsappShareButton children={<WhatsappIcon size={32} round={true} />} url={gameURL} title="grumbly.games" />
+        <div className='skype-share' ref={skypeButtonRef} data-href={gameURL} data-lang='' data-text='' data-style='circle' ></div>
+        <ClipboardButton toCopy={gameURL} />
       </div>
     </div>
     <style jsx>
@@ -182,6 +205,7 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
           margin: 0px;
           width: 32px;
           height: 32px;
+          padding: 0px;
           border-radius: 50%;
         }
         button[class="react-share__ShareButton"]:hover, button[class="react-share__ShareButton"]:focus {
@@ -192,5 +216,45 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
     </style>
   </div>
 }
+
+const ClipboardButton = ({ toCopy }) => {
+  const [copied, setCopied] = useState(false);
+  let imgSrc = "/clipboard_unchecked.svg"
+  let altText = "empty clipboard icon by Zach Bogart from the Noun Project"
+  if (copied) {
+    imgSrc = "/clipboard_checked.svg"
+    altText = "checked clipboard icon by Zach Bogart from the Noun Project"
+  }
+
+  return <button
+    className="react-share__ShareButton"
+    onClick={(e) => {
+      e.preventDefault();
+      updateClipboard({ newClip: toCopy, result: setCopied })
+    }}><img src={imgSrc} width="32" height="32" alt={altText} />
+    <style jsx>
+      {`
+        button {
+          border: none;
+          margin: 0px;
+          width: 32px;
+          height: 32px;
+          padding: 0px;
+        }
+      `}
+    </style>
+  </button >;
+}
+
+const updateClipboard = ({ newClip, result }) => {
+  navigator.clipboard.writeText(newClip).then(function () {
+    result(true)
+  }, function () {
+    /* clipboard write failed */
+    result(false)
+    console.log("copy to clipboard failed!")
+  });
+}
+
 
 export default Sharing;
