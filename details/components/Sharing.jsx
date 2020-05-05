@@ -25,7 +25,7 @@ const Sharing = ({ sentence, cards, showSharing, setShowSharing, workingCards })
 
 const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
   // have to run a script to get the skype button
-  const skypeButtonRef = React.createRef()
+  //const skypeButtonRef = React.createRef()
   useEffect(() => {
     (function (r, d, s) {
       r.loadSkypeWebSdkAsync = r.loadSkypeWebSdkAsync || function (p) {
@@ -43,7 +43,7 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
       };
       r.loadSkypeWebSdkAsync(p);
     })(window, document, 'script');
-  }, []);
+  }, [setShowSharing]);
 
   const canvasDataURL = drawCanvas({ sentence, cards, workingCards })
   const canvasURLstring = gameStateToStr({ sentence, cards })
@@ -74,7 +74,9 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
         <WeiboShareButton children={<WeiboIcon size={32} round={true} />} url={gameURL} title="grumbly.games" image={imageURL} />
         <TwitterShareButton children={<TwitterIcon size={32} round={true} />} url={gameURL} title="grumbly.games" hashtags={["ClickToPlay", "GrumblyGames"]} />
         <WhatsappShareButton children={<WhatsappIcon size={32} round={true} />} url={gameURL} title="grumbly.games" />
-        <div className='skype-share' ref={skypeButtonRef} data-href={gameURL} data-lang='' data-text='' data-style='circle' ></div>
+        <div className='skype-share' data-href={gameURL} data-lang='en-US' data-text='' data-style='' >
+          <img className="skypeShareLogo" src='/s_logo.svg' width="18px" height="18px" />
+        </div>
         <ClipboardButton toCopy={gameURL} />
       </div>
     </div>
@@ -197,6 +199,27 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
         .z2_hide:hover {
           cursor: pointer;
         } 
+        .skype-share {
+          margin: 0px;
+          width: 32px;
+          height: 32px;
+          padding: 0px;
+          border-radius: 50%;
+          background-color: #00AFF0;
+          color: white;
+        }
+        .skype-share img {
+          width: 18px;
+          height: 18px;
+          min-height: 18px;
+          margin: 7px;
+          box-shadow: none;
+        }
+        .skype-share:hover, .skype-share:focus {
+          outline: 0;
+          box-shadow: 0 0 3px 3px rgba(0, 0, 0, .5);
+          transition: all 0.2s;
+        }
       `}
     </style>
     <style jsx global>
@@ -258,3 +281,4 @@ const updateClipboard = ({ newClip, result }) => {
 
 
 export default Sharing;
+
