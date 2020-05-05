@@ -69,7 +69,7 @@ export const drawCanvas = ({ sentence, cards, width, height, fontPath }) => {
   // and some variables  
   let sentence_height = 0  // calculated height of sentence
 
-  let rm = lF / 1.7   // "row margin" for between rows
+  let rm = lF / 3.5   // "row margin" for between rows
   let rh = lF * 1.4   // average "row height" 
   let blo = lF / 3    // baseline offset
   let wpr = lF / 3.5  // word padding right

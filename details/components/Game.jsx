@@ -45,20 +45,32 @@ class Game extends React.Component {
   componentDidMount() {
     const defaultSentence = "1sHello~2a~3zWorld~4g~~"
     let temp = {}
+    let gameActive = false
     if (!this.props.hasOwnProperty("gameState")) {
       temp = JSON.parse(strToGameState({ canvasURLstring: defaultSentence }))
     } else {
       temp = JSON.parse(strToGameState({ canvasURLstring: this.props.gameState }))
+      gameActive = true
     }
+
     // sometimes the game coming from server has cards, sometimes not
-    if (temp.cards.length === 0) {
-      // for now, every new game starts with five cards
-      for (var i = 0; i < 5; i++) {
-        temp.cards.push(newRandomCard(i));
-      }
-    }
-    this.setState({ oldSentence: [], lastCards: [], active: true, winner: false, sentenceUpdateCount: 0 });
-    this.setState({ sentence: temp.sentence, cards: temp.cards, totalCardCount: temp.cards.length, })
+    ////if (temp.cards.length === 0) {
+    ////  // for now, every new game starts with five cards
+    ////  for (var i = 0; i < 5; i++) {
+    ////    temp.cards.push(newRandomCard(i));
+    ////  }
+    ////}
+
+    this.setState({
+      oldSentence: [],
+      lastCards: [],
+      active: gameActive,
+      winner: false,
+      sentenceUpdateCount: 0,
+      sentence: temp.sentence,
+      cards: temp.cards,
+      totalCardCount: temp.cards.length,
+    })
   }
 
   updateSentence(longerSentence) {

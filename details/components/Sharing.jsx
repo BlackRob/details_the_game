@@ -26,24 +26,23 @@ const Sharing = ({ sentence, cards, showSharing, setShowSharing, workingCards })
 const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
   // have to run a script to get the skype button
   //const skypeButtonRef = React.createRef()
-  useEffect(() => {
-    (function (r, d, s) {
-      r.loadSkypeWebSdkAsync = r.loadSkypeWebSdkAsync || function (p) {
-        var js, sjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(p.id)) { return; }
-        js = d.createElement(s);
-        js.id = p.id;
-        js.src = p.scriptToLoad;
-        js.onload = p.callback
-        sjs.parentNode.insertBefore(js, sjs);
-      };
-      var p = {
-        scriptToLoad: 'https://swx.cdn.skype.com/shared/v/latest/skypewebsdk.js',
-        id: 'skype_web_sdk'
-      };
-      r.loadSkypeWebSdkAsync(p);
-    })(window, document, 'script');
-  }, [setShowSharing]);
+  //useEffect(() => {
+  (function (r, d, s) {
+    r.loadSkypeWebSdkAsync = r.loadSkypeWebSdkAsync || function (p) {
+      var js, sjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(p.id)) { return; }
+      js = d.createElement(s);
+      js.id = p.id;
+      js.src = p.scriptToLoad;
+      js.onload = p.callback
+      sjs.parentNode.insertBefore(js, sjs);
+    };
+    var p = {
+      scriptToLoad: 'https://swx.cdn.skype.com/shared/v/latest/skypewebsdk.js',
+      id: 'skype_web_sdk'
+    };
+    r.loadSkypeWebSdkAsync(p);
+  })(window, document, 'script')
 
   const canvasDataURL = drawCanvas({ sentence, cards, workingCards })
   const canvasURLstring = gameStateToStr({ sentence, cards })
@@ -63,10 +62,6 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
       </div>
       <img src={canvasDataURL} />
 
-      <label htmlFor="my_comment">Enter your comment</label><br />
-      <textarea id="my_comment"
-        value={comment} onChange={() => changeComment(comment)}
-        name="my_comment" rows="4" />
       <div className="sharing_button_row">
         <EmailShareButton children={<EmailIcon size={32} round={true} />} url={gameURL} subject="I'm playing details" body={comment} />
         <FacebookShareButton children={<FacebookIcon size={32} round={true} />} url={gameURL} quote={comment} hashtag="ClickToPlay" />
@@ -134,12 +129,6 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
           box-shadow: 2px 2px 5px slategray;
         }
 
-        .sharing_popup textarea {
-          box-sizing: border-box;
-          font: inherit;
-          margin: 0.5em 0;
-          width: 100%;
-        }
 
         .sharing_button_row {
           display: flex;
@@ -282,3 +271,19 @@ const updateClipboard = ({ newClip, result }) => {
 
 export default Sharing;
 
+{/*
+
+      <label htmlFor="my_comment">Enter your comment</label><br />
+      <textarea id="my_comment"
+        value={comment} onChange={() => changeComment(comment)}
+        name="my_comment" rows="4" />
+        
+        .sharing_popup textarea {
+          box-sizing: border-box;
+          font: inherit;
+          margin: 0.5em 0;
+          width: 100%;
+        }
+
+
+*/}
