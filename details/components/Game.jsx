@@ -266,12 +266,12 @@ const newRandomCard = (newCardId) => {
   const rando = Math.floor(Math.random() * 1000);
   let type = null;
   switch (true) {
-    case (rando < 280): type = "noun"; break;
-    case (rando < 460): type = "verb"; break;
-    case (rando < 530): type = "adj"; break;
-    case (rando < 580): type = "adv"; break;
-    case (rando < 670): type = "pron"; break;
-    case (rando < 790): type = "prep"; break;
+    case (rando < 340): type = "noun"; break;
+    case (rando < 530): type = "verb"; break;
+    case (rando < 635): type = "adj"; break;
+    case (rando < 700): type = "adv"; break;
+    case (rando < 770): type = "pron"; break;
+    case (rando < 890): type = "prep"; break;
     case (rando < 980): type = "conj"; break;
     default: type = "intrj";
   }

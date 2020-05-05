@@ -67,7 +67,7 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
         <FacebookShareButton children={<FacebookIcon size={32} round={true} />} url={gameURL} quote={comment} hashtag="ClickToPlay" />
         <TelegramShareButton children={<TelegramIcon size={32} round={true} />} url={gameURL} title="grumbly.games" />
         <WeiboShareButton children={<WeiboIcon size={32} round={true} />} url={gameURL} title="grumbly.games" image={imageURL} />
-        <TwitterShareButton children={<TwitterIcon size={32} round={true} />} url={gameURL} title="grumbly.games" hashtags={["ClickToPlay", "GrumblyGames"]} />
+        <TwitterShareButton children={<TwitterIcon size={32} round={true} />} url={gameURL} hashtags={["ClickToPlay"]} />
         <WhatsappShareButton children={<WhatsappIcon size={32} round={true} />} url={gameURL} title="grumbly.games" />
         <div className='skype-share' data-href={gameURL} data-lang='en-US' data-text='' data-style='' >
           <img className="skypeShareLogo" src='/s_logo.svg' width="18px" height="18px" />
@@ -277,7 +277,7 @@ export default Sharing;
       <textarea id="my_comment"
         value={comment} onChange={() => changeComment(comment)}
         name="my_comment" rows="4" />
-        
+
         .sharing_popup textarea {
           box-sizing: border-box;
           font: inherit;

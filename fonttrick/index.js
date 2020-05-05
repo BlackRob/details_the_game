@@ -5,13 +5,13 @@ module.exports = function fonttrick() {
   const { COPYFILE_EXCL } = fs.constants;
   const { COPYFILE_FICLONE } = fs.constants;
 
-  //const pathToRoboto = path.join(process.cwd(), 'node_modules/registerfonttrick/Roboto-Regular.ttf')
+  //const pathToRoboto = path.join(process.cwd(), 'node_modules/fonttrick/Roboto-Regular.ttf')
 
   try {
     if (fs.existsSync('/tmp/Roboto-Regular.ttf')) {
       console.log("Roboto lives in tmp!!!!")
     } else {
-      fs.copyFileSync(RobotoR, '/tmp/Roboto-Regular.ttf', COPYFILE_FICLONE | COPYFILE_EXCL)
+      //fs.copyFileSync(RobotoR, '/tmp/Roboto-Regular.ttf', COPYFILE_FICLONE | COPYFILE_EXCL)
     }
   } catch (err) {
     console.error(err)
