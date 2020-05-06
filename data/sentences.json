@@ -61,68 +61,63 @@
       },
       {
         "id": 4,
-        "type": "adj",
-        "word": "gay"
-      },
-      {
-        "id": 5,
         "type": "noun",
         "word": "wizard"
       },
       {
-        "id": 6,
+        "id": 5,
         "type": "adv",
         "word": "quickly"
       },
       {
-        "id": 7,
+        "id": 6,
         "type": "verb",
         "word": "cast"
       },
       {
-        "id": 8,
+        "id": 7,
         "type": "adj",
         "word": "a"
       },
       {
-        "id": 9,
+        "id": 8,
         "type": "noun",
         "word": "spell"
       },
       {
-        "id": 10,
+        "id": 9,
         "type": "prep",
         "word": "on"
       },
       {
-        "id": 11,
+        "id": 10,
         "type": "pron",
         "word": "his"
       },
       {
-        "id": 12,
+        "id": 11,
         "type": "noun",
         "word": "wife"
       },
       {
-        "id": 13,
+        "id": 12,
         "type": "conj",
         "word": "and"
       },
       {
-        "id": 14,
+        "id": 13,
         "type": "pron",
         "word": "her"
       },
       {
-        "id": 15,
+        "id": 14,
         "type": "noun",
         "word": "sister"
       },
       {
-        "id": 16,
-        "type": "p_prd",
-        "word": "."
+        "id": 15,
+        "type": "p_exc",
+        "word": "!"
       }
     ],
     "cards": []
@@ -762,7 +757,7 @@
       {
         "id": 4,
         "type": "p_Lqt",
-        "word": "\""
+        "word": "“"
       },
       {
         "id": 5,
@@ -777,7 +772,7 @@
       {
         "id": 7,
         "type": "p_Rqt",
-        "word": "\""
+        "word": "”"
       }
     ],
     "cards": []
@@ -805,8 +800,149 @@
       },
       {
         "id": 3,
-        "type": "noun",
+        "type": "adj",
         "word": "delicious"
+      },
+      {
+        "id": 4,
+        "type": "p_prd",
+        "word": "."
+      }
+    ],
+    "cards": []
+  },
+  "_1012": {
+    "header": {
+      "snum": 1012,
+      "stype": "svo"
+    },
+    "sentence": [
+      {
+        "id": 0,
+        "type": "head",
+        "word": ""
+      },
+      {
+        "id": 1,
+        "type": "noun",
+        "word": "Monkeys"
+      },
+      {
+        "id": 2,
+        "type": "verb",
+        "word": "want"
+      },
+      {
+        "id": 3,
+        "type": "noun",
+        "word": "pancakes"
+      },
+      {
+        "id": 4,
+        "type": "p_prd",
+        "word": "."
+      }
+    ],
+    "cards": []
+  },
+  "_1013": {
+    "header": {
+      "snum": 1013,
+      "stype": "sv"
+    },
+    "sentence": [
+      {
+        "id": 0,
+        "type": "head",
+        "word": ""
+      },
+      {
+        "id": 1,
+        "type": "adj",
+        "word": "My"
+      },
+      {
+        "id": 2,
+        "type": "noun",
+        "word": "enemies"
+      },
+      {
+        "id": 3,
+        "type": "verb",
+        "word": "were"
+      },
+      {
+        "id": 4,
+        "type": "verb",
+        "word": "laughing"
+      },
+      {
+        "id": 5,
+        "type": "p_prd",
+        "word": "."
+      }
+    ],
+    "cards": []
+  },
+  "_1014": {
+    "header": {
+      "snum": 1014,
+      "stype": "sv"
+    },
+    "sentence": [
+      {
+        "id": 0,
+        "type": "head",
+        "word": ""
+      },
+      {
+        "id": 1,
+        "type": "noun",
+        "word": "Crows"
+      },
+      {
+        "id": 2,
+        "type": "verb",
+        "word": "are"
+      },
+      {
+        "id": 3,
+        "type": "adj",
+        "word": "funny"
+      },
+      {
+        "id": 4,
+        "type": "p_prd",
+        "word": "."
+      }
+    ],
+    "cards": []
+  },
+  "_1015": {
+    "header": {
+      "snum": 1015,
+      "stype": "sv"
+    },
+    "sentence": [
+      {
+        "id": 0,
+        "type": "head",
+        "word": ""
+      },
+      {
+        "id": 1,
+        "type": "pron",
+        "word": "I"
+      },
+      {
+        "id": 2,
+        "type": "verb",
+        "word": "have"
+      },
+      {
+        "id": 3,
+        "type": "verb",
+        "word": "travelled"
       },
       {
         "id": 4,

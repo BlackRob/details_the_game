@@ -8,7 +8,7 @@ import path from 'path'
 export const drawCanvas = ({ sentence, cards, width, height, fontPath }) => {
   // default canvas size
   let cw = 1200 // canvas width
-  let ch = 630 // canvas height
+  let ch = 628 // canvas height
   // if given different canvas size, update
   if (width && !height) {
     cw = width
@@ -334,7 +334,7 @@ const typeColor = (type) => {
       color = "pink"
       break;
     case (type === "verb"):
-      color = "#CE3175"
+      color = "#D85091"
       break;
     case (type === "intrj"):
       color = "orange"

@@ -19,7 +19,6 @@ const Game = () => (
       <meta name="twitter:site" content="@GrumblyGames" />
       <meta name="twitter:title" content="click to play details" />
       <meta name="twitter:description" content="it's a game where you make sentences longer" />
-      <meta name="twitter:creator" content="@GrumblyGames" />
       <meta name="twitter:image" content="https://grumbly.games/default_thumbnail.png" />
       <meta name="twitter:domain" content="https://grumbly.games/details" />
     </Head>
@@ -37,7 +36,7 @@ const Game = () => (
           --adj: lightskyblue;
           --noun: dodgerblue;
           --adv: pink;/* #BC70A4; pink; */
-          --verb: #CE3175;/* #CE3175; salmon; */
+          --verb: #D85091;/* #CE3175; salmon; */
           --intrj: orange; /* #F2552C; orange; */
           --prep: lime;  /* #A6E22E */
           --pron: fuchsia;

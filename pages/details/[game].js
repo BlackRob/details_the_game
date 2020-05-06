@@ -11,7 +11,7 @@ const Game = ({ returnString }) => (
     <SuperHead gameState={returnString} />
     <div className="gameContent">
       <DrawHeader />
-      <DrawGame gameState={returnString} />
+      <DrawGame gameState={Buffer.from(returnString, 'base64').toString('utf8')} />
     </div>
     <style jsx global>
       {`
@@ -23,7 +23,7 @@ const Game = ({ returnString }) => (
           --adj: lightskyblue;
           --noun: dodgerblue;
           --adv: pink;/* #BC70A4; pink; */
-          --verb: #CE3175;/* #CE3175; salmon; */
+          --verb: #D85091;/* #CE3175; salmon; */
           --intrj: orange; /* #F2552C; orange; */
           --prep: lime;  /* #A6E22E */
           --pron: fuchsia;
@@ -74,32 +74,44 @@ const Game = ({ returnString }) => (
 // This gets called on every request
 export async function getServerSideProps(context) {
   let returnString = ""
-  const errorSentence = "1xThe~2ysent~3zlink~4yis~5wnot~6xa~7xvalid~8zsentence~9f~~"
+  // base64 encoded error sentence
+  const errorString = "1xThe~2ysent~3zlink~4yis~5wnot~6xa~7xvalid~8zsentence~9f~~"
+  const bufES = Buffer.from(errorString, 'utf8')
+  const encES = bufES.toString('base64')
+  // string in page req is already base64 encoded, or a short integer
+  const encS = context.query.game
+  const bufS = Buffer.from(encS, 'base64')
+  const reqString = bufS.toString('utf8')
 
   // page requested ("game") may be a number corresponding to 
   // a particular starter sentence or reflect a game state
-  // or be nothing
+  // or be garbage: first checck, is it a number?
   if (isNaN(context.query.game)) {
     // most likely case is the "game" requested is from
     // someone clicking a shared link, which means the link
     // contains the full state of a game _or_
     // it contains nonsense; this function handles both cases
-    if (stringIsValid({ sentenceString: context.query.game })) {
-      returnString = context.query.game
+    if (stringIsValid({ sentenceString: reqString })) {
+      console.log("string is valid", reqString)
+      returnString = encS
     } else {
-      returnString = errorSentence
+      console.log("string is invalid")
+      returnString = encES
     }
+    // following is for numbers, which aren't encoded
   } else if (sentences.hasOwnProperty(`_${context.query.game}`)) {
     // if it is a number we check if that number matches a 
     // known starter sentence and respond appropriately
-    returnString = gameStateToStr({
+    returnString = Buffer.from(gameStateToStr({
       sentence: sentences[`_${context.query.game}`].sentence,
       cards: sentences[`_${context.query.game}`].cards
-    })
+    }), 'utf8').toString('base64')
+    console.log("return string", returnString)
+    console.log(Buffer.from(returnString, 'base64').toString('utf8'))
   } else {
     // if the number requested doesn't exist, respond with sentence 4
     // which states that the requested sentence doesn't exist
-    returnString = errorSentence
+    returnString = encES
   }
 
   // Pass data to the page via props

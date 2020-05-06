@@ -64,7 +64,6 @@ export default ({ ...props }) => (
         setShowSharing={props.setShowSharing}
         workingCards={props.workingCards} />
     </div>
-    <Sharing />
     <style jsx>{`
       .button_row {
         grid-area: top;

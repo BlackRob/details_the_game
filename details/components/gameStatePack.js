@@ -87,14 +87,14 @@ export const strToGameState = ({ canvasURLstring }) => {
     "p_semi": ";",
     "p_cln": ":",
     "p_parL": "(",
-    "p_dbldashL": "--",
+    "p_dbldashL": "—",
     "p_prd": ".",
     "p_exc": "!",
     "p_parR": ")",
     "p_qm": "?",
-    "p_dbldashR": "--",
-    "p_Lqt": '"',
-    "p_Rqt": '"'
+    "p_dbldashR": "—",
+    "p_Lqt": '“',
+    "p_Rqt": '”'
   }
 
   // we skip the "head" element when we encode a sentence, so we

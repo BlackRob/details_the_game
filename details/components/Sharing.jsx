@@ -25,35 +25,30 @@ const Sharing = ({ sentence, cards, showSharing, setShowSharing, workingCards })
 
 const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
   // have to run a script to get the skype button
-  //const skypeButtonRef = React.createRef()
-  //useEffect(() => {
-  (function (r, d, s) {
-    r.loadSkypeWebSdkAsync = r.loadSkypeWebSdkAsync || function (p) {
-      var js, sjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(p.id)) { return; }
-      js = d.createElement(s);
-      js.id = p.id;
-      js.src = p.scriptToLoad;
-      js.onload = p.callback
-      sjs.parentNode.insertBefore(js, sjs);
-    };
-    var p = {
-      scriptToLoad: 'https://swx.cdn.skype.com/shared/v/latest/skypewebsdk.js',
-      id: 'skype_web_sdk'
-    };
-    r.loadSkypeWebSdkAsync(p);
-  })(window, document, 'script')
+  useEffect(() => {
+    (function (r, d, s) {
+      r.loadSkypeWebSdkAsync = r.loadSkypeWebSdkAsync || function (p) {
+        var js, sjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(p.id)) { return; }
+        js = d.createElement(s);
+        js.id = p.id;
+        js.src = p.scriptToLoad;
+        js.onload = p.callback
+        sjs.parentNode.insertBefore(js, sjs);
+      };
+      var p = {
+        scriptToLoad: 'https://swx.cdn.skype.com/shared/v/latest/skypewebsdk.js',
+        id: 'skype_web_sdk'
+      };
+      r.loadSkypeWebSdkAsync(p);
+    })(window, document, 'script')
+  }, [])
 
-  const canvasDataURL = drawCanvas({ sentence, cards, workingCards })
-  const canvasURLstring = gameStateToStr({ sentence, cards })
+  const canvasDataURL = drawCanvas({ sentence, cards })
+  const canvasURLstring = Buffer.from(gameStateToStr({ sentence, cards }), 'utf8').toString('base64')
   const gameURL = `https://grumbly.games/details/${canvasURLstring}`
   const imageURL = `https://grumbly.games/api/${canvasURLstring}`
 
-  const [comment, changeComment] = useState("I'm playing details!");
-  //console.log(cards)
-  console.log(canvasURLstring)
-  const gameFromString = JSON.parse(strToGameState({ canvasURLstring: canvasURLstring }))
-  // console.log(gameFromString)
   return <div className="z2">
     <div className="sharing_popup">
       <div className="z2_title">
@@ -63,8 +58,8 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
       <img src={canvasDataURL} />
 
       <div className="sharing_button_row">
-        <EmailShareButton children={<EmailIcon size={32} round={true} />} url={gameURL} subject="I'm playing details" body={comment} />
-        <FacebookShareButton children={<FacebookIcon size={32} round={true} />} url={gameURL} quote={comment} hashtag="ClickToPlay" />
+        <EmailShareButton children={<EmailIcon size={32} round={true} />} url={gameURL} subject="I'm playing details" />
+        <FacebookShareButton children={<FacebookIcon size={32} round={true} />} url={gameURL} hashtag="ClickToPlay" />
         <TelegramShareButton children={<TelegramIcon size={32} round={true} />} url={gameURL} title="grumbly.games" />
         <WeiboShareButton children={<WeiboIcon size={32} round={true} />} url={gameURL} title="grumbly.games" image={imageURL} />
         <TwitterShareButton children={<TwitterIcon size={32} round={true} />} url={gameURL} hashtags={["ClickToPlay"]} />
