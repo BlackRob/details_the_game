@@ -20,8 +20,8 @@ const Game = () => (
       <meta name="twitter:title" content="click to play details" />
       <meta name="twitter:description" content="it's a game where you make sentences longer" />
       <meta name="twitter:creator" content="@GrumblyGames" />
-      <meta name="twitter:image" content={`https://grumbly.games/api/${gameState}`} />
-      <meta name="twitter:domain" content={`https://grumbly.games/details/${gameState}`} />
+      <meta name="twitter:image" content="https://grumbly.games/default_thumbnail.png" />
+      <meta name="twitter:domain" content="https://grumbly.games/details" />
     </Head>
     <div className="gameContent">
       <DrawHeader />
