@@ -18,7 +18,7 @@ export default (req, res) => {      // { query: { img } }
 
   // we need to remove the initial "/api/" before we can use the image string
   const img = req.url.split('/')[2]
-  console.log(img)
+  console.log("grumble", img)
   const pathToRoboto = path.join(process.cwd(), 'node_modules/fonttrick/Roboto-Regular.ttf')
   let output = null
 

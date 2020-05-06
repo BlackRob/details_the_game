@@ -16,9 +16,12 @@ const Game = () => (
       <meta property="og:title" content="click the image to play the game" />
       <meta property="og:description" content="details is a grammar game where you add words to make a sentence longer" />
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@GrumblyGames" />
       <meta name="twitter:title" content="click to play details" />
       <meta name="twitter:description" content="it's a game where you make sentences longer" />
-      <meta name="twitter:image" content="https://grumbly.games/default_thumbnail.png" />
+      <meta name="twitter:creator" content="@GrumblyGames" />
+      <meta name="twitter:image" content={`https://grumbly.games/api/${gameState}`} />
+      <meta name="twitter:domain" content={`https://grumbly.games/details/${gameState}`} />
     </Head>
     <div className="gameContent">
       <DrawHeader />
