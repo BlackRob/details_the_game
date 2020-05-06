@@ -11,7 +11,7 @@ module.exports = function fonttrick() {
     if (fs.existsSync('/tmp/Roboto-Regular.ttf')) {
       console.log("Roboto lives in tmp!!!!")
     } else {
-      //fs.copyFileSync(RobotoR, '/tmp/Roboto-Regular.ttf', COPYFILE_FICLONE | COPYFILE_EXCL)
+      fs.copyFileSync(RobotoR, '/tmp/Roboto-Regular.ttf', COPYFILE_FICLONE | COPYFILE_EXCL)
     }
   } catch (err) {
     console.error(err)

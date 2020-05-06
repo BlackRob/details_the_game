@@ -19,7 +19,7 @@ export default (req, res) => {      // { query: { img } }
   // we need to remove the initial "/api/" before we can use the image string
   const img = req.url.split('/')[2]
   console.log("grumble", img)
-  const pathToRoboto = path.join(process.cwd(), 'node_modules/fonttrick/Roboto-Regular.ttf')
+  //const pathToRoboto = path.join(process.cwd(), 'node_modules/fonttrick/Roboto-Regular.ttf')
   let output = null
 
   if (stringIsValid({ sentenceString: img })) {
@@ -29,7 +29,7 @@ export default (req, res) => {      // { query: { img } }
       cards: data.cards,
       width: imageWidth,
       height: imageHeight,
-      fontPath: pathToRoboto  // fonttrick()
+      fontPath: fonttrick()
     })
   } else {
     console.log(img)
@@ -39,7 +39,7 @@ export default (req, res) => {      // { query: { img } }
       cards: data.cards,
       width: imageWidth,
       height: imageHeight,
-      fontPath: pathToRoboto   //fonttrick()
+      fontPath: fonttrick()
     })
   }
 
