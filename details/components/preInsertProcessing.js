@@ -8,7 +8,7 @@ export const preInsertProcessing = (cards, workingCards, maxCardId) => {
   let newCardId = maxCardId + 1;
 
   // "workingCards" may have more than one card, so we process them in order
-  workingCards.forEach((element, index) => {
+  workingCards.forEach((element) => {
     let thisCard = getCardById(cards, element);
     // get word and remove leading/trailing whitespace
     let werd = thisCard.word.trim();
@@ -24,11 +24,12 @@ export const preInsertProcessing = (cards, workingCards, maxCardId) => {
       // if we did remove punctuation, we must update werd
       werd = punctoo.newWerd;
     }
-    // check if word is a noun and if it has an article
-    if (thisCard.type === "noun") {
+    // check for articles, which can go in front of nouns, (the house)
+    // adjectives (the yellow house), verbs (the burning yellow house),
+    // or adverbs (the rapidly burning yellow house) 
+    if (thisCard.type === "noun" || thisCard.type === "adj" || thisCard.type === "verb" || thisCard.type === "adv") {
       let hasArticle = checkForArticle(werd);
       if (hasArticle) {
-        //let article = getArticle(werd);
         toBeInserted.push({
           id: newCardId++,
           type: "adj",
@@ -37,15 +38,19 @@ export const preInsertProcessing = (cards, workingCards, maxCardId) => {
         werd = removeArticle(werd);
       }
     }
-    // if werd is a verb check if it has "to" or helping verbs
-    if (thisCard.type === "verb") {
-      // currently we just break verbs up based on spaces
-      // which, if the verb is correct, should separate out all
-      // the "to"s, modals and auxiliary verbs, although we
-      // won't know which is which
+    // sometimes a word on a card has spaces in it; this can be 
+    // a mistake or intentional: either way, we split the "word"
+    // into components based on spaces and add them as
+    // individual words of the same type;
+    // this is important for verbs (which might have "to" or 
+    // auxuliary verbs), but also some other words have spaces
+    // in them, like the pronoun "no one", or the nouns "real estate",
+    // "swimming pool" or "post office"
+    // any word with spaces on a card gets broken into separate words!
+    if (thisCard.type) {
       let splitWerd = werd.split(/\s+/);
       if (splitWerd.length > 0) {
-        splitWerd.forEach((subWerd, index) => {
+        splitWerd.forEach((x, index) => {
           // splitWerd should now be an array of all the components
           // of the verb, which should be any aux verbs then the main verb itself
           // we need to keep the main verb for the final punc check, but here we
@@ -53,35 +58,16 @@ export const preInsertProcessing = (cards, workingCards, maxCardId) => {
           if (index !== splitWerd.length - 1) {
             toBeInserted.push({
               id: newCardId++,
-              type: "verb",
-              word: splitWerd[index],
+              type: thisCard.type,
+              word: x,
             })
           }
         })
         werd = splitWerd[splitWerd.length - 1];
       }
-      /* // check if "to" infinitive
-      if (checkForTo(werd)) {
-        toBeInserted.push({
-          id: uuid.v4(),
-          type: "verb",
-          word: "to",
-        })
-        werd = werd.slice(2, end).trim();
-      }
-      // remove any modals
-      let modalObj = extractModals(werd);
-      if (modalObj.modal.length > 0) {
-        toBeInserted.push({
-          id: uuid.v4(),
-          type: "verb",
-          word: modalObj.modal,
-        })
-        werd = modalObj.restOfVerb;
-      } */
     }
-    // check if last char is punctuation; if not push werd then a space
-    // char, if yes depunc werd, then push it, then push punctuation
+    // check if last char is punctuation; if not push werd,
+    // if yes depunc werd, then push it, then push punctuation
     punctoo = puncEndCheck(werd);
     if (punctoo.type === "nopunc") {
       toBeInserted.push({
@@ -227,6 +213,90 @@ const checkForArticle = (werd) => {
   return regex.test(werd);
 }
 
+// this function will return the article as written,
+// possible capitalization anomalies are not "fixed";
+// we also know before this function gets called that
+// werd matches at least one of these patterns, so we only
+// have to test two
+const getArticle = (werd) => {
+  const theR = /^(the )/i;
+  const anR = /^(an )/i;
+  let article = "";
+
+  if (theR.test(werd)) {
+    article = werd.slice(0, 3);
+  } else if (anR.test(werd)) {
+    article = werd.slice(0, 2);
+  } else {
+    article = werd.slice(0, 1);
+  }
+
+  return article;
+}
+
+// this function will return the word without the article;
+// we also know before this function gets called that
+// werd matches at least one of these patterns, so we only
+// have to test two
+const removeArticle = (werd) => {
+  const theR = /^(the )/i;
+  const anR = /^(an )/i;
+  let bareWord = "";
+
+  if (theR.test(werd)) {
+    bareWord = werd.slice(3);
+  } else if (anR.test(werd)) {
+    bareWord = werd.slice(2);
+  } else {
+    bareWord = werd.slice(1);
+  }
+
+  return bareWord.trim();
+}
+
+// not using this code but might, so I'm saving it: 
+
+//
+/* // check if "to" infinitive
+if (checkForTo(werd)) {
+  toBeInserted.push({
+    id: uuid.v4(),
+    type: "verb",
+    word: "to",
+  })
+  werd = werd.slice(2, end).trim();
+}
+// remove any modals
+let modalObj = extractModals(werd);
+if (modalObj.modal.length > 0) {
+  toBeInserted.push({
+    id: uuid.v4(),
+    type: "verb",
+    word: modalObj.modal,
+  })
+  werd = modalObj.restOfVerb;
+}
+
+// check if "to" infinitive
+if (checkForTo(werd)) {
+  toBeInserted.push({
+    id: uuid.v4(),
+    type: "verb",
+    word: "to",
+  })
+  werd = werd.slice(2, end).trim();
+}
+// remove any modals
+let modalObj = extractModals(werd);
+if (modalObj.modal.length > 0) {
+  toBeInserted.push({
+    id: uuid.v4(),
+    type: "verb",
+    word: modalObj.modal,
+  })
+  werd = modalObj.restOfVerb;
+}
+
 // just a test; if a verb is an infintive with "to"
 const checkForTo = (werd) => {
   const regex = /^(to)/i;
@@ -270,48 +340,11 @@ const extractModals = (werd) => {
   return modalObj;
 }
 
-/* const checkForAuxVerbs = (werd) => {
+// not completed
+const checkForAuxVerbs = (werd) => {
   const regex = /^(the |a |an )/i;
   return regex.test(werd);
-} */
-
-// this function will return the article as written,
-// possible capitalization anomalies are not "fixed";
-// we also know before this function gets called that
-// werd matches at least one of these patterns, so we only
-// have to test two
-const getArticle = (werd) => {
-  const theR = /^(the )/i;
-  const anR = /^(an )/i;
-  let article = "";
-
-  if (theR.test(werd)) {
-    article = werd.slice(0, 3);
-  } else if (anR.test(werd)) {
-    article = werd.slice(0, 2);
-  } else {
-    article = werd.slice(0, 1);
-  }
-
-  return article;
 }
+*/
 
-// this function will return the word without the article;
-// we also know before this function gets called that
-// werd matches at least one of these patterns, so we only
-// have to test two
-const removeArticle = (werd) => {
-  const theR = /^(the )/i;
-  const anR = /^(an )/i;
-  let bareWord = "";
 
-  if (theR.test(werd)) {
-    bareWord = werd.slice(3);
-  } else if (anR.test(werd)) {
-    bareWord = werd.slice(2);
-  } else {
-    bareWord = werd.slice(1);
-  }
-
-  return bareWord.trim();
-}

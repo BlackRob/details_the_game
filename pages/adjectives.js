@@ -16,15 +16,12 @@ const ThisPage = () => (
     <SiteHeader />
     <main>
       <div className="intro">
-        <h2 className="title">
-          Adjectives
-        </h2>
+        <h2 className="title">Adjectives</h2>
         <p className="description">
           Adjectives are used before nouns or pronouns.
           People say adjectives "modify" nouns, but that just means they give
-          extra information about the word they're attached to.
-        </p>
-        <YouTubeVid vidID="V1d4r9awjKE" caption="placeholder video" />
+          extra information about the word they're attached to.</p>
+        <YouTubeVid vidID="kb7NS16W1BA" caption="placeholder video" />
       </div>
       <div className="content">
         <Fold title={<h3>How to use adjectives in details</h3>} content={<>
