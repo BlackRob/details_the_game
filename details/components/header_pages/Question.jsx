@@ -77,7 +77,12 @@ const QuestionPage = ({ showVal, setShow }) => {
       }
       .typeButtons button {
         font-size: 1.15em;
+        border: 1.5px solid black;
         width: 100%;
+        border-radius: 0.5vmin;
+        font-weight: 300;
+        color: black;
+        transition: all 0.2s;
       }
       .typeButtons button:hover,
       .typeButtons button:focus,
@@ -87,13 +92,6 @@ const QuestionPage = ({ showVal, setShow }) => {
         color: black;
       }
       button {
-        display: inline-block;
-        border: 1.5px solid black;
-        border-radius: 0.5vmin;
-        text-decoration: none;
-        font-weight: 300;
-        color: black;
-        transition: all 0.2s;
       }
       button:hover {
         cursor: pointer;
