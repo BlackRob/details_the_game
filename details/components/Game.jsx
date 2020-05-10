@@ -11,19 +11,19 @@ class Game extends React.Component {
     super(props);
     this.state = {
       active: false,            // game is currently being played
-      placing: false,           // display is showing where a word can be inserted
-      showSharing: false,       // to show the sharing overlay or not
-      sentence: [],             // the current sentence
-      oldSentence: [],          // previous sentence
       cards: [],                // all word-types cards player has
-      workingCards: [],         // word-type cards in the working row
+      gameMode: "default",      // default mode means new game chooses random sentence
       lastCards: [],            // after a word gets inserted, old card state goes here (for undo)
+      oldSentence: [],          // previous sentence
+      placing: false,           // display is showing where a word can be inserted
+      sentence: [],             // the current sentence
+      sentenceUpdateCount: 0,   // to keep track of number of moves
+      showSharing: false,       // to show the sharing overlay or not
+      totalCardCount: 0,        // to track cards played
       undoable: false,          // if true you can undo the most recent move
       undoSecondsLeft: 0,       // seconds left before undo turns false again
       winner: false,            // set when the game is won
-      sentenceUpdateCount: 0,   // to keep track of number of moves
-      totalCardCount: 0,        // to track cards played
-      gameMode: "default"       // default mode means new game chooses random sentence
+      workingCards: [],         // word-type cards in the working row
     };
 
     this.updateSentence = this.updateSentence.bind(this); // adds new sentence to history
@@ -45,12 +45,51 @@ class Game extends React.Component {
   componentDidMount() {
     const defaultSentence = "1sHello~2a~3zWorld~4g~~"
     let temp = {}
-    let gameActive = false
+
+    // check if we were already playing agame, and just clicked away
+    // from it; we don't want to force a player to start from
+    // scratch just because they click away to look up a "conjunction"
+    //if (sessionStorage.getItem("currentGame") !== null) {
+    // game state is saved to session storage as JSON
+    //  temp = JSON.parse(sessionStorage.getItem("currentGame"))
+    //sessionStorage.setItem("poops", "2")
+    //  console.log(temp)
+    //} else 
     if (!this.props.hasOwnProperty("gameState")) {
+      // we were not currently playing a game, this is a new one
+      // gameState only exists when game is started from link
       temp = JSON.parse(strToGameState({ canvasURLstring: defaultSentence }))
+      // URL string only contains current cards and sentence, 
+      // everthing else starts from scratch 
+      temp.active = false
+      temp.gameMode = "default"
+      temp.lastCards = []
+      temp.oldSentence = []
+      temp.placing = false
+      temp.sentenceUpdateCount = 0
+      temp.showSharing = false
+      temp.totalCardCount = 0
+      temp.undoable = false
+      temp.undoSecondsLeft = 0
+      temp.winner = false
+      temp.workingCards = []
+      sessionStorage.setItem("currentGame", JSON.stringify(temp))
     } else {
+      // if it doesn't exist, use default sentence
       temp = JSON.parse(strToGameState({ canvasURLstring: this.props.gameState }))
-      gameActive = true
+      temp.active = temp.cards.length > 0
+      temp.gameMode = "default"
+      temp.lastCards = []
+      temp.oldSentence = []
+      temp.placing = false
+      temp.sentenceUpdateCount = 0
+      temp.showSharing = false
+      temp.totalCardCount = temp.cards.length
+      temp.undoable = false
+      temp.undoSecondsLeft = 0
+      temp.winner = false
+      temp.workingCards = []
+      sessionStorage.setItem("currentGame", JSON.stringify(temp))
     }
 
     // sometimes the game coming from server has cards, sometimes not
@@ -62,19 +101,26 @@ class Game extends React.Component {
     ////}
 
     this.setState({
-      oldSentence: [],
-      lastCards: [],
-      active: gameActive,
-      winner: false,
-      sentenceUpdateCount: 0,
-      sentence: temp.sentence,
+      active: temp.active,
       cards: temp.cards,
-      totalCardCount: temp.cards.length,
+      gameMode: temp.gameMode,
+      lastCards: temp.lastCards,
+      oldSentence: temp.oldSentence,
+      placing: temp.placing,
+      sentence: temp.sentence,
+      sentenceUpdateCount: temp.sentenceUpdateCount,
+      showSharing: temp.showSharing,
+      totalCardCount: temp.totalCardCount,
+      undoable: temp.undoable,
+      undoSecondsLeft: temp.undoSecondsLeft,
+      winner: temp.winner,
+      workingCards: temp.workingCards,
     })
   }
 
   updateSentence(longerSentence) {
     this.setState({ sentence: longerSentence, oldSentence: this.state.sentence });
+    sessionStorage.setItem("currentGame", JSON.stringify(this.state))
   }
 
   // after placing a words in the sentence, the user has 7 seconds to
@@ -300,5 +346,8 @@ const chooseNewGame = (sentences, mode) => {
   return returnValue;
 }
 
+const writeSessionStorage = (gameState) => {
+  sessionStorage.setItem("currentGame", JSON.stringify(gameState))
+}
 
 export default Game;
