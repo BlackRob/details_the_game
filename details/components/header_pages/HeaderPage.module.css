@@ -40,7 +40,6 @@
         text-decoration: none;
         border: none;
         box-sizing: border-box;
-        background-color: inherit;
         padding: none;
         font-weight: 300;
         font-size: 1em;
@@ -48,6 +47,7 @@
         transition: all 0.2s;
         width: auto;
       }
+
 
       .header_punctuation button:visited {
         color: var(--active_outline);
