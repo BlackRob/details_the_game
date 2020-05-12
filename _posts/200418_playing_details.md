@@ -21,6 +21,10 @@ watch this introductory video:
 
 To summarize the main rules:
 - Articles (a, an, the) can be added as needed before nouns or adjectives
+- Auxiliary verbs are free: if you want to add "have eaten" to a sentence, 
+that counts as one verb, and you write it on one verb card
+- The adverb "not" is free: if you want to write "do not", you can write it 
+on a single verb card
 - Add punctuation on the card where you need it (either before or after a word)
 - You can't change anything that's written
 - details doesn't check grammar or spelling

@@ -70,7 +70,7 @@ const ThisPage = () => (
           <p className="example">The <Adj x='Russian' /> <Conj x='and' /> <Adj x="the" /> <Noun x='bears' /> were fighting.</p>
           <p>That's a clever and creative way to use a conjunction and an adjective at
           the same time, and we shouldn't let some technicality (the color of "Russian"
-            indicates it's an adjecive, but now it's functioning as a noun) stop us.</p>
+            indicates it's an adjective, but now it's functioning as a noun) stop us.</p>
         </>} />
       </div>
       <div className="sidebar">

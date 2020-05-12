@@ -363,6 +363,130 @@
     ],
     "cards": []
   },
+  "_6": {
+    "header": {
+      "snum": 6,
+      "stype": "info"
+    },
+    "sentence": [
+      {
+        "id": 0,
+        "type": "head",
+        "word": ""
+      },
+      {
+        "id": 1,
+        "type": "verb",
+        "word": "To"
+      },
+      {
+        "id": 2,
+        "type": "verb",
+        "word": "start"
+      },
+      {
+        "id": 3,
+        "type": "p_com",
+        "word": ","
+      },
+      {
+        "id": 4,
+        "type": "verb",
+        "word": "click"
+      },
+      {
+        "id": 5,
+        "type": "adj",
+        "word": "the"
+      },
+      {
+        "id": 6,
+        "type": "p_Lqt",
+        "word": "\""
+      },
+      {
+        "id": 7,
+        "type": "adj",
+        "word": "new"
+      },
+      {
+        "id": 8,
+        "type": "noun",
+        "word": "game"
+      },
+      {
+        "id": 9,
+        "type": "p_Rqt",
+        "word": "\""
+      },
+      {
+        "id": 10,
+        "type": "noun",
+        "word": "button"
+      },
+      {
+        "id": 11,
+        "type": "p_com",
+        "word": ","
+      },
+      {
+        "id": 12,
+        "type": "conj",
+        "word": "or"
+      },
+      {
+        "id": 13,
+        "type": "verb",
+        "word": "click"
+      },
+      {
+        "id": 14,
+        "type": "adj",
+        "word": "the"
+      },
+      {
+        "id": 15,
+        "type": "noun",
+        "word": "question"
+      },
+      {
+        "id": 16,
+        "type": "noun",
+        "word": "mark"
+      },
+      {
+        "id": 17,
+        "type": "verb",
+        "word": "to"
+      },
+      {
+        "id": 18,
+        "type": "verb",
+        "word": "learn"
+      },
+      {
+        "id": 19,
+        "type": "adv",
+        "word": "how"
+      },
+      {
+        "id": 20,
+        "type": "verb",
+        "word": "to"
+      },
+      {
+        "id": 21,
+        "type": "verb",
+        "word": "play"
+      },
+      {
+        "id": 22,
+        "type": "p_prd",
+        "word": "."
+      }
+    ],
+    "cards": []
+  },
   "_1000": {
     "header": {
       "snum": 1000,
