@@ -5,7 +5,7 @@ import TypeButtonDiv from '../components/typeButtonDiv'
 import YouTubeVid from '../components/youTubeVid'
 import Fold from '../components/fold'
 import MyHeadStuff from '../components/myHeadStuff'
-import { Adv } from '../components/elementAliases'
+import { Adv, Verb, Adj } from '../components/elementAliases'
 
 const ThisPage = () => (
   <div className="container">
@@ -21,9 +21,7 @@ const ThisPage = () => (
         <p className="description">
           Adverbs are words that modify verbs, adjectives and other adverbs.
           We use adverbs to express the relative scale / intensity / quality
-          of something. Adverbs answer the question, "how _______?"
-          Example:
-        </p>
+          of something. Example: </p>
         <p className="example">My cat is evil.</p>
         <p>"<i>How</i> evil is your cat?"</p>
         <p className="example">My cat is <Adv x="very" /> evil.</p>
@@ -34,8 +32,9 @@ const ThisPage = () => (
           <p>In the real world, adverbs are extremely common in spoken speech,
           but in writing it is considered bad style to use too many of them.
           When you write, you should try to avoid unnecessary adverbs.
-          But when people talk, they use them constantly!<sup>1</sup>
-          </p>
+          But when people talk, they use them constantly!<sup>1</sup>&nbsp;
+          In details, you can use an adverb on it's own or together with
+          the word it's modifying.</p>
           <p className="example"><Adv x='Even' /> my brother <Adv x="very rarely" /> puts&nbsp;
            <Adv x='so' /> much sugar in his tea.</p>
           <p>In the previous example, "Even" adds emphasis to "my" (a possessive
@@ -44,14 +43,46 @@ const ThisPage = () => (
             "so" gives a sense of scale to the adjective "much".
           </p>
         </>} />
-        <Fold title={<h3>Adverbs with verbs</h3>} content={<>
-          <p>The most basic use of adjectives is to modify verbs, to
-          describe how (or in what manner) the action of the verb happened.</p>
-          <p className="example">The doctor  <Adv x="slowly" /> drank his coffee.</p>
+        <Fold title={<h3>The five types of adverbs</h3>} content={<>
+          <p>Adverbs (and adverb phrases) add details to a sentence by providing
+            answers to five possible questions: <b>how?</b>, <b>when?</b>,
+            <b>where?</b>, <b>how much?</b> and <b>how often?</b>. Adverbs
+            are grouped based on which question they answer.</p>
+          <h4>How? Adverbs of manner</h4>
+          <p className="example">I <Verb x="ate" /> my dinner <Adv x='quickly' />.</p>
+          <p className="example">The werewolf <Adv x="silently" /> <Verb x='stalked' /> his victims.</p>
+          <h4>When? Adverbs of time</h4>
+          <p className="example">Carol <Adv x='recently' /> <Verb x="visited" /> Barcelona.</p>
+          <p className="example">My daughter <Adv x="eventually" /> <Verb x='got up' /> and washed the dishes.</p>
+          <h4>Where? Adverbs of place</h4>
+          <p className="example">Olya <Verb x="ate" /> her lunch <Adv x='outside' />.</p>
+          <p className="example">The lizard people <Verb x="are" /> <Adv x="everywhere" />.</p>
+          <p className="example"><Verb x="Come" /> <Adv x="here" />!</p>
+          <h4>How much? To what extent? Adverbs of degree</h4>
+          <p className="example">The lawyers were <Adv x='very' /> <Adj x="unhappy" />.</p>
+          <p className="example">The penguins <Adv x="completely" /> <Verb x='ruined' /> my dinner party.</p>
+          <p className="example">The detectives solved the crime <Adv x="quite" /> <Adv x='quickly' />.</p>
+          <h4>How often? Adverbs of frequency</h4>
+          <p className="example">Cats <Adv x="sometimes" /> <Verb x="follow" /> me home.</p>
+          <p className="example">Lisa <Adv x="rarely" /> <Verb x="drinks" /> champagne.</p>
+          <p className="example">Insects <Verb x="are" /> <Adv x="constantly" /> <Verb x="biting" /> me!</p>
         </>} />
-        <Fold title={<h3>Adverbs with adjectives</h3>} content={<p>poop</p>} />
-        <Fold title={<h3>Adverbs with adverbs!</h3>} content={<p>poop</p>} />
-        <p><sup>1</sup>Adverbs are often not used literally. People use them for
+        <Fold title={<h3>Adverbs with verbs</h3>} content={<>
+          <p>The most basic use of adverbs is to modify verbs, so a good
+          strategy in details when you have an adverb card and a verb
+          card is to try to place them in the sentence together. For example,
+            if I have the sentence</p>
+          <p className="example">Fat babies like cake.</p>
+          I could add add the adverb and verb combination <span className="sBG"><Adv x="occasionally" /> <Verb x="eating" /></span>:
+          <p className="example">Fat babies like <Adv x="occasionally" /> <Verb x="eating" /> cake.</p>
+        </>} />
+        <Fold title={<h3>Adverbs with adjectives</h3>} content={<>
+          <p>not written yet!</p>
+        </>} />
+        <Fold title={<h3>Adverbs with adverbs!</h3>} content={<>
+          <p>not written yet!</p>
+        </>} />
+        <p><sup>1</sup> Adverbs are often not used literally. People use them for
         emphasis, and sometimes people exaggerate. "I am <i>so</i> happy for you!"</p>
       </div>
       <div className="sidebar">
@@ -60,9 +91,14 @@ const ThisPage = () => (
     </main>
     <SiteFooter />
     <style jsx>{`
-
+      a, a:visited {
+        color: black;
+        text-decoration: underline;
+      }
+      a:hover, a:active {
+        color: black;
+      }
     `}</style>
-
   </div >
 )
 

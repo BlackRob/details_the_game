@@ -70,17 +70,39 @@ export const preInsertProcessing = (cards, workingCards, maxCardId) => {
     // if yes depunc werd, then push it, then push punctuation
     punctoo = puncEndCheck(werd);
     if (punctoo.type === "nopunc") {
-      toBeInserted.push({
-        id: newCardId++,
-        type: thisCard.type,
-        word: werd,
-      })
+      // last character is not punctuation, but one last check:
+      // is it "not", because the game allows a player to use
+      // the negative form of a verb, which means it has the
+      // adverb "not" at the end (did not, have not)
+      if (thisCard.type === "verb" && werd === "not") {
+        toBeInserted.push({
+          id: newCardId++,
+          type: "adv",
+          word: werd,
+        })
+      } else {
+        toBeInserted.push({
+          id: newCardId++,
+          type: thisCard.type,
+          word: werd,
+        })
+      }
     } else {
-      toBeInserted.push({
-        id: newCardId++,
-        type: thisCard.type,
-        word: punctoo.newWerd,
-      });
+      // once again, last word might be "not", so check again
+      if (thisCard.type === "verb" && werd === "not") {
+        toBeInserted.push({
+          id: newCardId++,
+          type: "adv",
+          word: werd,
+        })
+      } else {
+        toBeInserted.push({
+          id: newCardId++,
+          type: thisCard.type,
+          word: punctoo.newWerd,
+        })
+      }
+      // and finally, push punctuation
       toBeInserted.push({
         id: newCardId++,
         type: punctoo.type,

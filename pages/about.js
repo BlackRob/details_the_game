@@ -67,7 +67,7 @@ const About = () => (
           image below and add more details to this sentence.
         </p>
         <figure>
-          <a href="/details/1vAt~2zsunrise~3a~4xthe~5xgreen~6zdog~7yis~8xhungry~9uand~10xsad~11ubut~12xthe~13xbrown~14zdog~15yis~16xhappy~17f~~0t~1y~2u~3v~4z">
+          <a href="/details/MXZBdH4yenN1bnJpc2V+M2F+NHh0aGV+NXhncmVlbn42emRvZ343eWlzfjh4aHVuZ3J5fjl1YW5kfjEweHNhZH4xMXVidXR+MTJ4dGhlfjEzeGJyb3dufjE0emRvZ34xNXlpc34xNnhoYXBweX4xN2Z+fjB0fjF5fjJ1fjN2fjR6">
             <img src="/greenandbrown.png"></img>
             <figcaption>click to play!</figcaption>
           </a>

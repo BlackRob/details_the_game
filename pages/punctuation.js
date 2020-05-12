@@ -54,8 +54,8 @@ const ThisPage = () => (
           <h4>Commas after subordinate clauses</h4>
           <p>When a sentence has a main clause and a subordinate clause, if the
           subordinate clause goes first it is followed by a comma.</p>
-          <p>To review subordinate clause, read <Link href="/conjunctions#subbyConj"><a
-            alt="explanation of subordinate clauses">this</a></Link>. As far as punctuation,
+          <p>To review subordinate clauses, read <Link href="/conjunctions#subbyConj"><a
+            alt="an explanation of subordinate clauses">this</a></Link>. As far as punctuation,
           though, just remember that you can write </p>
           <p className="example">I bought a new car <Conj x='because' /> I had lots of money.</p>
           <p>or</p>

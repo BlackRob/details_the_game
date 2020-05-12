@@ -55,6 +55,23 @@ const ThisPage = () => (
             (Conjunctions are really important!)
             </p>
         </>} />
+        <Fold title={<h3>Coordinating conjunctions: FANBOYS</h3>} content={<>
+          <p>Coordinating conjunctions combine two or more ________. There are
+          seven of them in English --For, And, Nor, But, Or, Yet, So-- and there is also
+          a convenient acronym that can help us remember them: FANBOYS.
+          </p>
+          <h4>For</h4>
+          <h4>And</h4>
+          <h4>Nor</h4>
+          <h4>But</h4>
+          <h4>Or</h4>
+          <h4>Yet</h4>
+          <h4>So</h4>
+          <p>Which just means that you can write </p>
+          <p>or</p>
+          <p className="example">I gave my daughter a cookie <Conj x='because' /> she was hungry.</p>
+          <p className="example"><Conj x='Because' /> she was hungry<Punc x=',' /> I gave my daughter a cookie.</p>
+        </>} />
         <Fold title={<h3 name="subbyConj">Subordinating conjunctions</h3>} content={<>
           <p>When a sentence has a main clause and a subordinate clause, if the
           subordinate clause goes first it's followed by a comma.</p>
