@@ -59,7 +59,7 @@ export const drawCanvas = ({ sentence, cards, width, height, fontPath }) => {
   // some constants for writing our sentence
   const margin = cw / 60  // sentence left/right margin
   const top_banner_height = cw / 18   // top banner should always be the same
-  const card_row_height = ch / 7    // height of bottom row, the card buttons
+  const card_row_height = sF * 3   // height of bottom row, the card buttons
 
   // room available for sentence
   let top_bottom_sentence_margin = cw / 55  // minimum value
