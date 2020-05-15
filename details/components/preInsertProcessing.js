@@ -56,11 +56,19 @@ export const preInsertProcessing = (cards, workingCards, maxCardId) => {
           // we need to keep the main verb for the final punc check, but here we
           // push all the rest into the toBeInserted array
           if (index !== splitWerd.length - 1) {
-            toBeInserted.push({
-              id: newCardId++,
-              type: thisCard.type,
-              word: x,
-            })
+            if (thisCard.type === "verb" && x === "not") {
+              toBeInserted.push({
+                id: newCardId++,
+                type: "adv",
+                word: "not",
+              })
+            } else {
+              toBeInserted.push({
+                id: newCardId++,
+                type: thisCard.type,
+                word: x,
+              })
+            }
           }
         })
         werd = splitWerd[splitWerd.length - 1];

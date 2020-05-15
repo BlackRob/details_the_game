@@ -25,6 +25,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: calc(12px + 0.6vw);
   background-color: var(--bodybg);
   color: black;
 }
@@ -38,10 +39,10 @@ body {
   max-height: 100%;
   max-width: 960px;
   margin: 0px auto;
+  line-height: 1.5;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(12px + 0.6vw);
   color: black;
   position: relative;
   overflow-y: scroll;
@@ -103,10 +104,11 @@ main {
   position: relative;
 }
 
+
 h2, h3, h4, p {
-  margin-top: 0.8rem;
-  margin-bottom: 0.5rem;
-  line-height: 1.6rem;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+  line-height: 1.5em;
   width: 100%;
 }
 
@@ -117,12 +119,19 @@ sup {
 .example {
   color:var(--mainbg);
   background-color: var(--headerbg);
-  padding: 5px 8px;
+  padding: 1px 8px;
   border-radius: 3px;
+  margin: 1px;
 }
 
-.example, .sBG {
+.sBG {
+  background-color: var(--headerbg);
+  padding: 0px 0.3rem;
+  border-radius: 3px;
+  display: inline;
+  line-height: calc(1.5rem - 3px);
   margin: 1px;
+  padding-bottom: 1px;
 }
 
 figure {
@@ -229,23 +238,9 @@ li {
   line-height: 1.6rem;
 }
 
-code {
-  background: #fafafa;
-  border: 1px solid black;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 0.35rem;
-  line-height: 1.7rem;
-  width: 100%;
-  display: inline-block;
-  overflow-x: scroll;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
 /* "c" means card word, "s" means sentence word */
 .cNoun, .cAdj, .cVerb, .cAdv, .cPron, .cConj, .cPunc, .cPrep, .cIntrj,
-.sNoun, .sAdj, .sVerb, .sAdv, .sPron, .sConj, .sPunc, .sPrep, .sIntrj, .sBG {
+.sNoun, .sAdj, .sVerb, .sAdv, .sPron, .sConj, .sPunc, .sPrep, .sIntrj {
   background-color: var(--headerbg);
   padding: 0px 0.3rem;
   border-radius: 3px;

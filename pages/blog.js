@@ -11,9 +11,6 @@ import TypeButtonDiv from '../components/typeButtonDiv'
 import MyBlogHeadStuff from '../blogComponents/myBlogHeadStuff'
 
 export default function Index({ allPosts }) {
-  //const heroPost = allPosts[0]
-  //const morePosts = allPosts.slice(1)
-
   return <div className="container">
     <Head>
       <MyBlogHeadStuff title="Blog" thumbnail="/public/" />

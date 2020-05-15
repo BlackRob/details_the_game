@@ -29,6 +29,10 @@ export default function PostPreview({
       </div>
       <style jsx>
         {`  
+          h3 {
+            margin-top: 0.3em;
+            margin-bottom: 0.15em;
+          }
           li {
             padding: 4px 7px;
             border-radius: 3px;

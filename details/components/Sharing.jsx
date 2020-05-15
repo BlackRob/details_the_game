@@ -44,6 +44,7 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
     })(window, document, 'script')
   }, [])
 
+  //console.log(gameStateToStr({ sentence, cards }))
   const canvasDataURL = drawCanvas({ sentence, cards })
   const canvasURLstring = Buffer.from(gameStateToStr({ sentence, cards }), 'utf8').toString('base64')
   const gameURL = `https://grumbly.games/details/${canvasURLstring}`
@@ -58,7 +59,8 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
       <img src={canvasDataURL} />
 
       <div className="sharing_button_row">
-        <EmailShareButton children={<EmailIcon size={32} round={true} />} url={gameURL} subject="I'm playing details" />
+        <EmailShareButton children={<EmailIcon size={32} round={true} />} url={gameURL} subject="I'm playing details"
+          body="Click the link to play the game" />
         <FacebookShareButton children={<FacebookIcon size={32} round={true} />} url={gameURL} hashtag="ClickToPlay" />
         <TelegramShareButton children={<TelegramIcon size={32} round={true} />} url={gameURL} title="grumbly.games" />
         <WeiboShareButton children={<WeiboIcon size={32} round={true} />} url={gameURL} title="grumbly.games" image={imageURL} />

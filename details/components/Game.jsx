@@ -43,7 +43,7 @@ class Game extends React.Component {
   }
 
   componentDidMount() {
-    const defaultSentence = "1sHello~2a~3zWorld~4g~~"
+    const defaultSentence = "1yTo~2ystart~3a~4yclick~5xthe~6m~7xnew~8zgame~9l~10zbutton~11a~12uor~13yclick~14xthe~15zquestion~16zmark~17yto~18ylearn~19whow~20yto~21yplay~22f~~"
     let temp = {}
 
     // check if we were already playing agame, and just clicked away
@@ -53,7 +53,7 @@ class Game extends React.Component {
     // game state is saved to session storage as JSON
     //  temp = JSON.parse(sessionStorage.getItem("currentGame"))
     //sessionStorage.setItem("poops", "2")
-    //  console.log(temp)
+    //console.log(window.location.host)
     //} else 
     if (!this.props.hasOwnProperty("gameState")) {
       // we were not currently playing a game, this is a new one
