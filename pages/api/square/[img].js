@@ -9,8 +9,8 @@ export default (req, res) => {      // { query: { img } }
   // const fbs64 = Buffer.from(fallbackString,'utf8').toString('base64')
 
   // some variables
-  let imageWidth = 1000     // standard for fb ogimage
-  let imageHeight = 1000     // standard for fb ogimage
+  let imageWidth = 600     // standard for fb ogimage
+  let imageHeight = 600     // standard for fb ogimage
 
   // we need to remove the initial "/api/square/" before we can use the req string
   const reqString64png = req.url.split('/')[3]
