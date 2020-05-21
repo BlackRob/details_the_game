@@ -137,6 +137,11 @@ const InsertZone = ({ placing, insert, index }) => {
       .hidden {
         opacity: 0%;
       }
+      .hidden button, .visible button {
+        border-style: none;
+        border-color: none;
+        border-image: none;
+      }
       .visible button {
         width: 100%;
         height: 100%;

@@ -24,7 +24,7 @@ const Home = () => (
           by playing games. Right now, we only have one game, "details".
           In details you make a long sentence by adding details to a
           shorter sentence, then share it with your friends.
-          Try it! It's fun!
+          Try it. It's fun!
         </p>
       </div>
       <div className="content">
@@ -38,7 +38,7 @@ const Home = () => (
           If you use all your cards, you win! The following video shows the basics
           of the game: (note: this is a placeholder video)
           </p>
-          <YouTubeVid vidID="HD0eam6fuJ4" />
+          <YouTubeVid vidID="HD0eam6fuJ4" caption="placeholder video" />
         </section>
         <section>
           <h3>The rules of details</h3>
