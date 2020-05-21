@@ -1,5 +1,5 @@
 import React from 'react';
-import DrawSentence from './SentenceBlocks';
+import DrawSentence from './Sentence';
 import DrawCards from './Cards';
 import DrawButtons from './Buttons';
 import sentences from '../../data/sentences.json';
@@ -166,6 +166,18 @@ class Game extends React.Component {
     const indexOfCard = x.findIndex(element => element.id === cardId);
     x[indexOfCard].word = value;
     this.setState({ cards: x });
+    // whenever we edit a card, we reevaluate placing
+    let somethingWritten = true;
+    x.forEach(element => {
+      if (element.working === true && element.word.length === 0) {
+        console.log(element)
+        somethingWritten = false
+        console.log(element.word, somethingWritten)
+      }
+    })
+    if (somethingWritten !== this.state.placing) {
+      this.setPlacing(somethingWritten)
+    }
   }
 
   toggleWorking(cardId) {
@@ -282,8 +294,6 @@ class Game extends React.Component {
         clearWR={this.clearWR}
         addToWR={this.addToWR}
         removeFromWR={this.removeFromWR}
-        setPlacing={this.setPlacing}
-        placing={this.state.placing}
         undoable={this.state.undoable}
         undoSecondsLeft={this.state.undoSecondsLeft}
         winner={this.state.winner}

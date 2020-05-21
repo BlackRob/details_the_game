@@ -8,22 +8,21 @@ import {
   WhatsappShareButton, WhatsappIcon,
 } from "react-share";
 import { drawCanvas } from "./drawCanvas";
-import { gameStateToStr, strToGameState } from "./gameStatePack"
+import { gameStateToStr } from "./gameStatePack"
 
 
 // Clicking on the span opens an informative popup
-const Sharing = ({ sentence, cards, showSharing, setShowSharing, workingCards }) => {
+const Sharing = ({ sentence, cards, showSharing, setShowSharing }) => {
   if (!showSharing) {
-    return <div className="hidden"></div>
+    return <></>
   } else {
     return <SharingPopUp sentence={sentence}
       cards={cards}
-      setShowSharing={setShowSharing}
-      workingCards={workingCards} />
+      setShowSharing={setShowSharing} />
   }
 }
 
-const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
+const SharingPopUp = ({ sentence, cards, setShowSharing }) => {
   // have to run a script to get the skype button
   useEffect(() => {
     (function (r, d, s) {
@@ -46,7 +45,10 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
 
   //console.log(gameStateToStr({ sentence, cards }))
   const canvasDataURL = drawCanvas({ sentence, cards })
-  const canvasURLstring = Buffer.from(gameStateToStr({ sentence, cards }), 'utf8').toString('base64')
+  const gameAsString = gameStateToStr({ sentence, cards })
+  const readableSentence = makeReadable({ sentence })
+  console.log(readableSentence)
+  const canvasURLstring = Buffer.from(gameAsString, 'utf8').toString('base64')
   const gameURL = `https://grumbly.games/details/${canvasURLstring}`
   const imageURL = `https://grumbly.games/api/${canvasURLstring}`
 
@@ -60,7 +62,10 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, workingCards }) => {
 
       <div className="sharing_button_row">
         <EmailShareButton children={<EmailIcon size={32} round={true} />} url={gameURL} subject="I'm playing details"
-          body="Click the link to play the game" />
+          body={`Click the link to play.
+          
+          Current sentence:
+          ${readableSentence}`} />
         <FacebookShareButton children={<FacebookIcon size={32} round={true} />} url={gameURL} hashtag="ClickToPlay" />
         <TelegramShareButton children={<TelegramIcon size={32} round={true} />} url={gameURL} title="grumbly.games" />
         <WeiboShareButton children={<WeiboIcon size={32} round={true} />} url={gameURL} title="grumbly.games" image={imageURL} />
@@ -265,6 +270,105 @@ const updateClipboard = ({ newClip, result }) => {
   });
 }
 
+const makeReadable = ({ sentence }) => {
+  // produce a readable string for some methods of sharing
+  let inArray = (Object.keys(sentence))
+
+  let x = null
+  let y = null
+  let next = null
+  let outputArray = inArray.map(id => {
+    // if it's a word, get ready to add it to the sentence
+    if (sentence[id].type === "noun" || sentence[id].type === "verb" ||
+      sentence[id].type === "pron" || sentence[id].type === "adj" || sentence[id].type === "adv" ||
+      sentence[id].type === "intrj" || sentence[id].type === "conj" || sentence[id].type === "prep") {
+      x = sentence[id].word
+      y = ""
+      // if we're not at the end of the array, and the next word is a word type
+      // (not punctuation) then add a space
+      next = (parseInt(id) + 1).toString()
+      if (parseInt(id) + 1 < inArray.length && (sentence[next].type === "noun" || sentence[next].type === "verb" ||
+        sentence[next].type === "pron" || sentence[next].type === "adj" || sentence[next].type === "adv" ||
+        sentence[next].type === "intrj" || sentence[next].type === "conj" || sentence[next].type === "prep")) {
+        y = " "
+      }
+    } else {
+      x = ""
+      y = puncsAndSpaces(sentence[id])
+    }
+    return `${x}${y}`
+  })
+
+  let outputString = outputArray.join('')
+
+  outputString = outputString.replace(/\s+/g, ' ');
+
+  // probably still have an extra space at end of sentence
+  if (outputString[outputString.length - 1] === " ") {
+    outputString = outputString.substring(0, outputString.length - 1)
+  }
+
+  return outputString
+}
+
+const puncsAndSpaces = (wordObj) => {
+  // look at the type and either return the word and a space
+  // or punctuation and a space or whatever as needed
+  let output = null
+
+  let x = wordObj.type
+  switch (true) {
+    case (x === "head"):
+      output = ``;
+      break;
+    case (x === "p_com"):
+      output = `, `;
+      break;
+    case (x === "p_semi"):
+      output = `; `;
+      break;
+    case (x === "p_cln"):
+      output = `: `;
+      break;
+    case (x === "p_parL"):
+      output = ` (`;
+      break;
+    case (x === "p_dbldashL"):
+      output = ` —`;
+      break;
+    case (x === "p_prd"):
+      output = `. `;
+      break;
+    case (x === "p_exc"):
+      output = `! `;
+      break;
+    case (x === "p_parR"):
+      output = `) `;
+      break;
+    case (x === "p_qm"):
+      output = `? `;
+      break;
+    case (x === "p_dbldashR"):
+      output = `— `;
+      break;
+    case (x === "p_Rqt"):
+      output = `” `;
+      break;
+    case (x === "p_Lqt"):
+      output = ` “`;
+      break;
+    case (x === "p_Rsq"):
+      output = `’ `;
+      break;
+    case (x === "p_Lsq"):
+      output = ` ‘`;
+      break;
+    default:
+      output = ``;
+  }
+
+  return output
+}
 
 export default Sharing;
 

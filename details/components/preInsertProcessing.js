@@ -43,7 +43,7 @@ export const preInsertProcessing = (cards, workingCards, maxCardId) => {
     // into components based on spaces and add them as
     // individual words of the same type;
     // this is important for verbs (which might have "to" or 
-    // auxuliary verbs), but also some other words have spaces
+    // auxiliary verbs), but also some other words have spaces
     // in them, like the pronoun "no one", or the nouns "real estate",
     // "swimming pool" or "post office"
     // any word with spaces on a card gets broken into separate words!
@@ -52,8 +52,8 @@ export const preInsertProcessing = (cards, workingCards, maxCardId) => {
       if (splitWerd.length > 0) {
         splitWerd.forEach((x, index) => {
           // splitWerd should now be an array of all the components
-          // of the verb, which should be any aux verbs then the main verb itself
-          // we need to keep the main verb for the final punc check, but here we
+          // of a word-with-spaces word; we need to keep
+          // the last part for a final punc check, but here we
           // push all the rest into the toBeInserted array
           if (index !== splitWerd.length - 1) {
             if (thisCard.type === "verb" && x === "not") {
@@ -96,6 +96,9 @@ export const preInsertProcessing = (cards, workingCards, maxCardId) => {
         })
       }
     } else {
+      // last character is punctuation
+      // if we did remove punctuation, we must update werd
+      werd = punctoo.newWerd;
       // once again, last word might be "not", so check again
       if (thisCard.type === "verb" && werd === "not") {
         toBeInserted.push({
@@ -173,6 +176,11 @@ const puncStartCheck = (werd) => {
       punc.content = '"';
       punc.newWerd = werd.slice(1).trim();
       break;
+    case (werd[0] === "'"):
+      punc.type = "p_Lsq";
+      punc.content = "'";
+      punc.newWerd = werd.slice(1).trim();
+      break;
     default:
       punc.type = "nopunc";
   }
@@ -228,6 +236,11 @@ const puncEndCheck = (werd) => {
     case (werd[end] === '"'):
       punc.type = "p_Rqt";
       punc.content = '"';
+      punc.newWerd = werd.slice(0, end).trim();
+      break;
+    case (werd[0] === "'"):
+      punc.type = "p_Rsq";
+      punc.content = "'";
       punc.newWerd = werd.slice(0, end).trim();
       break;
     default:

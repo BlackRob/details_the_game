@@ -94,7 +94,9 @@ export const strToGameState = ({ canvasURLstring }) => {
     "p_qm": "?",
     "p_dbldashR": "—",
     "p_Lqt": '“',
-    "p_Rqt": '”'
+    "p_Rqt": '”',
+    "p_Rsq": `’`,
+    "p_Lsq": `‘`
   }
 
   // we skip the "head" element when we encode a sentence, so we
@@ -230,6 +232,12 @@ const wordShorthand = (wordObj) => {
     case (x === "p_Lqt"):
       typeCode = `${wordObj.id}m`;
       break;
+    case (x === "p_Rsq"):
+      typeCode = `${wordObj.id}n`;
+      break;
+    case (x === "p_Lsq"):
+      typeCode = `${wordObj.id}o`;
+      break;
     case (x === "head"):
       // we don't write anything for head
       typeCode = "";
@@ -362,6 +370,12 @@ const decodeType = (x) => {
       break;
     case (x === "m"):
       typeCode = "p_Lqt";
+      break;
+    case (x === "n"):
+      typeCode = "p_Rsq";
+      break;
+    case (x === "o"):
+      typecode = "p_Lsq";
       break;
     // notice, we skip from the beginning of the alphabet
     // for letters to stand for punctuation types, but skip to

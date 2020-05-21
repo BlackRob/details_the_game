@@ -70,7 +70,6 @@ export default ({ sentence, placing, insert }) => (
         })}
       </div>
     </div>
-    <div className="active_sentence_bottom_effect"></div>
     <style jsx>
       {`
         @font-face {

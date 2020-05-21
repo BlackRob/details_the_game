@@ -62,7 +62,7 @@ export default ({ ...props }) => (
         cards={props.cards}
         showSharing={props.showSharing}
         setShowSharing={props.setShowSharing}
-        workingCards={props.workingCards} />
+      />
     </div>
     <style jsx>{`
       .button_row {

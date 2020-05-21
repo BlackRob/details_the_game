@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { tinyCanvas } from './drawCanvas'
 
 
 /////////////////////// clear button 
@@ -185,10 +186,11 @@ const DrawInputDiv = ({ word, cardId, updateState }) => {
 }
 
 /////////////////////// place button
-const DrawPlaceButton = ({ cards, setPlacing, placing, undoable }) => {
+const DrawPlaceButton = ({ cards, undoable }) => {
   // assumption is most of the time nothing suitable for inserting 
-  // into the working sentence is in working row, so dafault to disabled
+  // into the working sentence is in working row, so default to disabled
   let activeClass = "place_button disabled";
+
   // if all the working row cards have something written on them, and we're not
   // currently waiting in the "undo" grace period, enable the button
   let somethingWritten = false;
@@ -200,12 +202,21 @@ const DrawPlaceButton = ({ cards, setPlacing, placing, undoable }) => {
     somethingWritten = true;
     cardsInWR.forEach(x => { if (x.word.length === 0) { somethingWritten = false } });
   }
+
   if (somethingWritten && !undoable) {
     activeClass = "place_button enabled";
-  };
+  }
 
-  return <button className={activeClass} onClick={() => { setPlacing(!placing) }} >
-    place
+  const onDragStartHandler = (e) => {
+    e.dataTransfer.setDragImage(e.target, 25, -5)
+    //console.log(e)
+  }
+
+  return <button className={activeClass} draggable="true"
+    onDragStart={onDragStartHandler}>
+    <div className="bigTriangle"></div>
+    <div className="littleTriangle"></div>
+    drag<br />to<br />insert
     <style jsx>
       {`
         .place_button {
@@ -214,10 +225,34 @@ const DrawPlaceButton = ({ cards, setPlacing, placing, undoable }) => {
           padding: 0.2em 0.6em;
           margin: 0px;
           grid-area: right;
+          position: relative;
         }
         .enabled {
           color: var(--active_outline);
           border: 2px solid var(--active_outline);
+        }
+        .bigTriangle {
+          width: 0;
+          height: 0;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+          border-bottom: 15px solid var(--active_outline);
+          position: absolute;
+          top: -15px;
+          right: calc(50% - 15px);
+        }
+        .littleTriangle {
+          width: 0;
+          height: 0;
+          border-left: 12px solid transparent;
+          border-right: 12px solid transparent;
+          border-bottom: 12px solid var(--mainbg);
+          position: absolute;
+          top: -12px;
+          right: calc(50% - 12px );
+        }
+        .place_button:hover div {
+          border-bottom-color: white;
         }
       `}
     </style>
@@ -260,14 +295,14 @@ const DrawCardButton = ({ type, addToWR, cards, toggleWorking }) => {
 
 
 /////////////////////// the whole shebang
-const DrawCards = ({ cards, onEdit, active, wR, toggleWorking, clearWR, addToWR, removeFromWR, setPlacing, placing, undoable, undoSecondsLeft, winner, totalCardCount, sentenceUpdateCount }) => {
+const DrawCards = ({ cards, onEdit, active, wR, toggleWorking, clearWR, addToWR, removeFromWR, undoable, undoSecondsLeft, winner, totalCardCount, sentenceUpdateCount }) => {
   return <div className="card_row">
     <div className="working_row">
       <DrawClearButton updateState={onEdit} active={active} wR={wR} clearWR={clearWR} toggleWorking={toggleWorking} />
       <div className="working_row_slot">
         <DrawWorkingRowContent wR={wR} removeFromWR={removeFromWR} updateState={onEdit} cards={cards} toggleWorking={toggleWorking} undoable={undoable} undoSecondsLeft={undoSecondsLeft} winner={winner} totalCardCount={totalCardCount} sentenceUpdateCount={sentenceUpdateCount} />
       </div>
-      <DrawPlaceButton cards={cards} setPlacing={setPlacing} placing={placing} undoable={undoable} />
+      <DrawPlaceButton cards={cards} undoable={undoable} />
     </div>
     <div className="available_cards">
       <DrawCardButton type="adj" wR={wR} addToWR={addToWR} cards={cards} toggleWorking={toggleWorking} />

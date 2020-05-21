@@ -1,5 +1,5 @@
-// calias components to make my pages easier to write;
-// I have to change the color of indivisual words
+// alias components to make my pages easier to write;
+// I have to change the color of individual words
 // in many, many sentences, and it's super tedious to
 // write <span className="dhsdhg"> over and over again
 

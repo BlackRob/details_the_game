@@ -149,6 +149,73 @@ export const drawCanvas = ({ sentence, cards, width, height, fontPath }) => {
   return canvas.toDataURL();
 }
 
+
+export const tinyCanvas = ({ cards, wR }) => {
+  // first thing, build sentence array from props
+  console.log(cards)
+  console.log(wR)
+  let sentence = []
+  wR.forEach(x => {
+    sentence.push({
+      id: x,
+      type: cards[x].type,
+      word: cards[x].word,
+    })
+  })
+
+  let cw = 100 // canvas width
+  let ch = 100 // canvas height
+  const canvas = createCanvas(cw, ch)
+  const ctx = canvas.getContext('2d')
+
+  let lF = Math.floor(cw / 10)    // this is the base sentence font size
+  // there is no sans-serif fallback font when run outside of browser
+  let lFont = `${lF}px Roboto, sans-serif`  // this is reset as needed
+  // some constants for writing our sentence
+  const margin = 0  // sentence left/right margin
+
+  // room available for sentence
+  let top_bottom_sentence_margin = 5  // minimum value
+
+  // and some variables  
+  let sentence_height = 0  // calculated height of sentence
+
+  let rm = lF / 3.5   // "row margin" for between rows
+  let rh = lF * 1.4   // average "row height" 
+  let blo = lF / 3    // baseline offset
+  let wpr = lF / 3.5  // word padding right
+
+  // do some pre-printing work, return an array with size and spacing info
+  // it's important that the font is set to the correct font now for sizing
+  ctx.font = lFont
+  let printArray = prePrintSentence(sentence, rm, rh, cw, wpr, margin, ctx);
+  // calculate how tall the sentence block should be
+  let numRows = printArray[printArray.length - 1].row
+  sentence_height = numRows * rh + rm * (numRows - 1)
+
+  let working_height = top_bottom_sentence_margin + sentence_height + top_bottom_sentence_margin
+
+  ctx.height = working_height
+  ctx.font = lFont  //setting font again because changing height can mess it up
+  //////////////////////////////////// start drawing //////////////////////////
+  let rb = 0 // "row beginning", initial value
+  // no background
+  // top margin
+  rb += top_bottom_sentence_margin;
+
+  // sentence
+  ctx.font = lFont;
+  printSentence(printArray, rb, wpr, blo, cw, ctx);
+  rb += sentence_height;
+
+  // bottom margin
+  rb += top_bottom_sentence_margin;
+
+  // return canvas as dataURL so I can share it ;)
+  return canvas.toDataURL();
+}
+
+
 // printing the sentence is complicated because we need to figure
 // out how many words go on each row, what color to make them, 
 // set the margins... so we do some pre-printing work
@@ -216,7 +283,7 @@ const prePrintSentence = (sentence, rm, rh, cw, wpr, margin, ctx) => {
     printArray[i].wordX = currentRowOffset;
     // adjust for puctuation  :)
     if (isPunc(printArray[i].type)) {
-      printArray[i].wordX += puncShift(printArray[i].type, cw)
+      printArray[i].wordX += puncShift(printArray[i].type, wpr)
     }
     //// temporary adjustment to let period-as-separator (like in URL) work
     //// if (printArray[i].type === "p_prd") {
@@ -383,11 +450,11 @@ const isPunc = (type) => {
 // sometimes punctuation needs to be adjusted,
 // moved a little left or right depending on the type
 // types: p_exc, p_com, p_cln, p_semi, p_prd, p_parL, p_parR, p_qm, 
-// p_dbldashL, p_dbldashR, p_Lqt, p_Rqt
-const puncShift = (type, cw) => {
-  let shift = -cw / 100
-  if (type === "p_parL" || type === "p_dbldashL" || type === "p_Lqt") {
-    shift = cw / 100
+// p_dbldashL, p_dbldashR, p_Lqt, p_Rqt, p_Lsq, p_Rsq
+const puncShift = (type, wpr) => {
+  let shift = -wpr * 0.8
+  if (type === "p_parL" || type === "p_dbldashL" || type === "p_Lqt" || type === "p_Lsq") {
+    shift = wpr * 0.8
   }
   return shift
 }

@@ -61,10 +61,10 @@ const PopUp = () => {
           padding: none;
           fill: var(--active_outline);
           transition: all 0.2s;
-          margin-top: 0.25em;
+          margin-top: 0.32em;
           width: 0.85em;
           height: 0.85em;
-          margin-bottom: 0.05em;
+          margin-bottom: 0;
         }
         svg:visited {
           fill: var(--active_outline);
