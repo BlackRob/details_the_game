@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useDrag } from 'react-dnd'
 // import { tinyCanvas } from './drawCanvas'
 
 
