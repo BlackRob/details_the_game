@@ -28,6 +28,15 @@ body {
   font-size: calc(12px + 0.6vw);
   background-color: var(--bodybg);
   color: black;
+  min-height: 100vh;
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: -moz-available;          /* WebKit-based browsers will ignore this. */
+  height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  height: fill-available;
 }
 
 * {

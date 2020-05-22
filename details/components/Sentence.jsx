@@ -120,7 +120,7 @@ const InsertZone = ({ placing, insert, index }) => {
     <button onClick={(e) => {
       return insert(index);
     }} >
-      <DrawCaret status={highlight} />
+      <DrawCaret status={highlight} parentComponentClass={classToUse} />
     </button>
     {/* <img src="fatgreen.png" /> */}
     <style jsx>
@@ -157,12 +157,16 @@ const InsertZone = ({ placing, insert, index }) => {
   </div>
 }
 
-const DrawCaret = ({ status }) => {
+const DrawCaret = ({ status, parentComponentClass }) => {
   let color = "lightgreen"
   if (status) {
     color = "limegreen"
   }
-  return <svg className={color} width="50%" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  if (parentComponentClass === "hidden") {
+    color = "hidden"
+  }
+  return <svg className={color} width="50%" viewBox="0 0 50 50" version="1.1"
+    xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round">
     <polygon points="0 50 50 50 25 0" />
     <style jsx>
       {`
@@ -171,6 +175,9 @@ const DrawCaret = ({ status }) => {
         }
         svg.limegreen {
           fill: red;
+        }
+        svg.hidden {
+          opacity: 0.0;
         }
         svg:hover {
           fill: red;

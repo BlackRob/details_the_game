@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { tinyCanvas } from './drawCanvas'
+import { useDrag } from 'react-dnd'
+// import { tinyCanvas } from './drawCanvas'
 
 
 /////////////////////// clear button 
