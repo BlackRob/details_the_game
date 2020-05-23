@@ -43,18 +43,17 @@ class Game extends React.Component {
   }
 
   componentDidMount() {
+    //// copied from https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
     const defaultSentence = "1yTo~2ystart~3a~4yclick~5xthe~6m~7xnew~8zgame~9l~10zbutton~11a~12uor~13yclick~14xthe~15zquestion~16zmark~17yto~18ylearn~19whow~20yto~21yplay~22f~~"
     let temp = {}
 
     // check if we were already playing agame, and just clicked away
     // from it; we don't want to force a player to start from
     // scratch just because they click away to look up a "conjunction"
-    //if (sessionStorage.getItem("currentGame") !== null) {
-    // game state is saved to session storage as JSON
-    //  temp = JSON.parse(sessionStorage.getItem("currentGame"))
-    //sessionStorage.setItem("poops", "2")
-    //console.log(window.location.host)
-    //} else 
     if (!this.props.hasOwnProperty("gameState")) {
       // we were not currently playing a game, this is a new one
       // gameState only exists when game is started from link
@@ -91,14 +90,6 @@ class Game extends React.Component {
       temp.workingCards = []
       sessionStorage.setItem("currentGame", JSON.stringify(temp))
     }
-
-    // sometimes the game coming from server has cards, sometimes not
-    ////if (temp.cards.length === 0) {
-    ////  // for now, every new game starts with five cards
-    ////  for (var i = 0; i < 5; i++) {
-    ////    temp.cards.push(newRandomCard(i));
-    ////  }
-    ////}
 
     this.setState({
       active: temp.active,
@@ -288,10 +279,8 @@ class Game extends React.Component {
       <DrawCards
         cards={this.state.cards}
         onEdit={this.editCard}
-        active={this.state.active}
         wR={this.state.workingCards}
         toggleWorking={this.toggleWorking}
-        clearWR={this.clearWR}
         addToWR={this.addToWR}
         removeFromWR={this.removeFromWR}
         undoable={this.state.undoable}

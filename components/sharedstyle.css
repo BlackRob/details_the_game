@@ -29,7 +29,12 @@ body {
   background-color: var(--bodybg);
   color: black;
   height: 100%;
+  height: calc(var(--vh, 1vh) * 100);
   min-height: -webkit-fill-available;
+}
+
+html {
+  height: -webkit-fill-available;
 }
 
 * {
