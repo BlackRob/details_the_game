@@ -40,55 +40,55 @@ const Word = (element, follower, placing, insert, index) => {
     </span>
   } else if (element.type === "p_com") {
     return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
-      {`,`}&nbsp;<InsertZone placing={placing} insert={insert} index={index} />
+      {`,`}<PuncSpace aType={follower}></PuncSpace><InsertZone placing={placing} insert={insert} index={index} />
     </span>
   } else if (element.type === "p_semi") {
     return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
-      {`;`}&nbsp;<InsertZone placing={placing} insert={insert} index={index} />
+      {`;`}<PuncSpace aType={follower}></PuncSpace><InsertZone placing={placing} insert={insert} index={index} />
     </span>
   } else if (element.type === "p_cln") {
     return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
-      {`:`}&nbsp;<InsertZone placing={placing} insert={insert} index={index} />
-    </span>
-  } else if (element.type === "p_parL") {
-    return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
-      &nbsp;{`(`}<InsertZone placing={placing} insert={insert} index={index} />
+      {`:`}<PuncSpace aType={follower}></PuncSpace><InsertZone placing={placing} insert={insert} index={index} />
     </span>
   } else if (element.type === "p_prd") {
     return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
-      {`.`}&nbsp;<InsertZone placing={placing} insert={insert} index={index} />
+      {`.`}<PuncSpace aType={follower}></PuncSpace><InsertZone placing={placing} insert={insert} index={index} />
     </span>
   } else if (element.type === "p_exc") {
     return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
-      {`!`}&nbsp;<InsertZone placing={placing} insert={insert} index={index} />
+      {`!`}<PuncSpace aType={follower}></PuncSpace><InsertZone placing={placing} insert={insert} index={index} />
     </span>
   } else if (element.type === "p_parR") {
     return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
-      {`)`}&nbsp;<InsertZone placing={placing} insert={insert} index={index} />
+      {`)`}<PuncSpace aType={follower}></PuncSpace><InsertZone placing={placing} insert={insert} index={index} />
     </span>
   } else if (element.type === "p_qm") {
     return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
-      {`?`}&nbsp;<InsertZone placing={placing} insert={insert} index={index} />
+      {`?`}<PuncSpace aType={follower}></PuncSpace><InsertZone placing={placing} insert={insert} index={index} />
+    </span>
+  } else if (element.type === "p_dbldashR") {
+    return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
+      {`—`}<PuncSpace aType={follower}></PuncSpace><InsertZone placing={placing} insert={insert} index={index} />
+    </span>
+  } else if (element.type === "p_Rqt") {
+    return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
+      {`”`}<PuncSpace aType={follower}></PuncSpace><InsertZone placing={placing} insert={insert} index={index} />
+    </span>
+  } else if (element.type === "p_Rsq") {
+    return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
+      {`’`}<PuncSpace aType={follower}></PuncSpace><InsertZone placing={placing} insert={insert} index={index} />
     </span>
   } else if (element.type === "p_dbldashL") {
     return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
       &nbsp;{`—`}<InsertZone placing={placing} insert={insert} index={index} />
     </span>
-  } else if (element.type === "p_dbldashR") {
-    return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
-      {`—`}&nbsp;<InsertZone placing={placing} insert={insert} index={index} />
-    </span>
-  } else if (element.type === "p_Rqt") {
-    return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
-      {`”`}&nbsp;<InsertZone placing={placing} insert={insert} index={index} />
-    </span>
   } else if (element.type === "p_Lqt") {
     return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
       &nbsp;{`“`}<InsertZone placing={placing} insert={insert} index={index} />
     </span>
-  } else if (element.type === "p_Rsq") {
+  } else if (element.type === "p_parL") {
     return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
-      {`’`}&nbsp;<InsertZone placing={placing} insert={insert} index={index} />
+      &nbsp;{`(`}<InsertZone placing={placing} insert={insert} index={index} />
     </span>
   } else if (element.type === "p_Lsq") {
     return <span key={element.id} style={{ color: 'var(--punc)', position: 'relative', padding: '1px' }}>
@@ -102,9 +102,16 @@ const Word = (element, follower, placing, insert, index) => {
 }
 
 const InsertZone = ({ placing, insert, index }) => {
+  // class for showing the insert triangle
   let classToUse = "hidden"
   if (placing) {
     classToUse = "visible"
+  }
+  // add position adjustment class
+  if (index % 2 === 1) {
+    classToUse = classToUse + " top"
+  } else {
+    classToUse = classToUse + " bottom"
   }
 
   const [highlight, setHighlight] = useState(false);
@@ -116,48 +123,37 @@ const InsertZone = ({ placing, insert, index }) => {
     onDragEnter={dragEnterHandler}
     onDragLeave={dragLeaveHandler}
     onDrop={dropHandler}
-  >
-    <button onClick={(e) => {
-      return insert(index);
-    }} >
-      <DrawCaret status={highlight} parentComponentClass={classToUse} />
-    </button>
-    {/* <img src="fatgreen.png" /> */}
+    onClick={(e) => insert(index)} >
+    <DrawCaret status={highlight} parentComponentClass={classToUse} index={index} />
     <style jsx>
       {`
       .hidden, .visible {
-        height: 1.3em;
-        width: 20px;
+        height: 0.8em;
+        width: 0.8em;
         border: 0px;
         position: absolute;
-        right: -10px;
+        right: -0.4em;
         padding: 0px;
-        top: 0px;
+        z-index: 1;
       }
       .hidden {
-        opacity: 0%;
+        display: none;
       }
-      .hidden button, .visible button {
-        border-style: none;
-        border-color: none;
-        border-image: none;
+      .visible:hover {
+        cursor: pointer;
       }
-      .visible button {
-        width: 100%;
-        height: 100%;
-        border: 0;
-        margin: 0;
-        padding: 0;
-        padding-top: 1.1em;
-        position: relative;
-        z-index: 1;
+      .top {
+        top: -0.2em;
+      }
+      .bottom {
+        top: 1.0em;
       }
       `}
     </style>
   </div>
 }
 
-const DrawCaret = ({ status, parentComponentClass }) => {
+const DrawCaret = ({ status, parentComponentClass, index }) => {
   let color = "lightgreen"
   if (status) {
     color = "limegreen"
@@ -165,22 +161,34 @@ const DrawCaret = ({ status, parentComponentClass }) => {
   if (parentComponentClass === "hidden") {
     color = "hidden"
   }
-  return <svg className={color} width="50%" viewBox="0 0 50 50" version="1.1"
-    xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round">
-    <polygon points="0 50 50 50 25 0" />
+
+  const bottomTriangle = <polygon points="13 38 37 38 25 13" />
+  const topTriangle = <polygon points="13 13 37 13 25 38" />
+  let polygon = bottomTriangle
+  if (index % 2 === 1) {
+    polygon = topTriangle
+  }
+
+  return <svg className={color} width="100%" viewBox="0 0 50 50" version="1.1"
+    xmlns="http://www.w3.org/2000/svg" strokeLineJoin="round">
+    {polygon}
     <style jsx>
       {`
+        svg {
+          position: absolute;
+          right: 0;
+        }
         svg.lightgreen {
-          fill: lightgreen;
+          fill: rgba(255,51,0 ,0.4);
         }
         svg.limegreen {
-          fill: red;
+          fill: rgba(255,51,0 ,1);
         }
         svg.hidden {
           opacity: 0.0;
         }
         svg:hover {
-          fill: red;
+          fill: rgba(255,51,0 ,1);
         }
       `}
     </style>
@@ -276,11 +284,11 @@ export default ({ sentence, placing, insert }) => (
           justify-content: center;
           font-family: Roboto;
           align-content: flex-start;
-          font-size: 1.3em;
-          padding: 10px;
-          padding-top: 2.1em;
-          padding-bottom: 3.1em;
-          line-height: 1.3em;
+          font-size: 1.6em;
+          padding: 12px;
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
+          line-height: 1.6em;
         }
       `}
     </style>

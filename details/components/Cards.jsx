@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { tinyCanvas } from './drawCanvas'
 
 
@@ -150,9 +150,11 @@ const DrawRemoveButton = ({ updateState, cardId, removeFromWR, toggleWorking }) 
 }
 
 const DrawInputDiv = ({ word, cardId, updateState }) => {
+  const newRef = React.createRef()
+  useEffect(() => { newRef.current.focus() }, [])
   return <div className="input_div">
     <input type="text" defaultValue={word} size={Math.max(4, word.length)}
-      name={cardId}
+      name={cardId} ref={newRef}
       onKeyUp={(e) => { updateState(cardId, e.target.value); }}
     />
     <style jsx>
