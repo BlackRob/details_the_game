@@ -42,7 +42,7 @@ html {
 }
 
 .container {
-  height: 100%;
+  _height: 100%;
   max-width: 960px;
   margin: 0px auto;
   line-height: 1.5;

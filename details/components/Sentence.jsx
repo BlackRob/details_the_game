@@ -115,14 +115,8 @@ const InsertZone = ({ placing, insert, index }) => {
   }
 
   const [highlight, setHighlight] = useState(false);
-  const dragEnterHandler = e => setHighlight(true)
-  const dragLeaveHandler = e => setHighlight(false)
-  const dropHandler = e => insert(index)
 
   return <div className={classToUse}
-    onDragEnter={dragEnterHandler}
-    onDragLeave={dragLeaveHandler}
-    onDrop={dropHandler}
     onClick={(e) => insert(index)} >
     <DrawCaret status={highlight} parentComponentClass={classToUse} index={index} />
     <style jsx>
@@ -153,13 +147,10 @@ const InsertZone = ({ placing, insert, index }) => {
   </div>
 }
 
-const DrawCaret = ({ status, parentComponentClass, index }) => {
-  let color = "lightgreen"
-  if (status) {
-    color = "limegreen"
-  }
+const DrawCaret = ({ parentComponentClass, index }) => {
+  let activeClass = ""
   if (parentComponentClass === "hidden") {
-    color = "hidden"
+    activeClass = "hidden"
   }
 
   const bottomTriangle = <polygon points="13 38 37 38 25 13" />
@@ -169,25 +160,20 @@ const DrawCaret = ({ status, parentComponentClass, index }) => {
     polygon = topTriangle
   }
 
-  return <svg className={color} width="100%" viewBox="0 0 50 50" version="1.1"
-    xmlns="http://www.w3.org/2000/svg" strokeLineJoin="round">
+  return <svg className={activeClass} width="100%" viewBox="0 0 50 50" version="1.1"
+    xmlns="http://www.w3.org/2000/svg" strokeLinejoin="round">
     {polygon}
     <style jsx>
       {`
         svg {
           position: absolute;
-          right: 0;
-        }
-        svg.lightgreen {
           fill: rgba(255,51,0 ,0.4);
-        }
-        svg.limegreen {
-          fill: rgba(255,51,0 ,1);
+          right: 0;
         }
         svg.hidden {
           opacity: 0.0;
         }
-        svg:hover {
+        svg:hover, svg:active, svg:focus {
           fill: rgba(255,51,0 ,1);
         }
       `}

@@ -24,6 +24,7 @@ class Game extends React.Component {
       undoSecondsLeft: 0,       // seconds left before undo turns false again
       winner: false,            // set when the game is won
       workingCards: [],         // word-type cards in the working row
+      windowInnerHeight: 0,
     };
 
     this.updateSentence = this.updateSentence.bind(this); // adds new sentence to history
@@ -46,6 +47,7 @@ class Game extends React.Component {
     //// copied from https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
     // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
     let vh = window.innerHeight * 0.01;
+    this.setState({ windowInnerHeight: window.innerHeight })
     // Then we set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
     const defaultSentence = "1yTo~2ystart~3a~4yclick~5xthe~6m~7xnew~8zgame~9l~10zbutton~11a~12uor~13yclick~14xthe~15zquestion~16zmark~17yto~18ylearn~19whow~20yto~21yplay~22f~~"
@@ -72,7 +74,7 @@ class Game extends React.Component {
       temp.undoSecondsLeft = 0
       temp.winner = false
       temp.workingCards = []
-      sessionStorage.setItem("currentGame", JSON.stringify(temp))
+      //sessionStorage.setItem("currentGame", JSON.stringify(temp))
     } else {
       // if it doesn't exist, use default sentence
       temp = JSON.parse(strToGameState({ canvasURLstring: this.props.gameState }))
@@ -88,7 +90,7 @@ class Game extends React.Component {
       temp.undoSecondsLeft = 0
       temp.winner = false
       temp.workingCards = []
-      sessionStorage.setItem("currentGame", JSON.stringify(temp))
+      //sessionStorage.setItem("currentGame", JSON.stringify(temp))
     }
 
     this.setState({
@@ -270,6 +272,7 @@ class Game extends React.Component {
         active={this.state.active}
         undoable={this.state.undoable}
         workingCards={this.state.workingCards}
+        wih={this.state.windowInnerHeight}
       />
       <DrawSentence
         sentence={this.state.sentence}

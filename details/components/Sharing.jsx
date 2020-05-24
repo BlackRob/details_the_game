@@ -12,19 +12,20 @@ import { gameStateToStr } from "./gameStatePack"
 
 
 // Clicking on the span opens an informative popup
-const Sharing = ({ sentence, cards, showSharing, setShowSharing }) => {
+const Sharing = ({ sentence, cards, showSharing, setShowSharing, wih }) => {
   if (!showSharing) {
     return <></>
   } else {
     return <SharingPopUp sentence={sentence}
       cards={cards}
-      setShowSharing={setShowSharing} />
+      setShowSharing={setShowSharing}
+      wih={wih} />
   }
 }
 
-const SharingPopUp = ({ sentence, cards, setShowSharing }) => {
+const SharingPopUp = ({ sentence, cards, setShowSharing, wih }) => {
   // have to run a script to get the skype button
-  useEffect(() => {
+  /* useEffect(() => {
     (function (r, d, s) {
       r.loadSkypeWebSdkAsync = r.loadSkypeWebSdkAsync || function (p) {
         var js, sjs = d.getElementsByTagName(s)[0];
@@ -41,7 +42,7 @@ const SharingPopUp = ({ sentence, cards, setShowSharing }) => {
       };
       r.loadSkypeWebSdkAsync(p);
     })(window, document, 'script')
-  }, [])
+  }, []) */
 
   //console.log(gameStateToStr({ sentence, cards }))
   const canvasDataURL = drawCanvas({ sentence, cards })
@@ -55,8 +56,8 @@ const SharingPopUp = ({ sentence, cards, setShowSharing }) => {
   return <div className="z2">
     <div className="sharing_popup">
       <div className="z2_title">
-        Share your sentence!
-      <span className="z2_hide" onClick={() => { setShowSharing(false) }}>x</span>
+        Share your sentence! {wih}
+        <span className="z2_hide" onClick={() => { setShowSharing(false) }}>x</span>
       </div>
       <img src={canvasDataURL} />
 
@@ -71,9 +72,9 @@ const SharingPopUp = ({ sentence, cards, setShowSharing }) => {
         <WeiboShareButton children={<WeiboIcon size={32} round={true} />} url={gameURL} title="grumbly.games" image={imageURL} />
         <TwitterShareButton children={<TwitterIcon size={32} round={true} />} url={gameURL} hashtags={["ClickToPlay"]} />
         <WhatsappShareButton children={<WhatsappIcon size={32} round={true} />} url={gameURL} title="grumbly.games" />
-        <div className='skype-share' data-href={gameURL} data-lang='en-US' data-text='' data-style='' >
+        {/* <div className='skype-share' data-href={gameURL} data-lang='en-US' data-text='' data-style='' >
           <img className="skypeShareLogo" src='/s_logo.svg' width="18px" height="18px" />
-        </div>
+        </div> */}
         <ClipboardButton toCopy={gameURL} />
       </div>
     </div>
