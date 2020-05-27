@@ -227,6 +227,7 @@ export default ({ sentence, placing, insert }) => (
           overflow: hidden;
           align-items: center;
           justify-content: center;
+          -ms-overflow-style: none;
         }
         .active_sentence_top_effect {
           position: absolute; /* Stay in place */
@@ -255,6 +256,7 @@ export default ({ sentence, placing, insert }) => (
           align-content: flex-start;
           overflow-y: scroll;
           scrollbar-width: none;
+          -ms-overflow-style: none;
         }
         .active_sentence_content::-webkit-scrollbar {
           display: none;

@@ -61,7 +61,7 @@ const Home = () => (
               the noun card to get <span className="sBG"><Adj x="the" />&nbsp;<Adj x="red" />&nbsp;<Noun x="wolf" /></span>
             </li>
             <li>
-              <b>You are responsible for punctutation.</b> If you want to add another
+              <b>You are responsible for punctuation.</b> If you want to add another
               noun between <span className="sBG"><Noun x="aliens" />&nbsp;<Conj x="and" />&nbsp;<Noun x="ninjas" /></span>,
               you have to put the comma on the noun card before you place it in the sentence.
               Thus, adding <span className="cNoun">,&nbsp;vampires</span> to your sentence gives

@@ -21,8 +21,8 @@ export default function typeButtonDiv() {
         border-radius: 7px;
         padding: 8px;
         text-align: center;
-        position: -webkit-sticky;
         position: sticky;
+        position: -webkit-sticky;
         top: 30px;
         margin-top: 20px;
         font-size: 16px;

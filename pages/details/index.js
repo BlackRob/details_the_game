@@ -3,7 +3,7 @@ import DrawHeader from '../../details/components/Header';
 import DrawGame from '../../details/components/Game';
 
 const Game = () => (
-  <div className="container">
+  <>
     <Head>
       <title>details</title>
       <link rel="icon" href="/favicon.ico" />
@@ -41,6 +41,7 @@ const Game = () => (
           --prep: lime;  /* #A6E22E */
           --pron: fuchsia;
           --punc: lavender;
+          -ms-overflow-style: none;
         }
 
         body {
@@ -51,6 +52,7 @@ const Game = () => (
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           background-color: var(--bodybg);
+          -ms-overflow-style: none;
         }
 
         .gameContent {
@@ -69,6 +71,7 @@ const Game = () => (
           position: relative;
           overflow-y: scroll;
           scrollbar-width: none;
+          -ms-overflow-style: none;
         }
         .gameContent::-webkit-scrollbar {
           display: none;
@@ -81,7 +84,7 @@ const Game = () => (
 
       `}
     </style>
-  </div>
+  </>
 );
 
 

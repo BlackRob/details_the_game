@@ -38,6 +38,7 @@ const Game = ({ returnString }) => (
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           background-color: var(--bodybg);
+          -ms-overflow-style: none;
         }
 
         .gameContent {
@@ -56,6 +57,7 @@ const Game = ({ returnString }) => (
           position: relative;
           overflow-y: scroll;
           scrollbar-width: none;
+          -ms-overflow-style: none;
         }
         .gameContent::-webkit-scrollbar {
           display: none;

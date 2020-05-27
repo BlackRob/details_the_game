@@ -5,7 +5,7 @@ import TypeButtonDiv from '../components/typeButtonDiv'
 import YouTubeVid from '../components/youTubeVid'
 import Fold from '../components/fold'
 import MyHeadStuff from '../components/myHeadStuff'
-import { Adj, Noun, Punc, Conj } from '../components/elementAliases'
+import { Adj, Noun, Punc, Conj, Verb, Pron } from '../components/elementAliases'
 
 
 const ThisPage = () => (
@@ -19,24 +19,33 @@ const ThisPage = () => (
         <h2 className="title">Adjectives</h2>
         <p className="description">
           Adjectives are used before nouns or pronouns.
-          People say adjectives "modify" nouns, but that just means they give
+          People say adjectives "modify" nouns, which just means they give
           extra information about the word they're attached to.</p>
         <YouTubeVid vidID="kb7NS16W1BA" caption="placeholder video" />
       </div>
       <div className="content">
         <Fold title={<h3>How to use adjectives in details</h3>} content={<>
+          <h4>With nouns</h4>
           <p>Consider the sentence, "I'm scared of bears".
-          You can change that sentence by adding an adjective to bears.
+          You can change that sentence by adding an adjective before the noun "bears".
           Any adjective would work --red, angry, Italian, crazy. Choose one
           that makes sense to you.
           </p>
-          <p className="example">I'm scared of <Adj x='mechanical' /> bears.</p>
+          <p className="example">I'm scared of <Adj x='mechanical' /> <Noun x='bears' />.</p>
+          <h4>With pronouns</h4>
+          <p>Adjectives can also be used with pronouns:</p>
+          <p className="example">Everyone is tired of hearing about <Adj x='foolish' /> <Pron x='me' /> and my adventures.</p>
+          <h4>With (some) verb forms</h4>
+          <p>Some verb forms --notably the <i>-ing</i> form-- can sometimes be used
+          as nouns. When they are, they can be modified with adjectives.</p>
+          <p className="example">Karen's <Adj x='constant' /> <Verb x='drinking' /> made the office
+          an unpleasant place to work.</p>
         </>} />
         <Fold title={<h3>Using more than one adjective</h3>} content={<>
           <p>When using more than one adjective with a noun, there are two things
           to remember. First, you have to use adjectives in a certain order.
-          You can say <span className="sBG"><Adj x="a" /> <Adj x="dirty" /><Punc x=',' /> <Adj x="red" /> <Noun x="car" /></span>&nbsp;
-          but not <span className="sBG">❌ <Adj x="a" /> <Adj x="red" /><Punc x=',' /> <Adj x="dirty" /> <Noun x="car" /></span>.
+          You can say <span className="sBG"><Adj x="a" />&nbsp;<Adj x="dirty" /><Punc x=',' />&nbsp;<Adj x="red" />&nbsp;<Noun x="car" /></span>&nbsp;
+          but not <span className="sBG">❌ <Adj x="a" />&nbsp;<Adj x="red" /><Punc x=',' />&nbsp;<Adj x="dirty" />&nbsp;<Noun x="car" /></span>.
           The "order of adjectives" rules are tricky, and too complicated to discuss here,
           but as a general rule the adjective that is most closely linked with
           the identity of the noun goes closest to the noun. Being "red" is
@@ -45,14 +54,14 @@ const ThisPage = () => (
           <p>The second thing to remember is that you need to put commas between
           the separate adjectives, unless the adjective helps to define what type
           the noun is. So, although we would write <span className="sBG">
-              <Adj x="a" /> <Adj x="long" /><Punc x=',' /> <Adj x="hot" /> <Noun x="night" /></span>&nbsp;
+              <Adj x="a" />&nbsp;<Adj x="long" /><Punc x=',' />&nbsp;<Adj x="hot" />&nbsp;<Noun x="night" /></span>&nbsp;
           --with commas between "long" and "hot"-- we would write <span className="sBG">
-              <Adj x="a" /> <Adj x="long" /><Punc x=',' /> <Adj x="hot" /> <Adj x="summer" /> <Noun x="night" /></span>.
+              <Adj x="a" />&nbsp;<Adj x="long" /><Punc x=',' />&nbsp;<Adj x="hot" />&nbsp;<Adj x="summer" />&nbsp;<Noun x="night" /></span>.
           There's no comma between "hot" and "summer", because although they're both
           adjectives, "summer" tells what type of night we're talking about, so
           it's almost closer to being part of the noun than an independent adjective.
           </p></>} />
-        <Fold title={<h3>Using nouns as adjective</h3>} content={<>
+        <Fold title={<h3>Using nouns as adjectives</h3>} content={<>
           <p>One fact to remember about Engish is that sometimes the same word can
           be used in different ways. For example, "French" can refer to the people
           of France, or it can be an adjective that refers to things from or related
@@ -61,8 +70,8 @@ const ThisPage = () => (
             In fact, <abbr title="Always Check The Dictionary">ACTD</abbr>.</p>
           <p>Based on this, one might wonder whether it's okay to use a noun card as
           an adjective. Well, you can do it --the game won't prevent you-- but you probably
-          shouldn't. Other people who see it might call it a mistake, and it does
-          violate the spirit of the game. If you have a noun card, the challenge is to
+          shouldn't. Other people who see it might consider it a mistake, and it does
+          sort of go against the spirit of the game. If you have a noun card, the challenge is to
           use it as a noun, not repurpose it as a adjective. But, you shouldn't let this "rule"
             interfere with your creativity. For example, if we have this sentence:</p>
           <p className="example">The <Adj x='Russian' /> <Noun x='bears' /> were fighting.</p>
@@ -71,6 +80,13 @@ const ThisPage = () => (
           <p>That's a clever and creative way to use a conjunction and an adjective at
           the same time, and we shouldn't let some technicality (the color of "Russian"
             indicates it's an adjective, but now it's functioning as a noun) stop us.</p>
+          <p>Another way in which a noun can be used as an adjective is when we
+            use its possessive form:</p>
+          <p className="example"><Noun x="Bob's" /> <Noun x='uncle' /> is an archeologist.</p>
+          <p>As you can see from the color of "Bob's", it is still considered a noun,
+          even though it's acting like an adjective (it gives an extra detail about
+          the noun "uncle" --whose uncle? Bob's.)
+          </p>
         </>} />
       </div>
       <div className="sidebar">

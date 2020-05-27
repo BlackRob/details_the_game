@@ -61,7 +61,7 @@ const PopUp = () => {
           padding: none;
           fill: var(--active_outline);
           transition: all 0.2s;
-          margin-top: 0.32em;
+          margin-top: 0.22em;
           width: 0.85em;
           height: 0.85em;
           margin-bottom: 0;
