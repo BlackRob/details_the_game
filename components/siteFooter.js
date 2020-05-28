@@ -20,8 +20,8 @@ export default function siteHeader() {
           color: var(--active_outline);
           text-decoration: none;
         }
-        a:hover {
-          color: var(--punc);
+        a:hover, a:active {
+          color: var(--insert);
         }
       `}</style>
     </footer>

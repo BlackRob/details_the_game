@@ -33,10 +33,12 @@ const ThisPage = () => (
           </p>
           <p className="example">I'm scared of <Adj x='mechanical' /> <Noun x='bears' />.</p>
           <h4>With pronouns</h4>
-          <p>Adjectives can also be used with pronouns:</p>
+          <p>Adjectives can also be used with pronouns: <span className="sBG"><Pron x="somebody" />&nbsp;<Adj x="special" />
+          </span>, or <span className="sBG"><Adj x="the" /><Adj x="lucky" />&nbsp;<Pron x="one" /></span>
+          </p>
           <p className="example">Everyone is tired of hearing about <Adj x='foolish' /> <Pron x='me' /> and my adventures.</p>
           <h4>With (some) verb forms</h4>
-          <p>Some verb forms --notably the <i>-ing</i> form-- can sometimes be used
+          <p>Some verb forms --notably the <i>-ing</i> form-- can be used
           as nouns. When they are, they can be modified with adjectives.</p>
           <p className="example">Karen's <Adj x='constant' /> <Verb x='drinking' /> made the office
           an unpleasant place to work.</p>
@@ -48,7 +50,7 @@ const ThisPage = () => (
           but not <span className="sBG">❌ <Adj x="a" />&nbsp;<Adj x="red" /><Punc x=',' />&nbsp;<Adj x="dirty" />&nbsp;<Noun x="car" /></span>.
           The "order of adjectives" rules are tricky, and too complicated to discuss here,
           but as a general rule the adjective that is most closely linked with
-          the identity of the noun goes closest to the noun. Being "red" is
+          the identity of the noun goes closest to it. Being "red" is
           more a defining characteristic of the car than being "dirty", so "red"
           goes closer to "car".</p>
           <p>The second thing to remember is that you need to put commas between
@@ -72,8 +74,8 @@ const ThisPage = () => (
           an adjective. Well, you can do it --the game won't prevent you-- but you probably
           shouldn't. Other people who see it might consider it a mistake, and it does
           sort of go against the spirit of the game. If you have a noun card, the challenge is to
-          use it as a noun, not repurpose it as a adjective. But, you shouldn't let this "rule"
-            interfere with your creativity. For example, if we have this sentence:</p>
+          use it as a noun, not repurpose it as an adjective. But, you shouldn't let this "rule"
+            interfere with your creativity. For example, assume we have this sentence:</p>
           <p className="example">The <Adj x='Russian' /> <Noun x='bears' /> were fighting.</p>
           <p>We could change it by adding a conjunction and an article (adjective):</p>
           <p className="example">The <Adj x='Russian' /> <Conj x='and' /> <Adj x="the" /> <Noun x='bears' /> were fighting.</p>

@@ -5,7 +5,7 @@ import TypeButtonDiv from '../components/typeButtonDiv'
 import YouTubeVid from '../components/youTubeVid'
 import Fold from '../components/fold'
 import MyHeadStuff from '../components/myHeadStuff'
-import { Adj, Noun, Conj, Prep, Verb, Pron, Adv } from '../components/elementAliases'
+import { Adj, Noun, Conj, Prep, Verb, Pron, Adv, Punc } from '../components/elementAliases'
 
 const ThisPage = () => (
   <div className="container">
@@ -50,7 +50,7 @@ const ThisPage = () => (
               because they're adjectives, you need to use an adjective word card: i.e. if
               you want to add "my car" to a sentence, you need an adjective card and a noun
               card, <span className="cAdj">my</span> and <span className="cNoun">car</span>; but
-              because articles are so common and necessary, details doesn't reuire you to use
+              because articles are so common and necessary, details doesn't require you to use
               a separate adjective card. You can just write the article on the same card as
               the noun: <span className="cNoun">the&nbsp;car</span>.</p>
         </>} />
@@ -106,18 +106,18 @@ const ThisPage = () => (
         </>} />
         <p><sup>1</sup> Yes, some grammatically correct sentences don't
         explicitly have subjects. Two examples:</p>
-        <p className="example"><Verb x="Give" /> <Pron x='me' /> <Adv x="a" /> <Noun x='cookie' />!</p>
+        <p className="example"><Verb x="Give" /> <Pron x='me' /> <Adj x="a" /> <Noun x='cookie' />!</p>
         <p className="example"><Adv x="There" /> <Verb x="isn't" />.</p>
         <p>The first is an imperative sentence --it gives a command-- and has
         an implied subject of "you". In the second sentence, "there" is an
-        adverb. If we were to write, "There is a chance", that is equivalent
-        to saying, "A chance exists." So in there is/there are constructions,
+        adverb. If we were to write, "There is a chance", that would be equivalent
+        to saying, "A chance exists [there]". Thus, in <b>there is</b>/<b>there are</b> constructions,
         the subject comes after the verb. So where's the subject in sentence
         two? It has to be understood from context! It's something that was
         already mentioned in a previous sentence: the listener or reader would
         have to infer what the subject is.
         </p>
-        <p className="example">Alice: <Verb x="Is" /> <Adv x="there" /> <Adv x="a" /> <Noun x='chance' /> you'll change your mind?</p>
+        <p className="example">Alice: <Verb x="Is" /> <Adv x="there" /> <Adj x="a" /> <Noun x='chance' /> you'll change your mind?</p>
         <p className="example">Bob: <Adv x="There" /> <Verb x="isn't" /> [a chance].</p>
       </div>
       <div className="sidebar">

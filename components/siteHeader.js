@@ -15,7 +15,7 @@ export default function siteHeader() {
       <Link href="/about"><a alt="about">About</a></Link>
     </div>
     <div className="Header_game">
-      <Link href="/details" ><a alt="play"><div className="GameLink">Play<br />details</div></a></Link>
+      <a href="https://details.grumbly.games" rel="noopener noreferrer" target="_blank" alt="play"><div className="GameLink">Play<br />details</div></a>
     </div>
     <style jsx>
       {`

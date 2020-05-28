@@ -50,8 +50,8 @@ const SharingPopUp = ({ sentence, cards, setShowSharing, wih }) => {
   const readableSentence = makeReadable({ sentence })
   console.log(readableSentence)
   const canvasURLstring = Buffer.from(gameAsString, 'utf8').toString('base64')
-  const gameURL = `https://grumbly.games/details/${canvasURLstring}`
-  const imageURL = `https://grumbly.games/api/${canvasURLstring}`
+  const gameURL = `https://details.grumbly.games/${canvasURLstring}`
+  const imageURL = `https://details.grumbly.games/api/${canvasURLstring}`
 
   return <div className="z2">
     <div className="sharing_popup">

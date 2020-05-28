@@ -15,6 +15,7 @@
   --prep: lime;
   --pron: fuchsia;
   --punc: lavender;/* #f8f8ff; */
+  --insert: rgba(255,51,0 ,1);
 }
 
 html,
@@ -204,7 +205,7 @@ a, a:visited {
   color: black;
 }
 a:hover, a:active {
-  color: var(--punc);
+  color: var(--insert);
 }
 
 .adj {

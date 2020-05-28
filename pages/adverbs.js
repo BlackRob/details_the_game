@@ -5,7 +5,7 @@ import TypeButtonDiv from '../components/typeButtonDiv'
 import YouTubeVid from '../components/youTubeVid'
 import Fold from '../components/fold'
 import MyHeadStuff from '../components/myHeadStuff'
-import { Adv, Verb, Adj } from '../components/elementAliases'
+import { Adv, Verb, Adj, Pron, Noun } from '../components/elementAliases'
 
 const ThisPage = () => (
   <div className="container">
@@ -33,10 +33,9 @@ const ThisPage = () => (
           but in writing it is considered bad style to use too many of them.
           When you write, you should try to avoid unnecessary adverbs.
           But when people talk, they use them constantly!<sup>1</sup>&nbsp;
-          In details, you can use an adverb on it's own or together with
+          In details, you can use an adverb on its own or together with
           the word it's modifying.</p>
-          <p className="example"><Adv x='Even' /> my brother <Adv x="very rarely" /> puts&nbsp;
-           <Adv x='so' /> much sugar in his tea.</p>
+          <p className="example"><Adv x='Even' /> my brother <Adv x="very rarely" /> puts <Adv x='so' /> much sugar in his tea.</p>
           <p>In the previous example, "Even" adds emphasis to "my" (a possessive
             adjective), "rarely" tells <i>how</i> he puts _____ (adverb modifying a verb),
             "very" modifies "rarely" (adverb modifying adverb: how rarely? very), and
@@ -45,12 +44,12 @@ const ThisPage = () => (
         </>} />
         <Fold title={<h3>The five types of adverbs</h3>} content={<>
           <p>Adverbs (and adverb phrases) add details to a sentence by providing
-            answers to five possible questions: <b>how?</b>, <b>when?</b>,
-            <b>where?</b>, <b>how much?</b> and <b>how often?</b>. Adverbs
+            answers to five possible questions: <b>how</b>, <b>when</b>,
+            <b>where</b>, <b>how much</b> and <b>how often</b>. Adverbs
             are grouped based on which question they answer.</p>
           <h4>How? Adverbs of manner</h4>
           <p className="example">I <Verb x="ate" /> my dinner <Adv x='quickly' />.</p>
-          <p className="example">The werewolf <Adv x="silently" /> <Verb x='stalked' /> his victims.</p>
+          <p className="example">The werewolf <Adv x="silently" /> <Verb x='stalked' /> his victim.</p>
           <h4>When? Adverbs of time</h4>
           <p className="example">Carol <Adv x='recently' /> <Verb x="visited" /> Barcelona.</p>
           <p className="example">My daughter <Adv x="eventually" /> <Verb x='got up' /> and washed the dishes.</p>
@@ -77,13 +76,34 @@ const ThisPage = () => (
           <p className="example">Fat babies like <Adv x="occasionally" /> <Verb x="eating" /> cake.</p>
         </>} />
         <Fold title={<h3>Adverbs with adjectives</h3>} content={<>
-          <p>not written yet!</p>
+          <p>Adverbs are regulary used to modify adjectives. <span className="sBG"><Adv x="very" />&nbsp;<Adj x="ugly" />
+          </span> <span className="sBG"><Adv x="not" />&nbsp;<Adj x="bad" /></span> <span
+            className="sBG"><Adv x="obviously" />&nbsp;<Adj x="fake" /></span> <span
+              className="sBG"><Adv x="stunningly" />&nbsp;<Adj x="beautiful" /></span>.</p>
         </>} />
         <Fold title={<h3>Adverbs with adverbs!</h3>} content={<>
-          <p>not written yet!</p>
+          <p>Adverbs less commonly modify other adverbs. <span className="sBG"><Adv x="almost" />&nbsp;<Adv x="completely" />
+          </span> <span className="sBG"><Adv x="very" />&nbsp;<Adv x="eagerly" /></span> <span
+            className="sBG"><Adv x="quite" />&nbsp;<Adv x="suddenly" /></span> <span
+              className="sBG"><Adv x="surprisingly" />&nbsp;<Adv x="well" /></span>.</p>
         </>} />
-        <p><sup>1</sup> Adverbs are often not used literally. People use them for
-        emphasis, and sometimes people exaggerate. "I am <i>so</i> happy for you!"</p>
+        <Fold title={<h3>"Not" is free with verbs</h3>} content={<>
+          <p>When using a verb, sometimes we want to use the negative form of it.
+            This usually means just adding the adverb "not".</p>
+          <p className="example">The dog <Verb x="is" /> <Adv x="not" /> <Verb x="barking" />.</p>
+          <p>In order to make it easier for players to use negative verbs, "not" can
+          be added to any verb card, in the same way that articles can be freely added
+          to noun (or adjective, adverb or verb) cards. For example, if we have
+          the sentence</p>
+          <p className="example"><Pron x="I" /> <Verb x="am" />!</p>
+          <p>and we have a verb card and a noun card, we could
+            write <span className="cVerb">not eating</span> and <span className="cNoun">the dog</span>, and
+            details will insert it correctly into the sentence:</p>
+          <p className="example"><Pron x="I" /> <Verb x="am" /> <Adv x="not" /> <Verb x="eating" /> <Adj x="the" /> <Noun x="dog" />!</p>
+        </>} />
+        <p><sup>1</sup>Adverbs are often not used literally. People use them for
+        emphasis, and sometimes people exaggerate.</p>
+        <p className="example">I am <Adv x="so" /> happy for you!</p>
       </div>
       <div className="sidebar">
         <TypeButtonDiv />

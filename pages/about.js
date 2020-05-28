@@ -67,7 +67,8 @@ const About = () => (
           image below and add more details to this sentence.
         </p>
         <figure>
-          <a href="/details/MXZBdH4yenN1bnJpc2V+M2F+NHh0aGV+NXhncmVlbn42emRvZ343eWlzfjh4aHVuZ3J5fjl1YW5kfjEweHNhZH4xMXVidXR+MTJ4dGhlfjEzeGJyb3dufjE0emRvZ34xNXlpc34xNnhoYXBweX4xN2Z+fjB0fjF5fjJ1fjN2fjR6">
+          <a href="https://details.grumbly.games/MXZBdH4yenN1bnJpc2V+M2F+NHh0aGV+NXhncmVlbn42emRvZ343eWlzfjh4aHVuZ3J5fjl1YW5kfjEweHNhZH4xMXVidXR+MTJ4dGhlfjEzeGJyb3dufjE0emRvZ34xNXlpc34xNnhoYXBweX4xN2Z+fjB0fjF5fjJ1fjN2fjR6"
+            rel="noopener noreferrer" target="_blank" alt="click to play" >
             <img src="/greenandbrown.png"></img>
             <figcaption>click to play!</figcaption>
           </a>
