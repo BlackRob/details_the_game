@@ -42,7 +42,8 @@ const Fold = ({ title, content }) => {
           }
           .arrowRight h3:hover, .arrowRight h4:hover,
           .arrowDown h3:hover, .arrowDown h4:hover {
-            color: var(--logo_hover);
+            color: var(--insert);
+            text-decoration: underline;
             transition: all 0.3s;
           }
           .arrowRight h3::before, .arrowRight h4::before {

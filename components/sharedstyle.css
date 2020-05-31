@@ -244,11 +244,11 @@ li {
 .cNoun, .cAdj, .cVerb, .cAdv, .cPron, .cConj, .cPunc, .cPrep, .cIntrj,
 .sNoun, .sAdj, .sVerb, .sAdv, .sPron, .sConj, .sPunc, .sPrep, .sIntrj {
   background-color: var(--headerbg);
-  padding: 0px 0.3rem;
-  border-radius: 3px;
+  padding: 0px;
+  border-radius: 0px;
   display: inline;
-  line-height: calc(1.5rem - 3px);
-  padding-bottom: 3px;
+  line-height: calc(1.2rem - 2px);
+  padding-bottom: 2px;
 }
 .cNoun, .cAdj, .cVerb, .cAdv, .cPron, .cConj, .cPunc, .cPrep, .cIntrj {
   color: black;

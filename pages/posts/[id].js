@@ -58,15 +58,15 @@ export default function BlogTemplate({ post }) {
         }
         .postNav a {
           color: var(--headerbg);
-          text-decoration: underline;
+          text-decoration: none;
           font-size: 90%;
+          font-weight: 600;
           padding: 7px;
           border-radius: 3px;
           transition: all 0.3s;
         }
         .postNav a:hover {
-          background-color: var(--headerbg);
-          color: var(--punc);
+          color: var(--insert);
           text-decoration: underline;
           font-size: 90%;
         }

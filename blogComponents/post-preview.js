@@ -53,11 +53,8 @@ export default function PostPreview({
             text-decoration: none;
           }
           a:hover {
-            color: var(--punc);
-          }
-          li:hover {
-            background-color: var(--headerbg);
-            color: var(--punc);
+            color: var(--insert);
+            text-decoration: underline;
           }
         `}
       </style>
@@ -80,32 +77,3 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 400,
   },
 }));
-
-{/* <Fold title={<h3>
-  <Link as={`/posts/${slug}`} href="/posts/[slug]">
-    <a className="">{title}</a>
-  </Link>
-</h3>}
-  content={excerpt} />
-  <div className="dateDiv">
-    <Date dateString={date} />
-  </div>
-  <style jsx>
-    {`
-          li {
-            margin: 10px 7px 10px 0px;
-          }
-          a, a:visited {
-            color: black;
-            text-decoration: none;
-          }
-          a:hover {
-            color: var(--active_outline);
-          }
-          .dateDiv {
-            font-size: 90%;
-            padding: 0 30px 0 25px;
-            width: 10rem;
-          }
-        `}
-  </style> */}

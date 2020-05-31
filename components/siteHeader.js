@@ -54,10 +54,10 @@ export default function siteHeader() {
             text-decoration: none;
           }     
           .Header_logo1 a:hover, .Header_logo2 a:hover {
-            color: var(--punc);
+            color: var(--insert);
           }
           .Header_logo1 a:active, .Header_logo2 a:active {
-            color: var(--punc);
+            color: var(--insert);
           }
           .Header_logo1, .Header_logo2 {
             padding-right: 1rem;
@@ -80,7 +80,7 @@ export default function siteHeader() {
             text-decoration: none;
           }
           .Header_menu a:hover, .Header_menu a:active {
-            color: var(--punc);
+            color: var(--insert);
           }
           .Header_menu {
             grid-area: menu;
@@ -112,7 +112,7 @@ export default function siteHeader() {
             background-color: var(--intrj);
             border: 2px solid var(--punc);
             filter: drop-shadow(0 0 0.75rem var(--adv));
-            color: var(--punc);
+            color: black;
           }
         `}
     </style>
