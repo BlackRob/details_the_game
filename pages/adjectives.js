@@ -34,7 +34,7 @@ const ThisPage = () => (
           <p className="example">I'm scared of <Adj x='mechanical' /> <Noun x='bears' />.</p>
           <h4>With pronouns</h4>
           <p>Adjectives can also be used with pronouns: <span className="sBG"><Pron x="somebody" />&nbsp;<Adj x="special" />
-          </span>, or <span className="sBG"><Adj x="the" /><Adj x="lucky" />&nbsp;<Pron x="one" /></span>
+          </span>, or <span className="sBG"><Adj x="the" />&nbsp;<Adj x="lucky" />&nbsp;<Pron x="one" /></span>
           </p>
           <p className="example">Everyone is tired of hearing about <Adj x='foolish' /> <Pron x='me' /> and my adventures.</p>
           <h4>With (some) verb forms</h4>

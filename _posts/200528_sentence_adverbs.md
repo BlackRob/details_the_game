@@ -9,7 +9,7 @@ categories: 'adverbs'
 Recently, when talking with a student, I was asked what the difference 
 was between "He clearly did it" and "Clearly, he did it". I have to admit 
 that I found it difficult to give a good answer, because I'd never 
-thought about it before. There definitely is a difference; as a native speaker 
+ad to explain it before. There definitely is a difference; as a native speaker 
 I'd sometimes use one, and sometimes the other, but why?
 
 So I did what any good teacher would do: I told the student I'd have to look it up. 
@@ -17,19 +17,19 @@ __It's okay to not know everything.__ Now that I've looked it up, this is how I 
 explain the difference. 
 
 In the first sentence, "clearly" is a normal adverb. 
-It modifies the verb "did" and answers the question, in what manner? 
+It modifies the verb "did" and answers the question, how / in what manner? 
 
-He did it _In what manner did he do it?_ He __clearly__ did it [i.e. it's easy to see that he did it]
+He did it. _How did he do it?_ He __clearly__ did it [i.e. it's easy to see that he did it]
 
 In the second case, __clearly__ acts on the whole sentence. It expresses the speaker's 
-feelings about the it. In the way that they show the speaker's attitude, sentence 
-adverbs are similar to interjections.
+feelings about the it. When adverbs are used this way they're called "sentence adverbs".
+Sentence adverbs are similar to interjections in how they reflect the speaker's attitude.
 
 Imagine this situation: you and I are trying to solve a mystery. Today is Karen's 
 birthday. We bought her a cake, but someone ate the entire thing! We decide to look 
 at the social media accounts of all the suspects, and one of the them, Tom, 
 just posted a picture of himself with frosting all over his face and the hashtag 
-#CakeBandit. When you see this you might say:
+_#CakeBandit_. When you see this you might say:
 
 <p class="example"><span class="sAdv">Clearly</span>, <span class="sPron">he</span> <span class="sVerb">did</span> <span class="sPron">it</span>.</p>
 
@@ -58,4 +58,4 @@ __Hopefully__ means "I hope what I am about to say will happen".
 <p class="example"><span class="sAdv">Hopefully</span>, <span class="sPron">he</span> <span class="sVerb">can get</span> <span class="sNoun">treatment</span> <span class="sPrep">for</span> <span class="sAdj">his</span> <span class="sNoun">cake addiction</span>.</p>
 
 Other sentence adverbs include __plainly__, __honestly__, __luckily__ and __surprisingly__. 
-If you are not sure how to use them, remember: __A__lways __C__heck __T__he __D__ictionary.
+If you are not sure how to use them, remember: __A__lways __C__heck __T__he __D__ictionary!

@@ -72,7 +72,7 @@ const PopUp = () => {
         svg:hover {
           fill: var(--logo_hover);
           cursor: pointer;
-          animation: Gear-spin infinite 15s linear;
+          animation: Gear-spin infinite 15s linear forwards;
         }
         svg:active {
           fill: darkslategray;

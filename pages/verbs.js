@@ -34,16 +34,15 @@ const ThisPage = () => (
           <p>Transitive verbs usually take an object (a noun or phrase that
             completes the verb by answering the questions <i>who?</i> or <i>what?</i>).
             If we just wrote, <b>The zombies chased</b>, someone
-            would expect to know <i>who</i> or <i>what</i> they were
-            were chasing. </p>
+            would expect to know <i>who</i> or <i>what</i> they were chasing. </p>
           <p>"Intransitive" verbs are different --nothing happens! Instead,
           these verbs express a state of being. All of the following
           examples use intransitive verbs.</p>
           <p className="example">The zombies <Verb x='are' /> ugly.</p>
           <p className="example">Unicorns <Verb x='exist' />.</p>
           <p className="example">My parents <Verb x='waited' />.</p>
-          <p className="example">The zombies <Verb x='were rotting' />.</p>
-          <p>No one who reads or hears those questions expects an extra
+          <p className="example">The walrus <Verb x='slept' />.</p>
+          <p>No one who reads or hears those sentences expects an extra
             word to complete the thought. No one wonders, "Unicorns exist <i>what</i>?"</p>
           <p>Some verbs can be transitive or intransitive, depending on how
             they are used in the sentence.</p>
@@ -65,7 +64,7 @@ const ThisPage = () => (
         </>} />
         <Fold title={<h3>Auxiliary verbs: to be, to have, to do</h3>} content={<>
           <p>These are the three most important verbs in English! They are
-            also also weird, because they're irregular.</p>
+            also weird, because they're irregular.</p>
           <h4>To be</h4>
           <p>"To be" has the separate forms <b>am</b>, <b>are</b>, <b>is</b> in
             the present and <b>was</b>, <b>were</b> in the past.
@@ -83,7 +82,7 @@ const ThisPage = () => (
           <p className="example">Karen <Verb x='is' /> <Adj x="a" /> <Noun x="monster" />.</p>
           <p className="example">That <Verb x='was' /> <Adj x="funny" />.</p>
           <h4>To have</h4>
-          <p>"To have" has the forms <b>have</b>, <b>has</b> in the present
+          <p>"To have" has the forms <b>have</b> and <b>has</b> in the present
           and <b>had</b> in the past. The past participle is also <b>had</b>.</p>
           <p>These forms are used with the past participle to indicate the
           "perfect" aspect of a verb (i.e. to form the past/present/future perfect
@@ -103,7 +102,7 @@ const ThisPage = () => (
           <p>Also note that the verb "have" can also be used as a regular
             (intranstive) verb to show ownership.</p>
           <p className="example">I <Verb x='have' /> a million dollars in the bank.</p>
-          <p>It can be used as the main verb in complex tenses.</p>
+          <p>When used in this way it can be the main verb in complex tenses.</p>
           <p className="example">The Johnsons <Verb x='were having' /> a picnic.</p>
           <p className="example">The movie star <Verb x='had had' /> three previous wives.</p>
           <p>In the last example, the first <i>had</i> shows "past", and the
@@ -138,7 +137,7 @@ const ThisPage = () => (
           <p className="example">If I was a king I <Verb x='would eat' /> chocolate every day.</p>
           <p>Modal verbs are a complicated subject, and if you are not exactly
           sure how to use one, you should <a href="https://www.merriam-webster.com/dictionary/should">check the dictionary</a>.
-            <abbr title="Always Check The Dictionary">ACTD</abbr>.</p>
+            <abbr title="Always Check The Dictionary">ACTD</abbr>!</p>
         </>} />
         <Fold title={<h3>Phrasal verbs</h3>} content={<>
           <p>Phrasal verbs are verbs that are made up of more than one word. The
@@ -166,7 +165,7 @@ const ThisPage = () => (
           as an adverb (it tells <i>where</i> we looked.) If you are not
           sure if a verb + preposition combination is a phrasal verb, you
           should <a href="https://www.merriam-webster.com/dictionary/seek%20out">check the dictionary</a>. &nbsp;
-          <abbr title="Always Check The Dictionary">ACTD</abbr>.</p>
+          <abbr title="Always Check The Dictionary">ACTD</abbr>!</p>
         </>} />
         <Fold title={<h3>Verbs acting like nouns</h3>} content={<>
           <p>Sometimes, verbs can act like nouns in a sentence. This normally
@@ -178,7 +177,7 @@ const ThisPage = () => (
           prepositional phrases just like any other verb. (Such a group
             of words is called an "infinitive phrase".)</p>
           <p className="example"><Verb x='To win' /> <Prep x="at" /> <Noun x="chess" /> takes skill.</p>
-          <p className="example">Owls like <Verb x="to sleep" /> <Adv x="sometimes" />.</p>
+          <p className="example">Owls like <Verb x="to sleep" /> <Adv x="regularly" />.</p>
           <h4>Past participles as nouns</h4>
           <p>Sometimes people will use a past participle as a noun. When this
           happens, it is generally refers to some group with that characteristic,
@@ -187,22 +186,22 @@ const ThisPage = () => (
           <p className="example"><Adj x="My" /> <Verb x='beloved' /> is meeting me at sunset.</p>
           <p>In these cases, the past participle is being used as an adjective, but
           the noun it's modifying must be understood from context.
-          One must simply understand that <span className="sBG"><Adj x="my" />&nbsp;<Verb x="beloved" /></span>&nbsp;
-          means <span className="sBG"><Adj x="my" />&nbsp;<Verb x="beloved" />&nbsp;<Noun x="person" /></span>.</p>
+          One must simply understand that <span className="sBG"><Adj x="my" />&nbsp;<Verb x="beloved" />
+            </span> means <span className="sBG"><Adj x="my" />&nbsp;<Verb x="beloved" />&nbsp;<Noun x="person" /></span>.</p>
           <p>Two more details to note about this usage: the past participle is treated as a
           singular, specific noun, so it is used with the article "the"; and it
           can be modified with an adjective
-          i.e. <span className="sBG"><Adj x="the" />&nbsp;<Adj x="grateful" />&nbsp;<Verb x="dead" /></span>&nbsp;
-          or an adverb <span className="sBG"><Adj x="the" />&nbsp;<Adj x="recently" />&nbsp;<Verb x="dead" /></span>.</p>
+          i.e. <span className="sBG"><Adj x="the" />&nbsp;<Adj x="grateful" />&nbsp;<Verb x="dead" />
+            </span> or an adverb <span className="sBG"><Adj x="the" />&nbsp;<Adj x="recently" />&nbsp;<Verb x="dead" /></span>.</p>
           <h4>Present participles as nouns (gerunds)</h4>
           <p>It is very common to use the <i>-ing</i> form of a verb as a noun
           to refer to the act itself.</p>
           <p className="example"><Verb x='Swimming' /> is great exercise.</p>
-          <p className="example"><Adj x="My" /> <Verb x='laughing' /> during funerals is a bad habit.</p>
+          <p className="example"><Verb x='Laughing' /> during funerals is considered rude.</p>
           <p className="example">I love <Verb x='cooking' />.</p>
           <p>Gerunds (present participles acting like nouns) can be modified by
-          adjectives like nouns <span className="sBG"><Adj x="the" />&nbsp;<Adj x="wild" />&nbsp;<Verb x="dancing" /></span>&nbsp;
-          or by adverbs like verbs <span className="sBG"><Adv x="quietly" />&nbsp;<Verb x="working" /></span></p>
+          adjectives like nouns <span className="sBG"><Adj x="the" />&nbsp;<Adj x="wild" />&nbsp;<Verb x="dancing" />
+            </span> or by adverbs like verbs <span className="sBG"><Adv x="quietly" />&nbsp;<Verb x="working" /></span></p>
         </>} />
       </div>
       <div className="sidebar">

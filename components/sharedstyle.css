@@ -29,7 +29,7 @@ body {
   font-size: calc(12px + 0.6vw);
   background-color: var(--bodybg);
   color: black;
-  -ms-overflow-style: none;
+  _-ms-overflow-style: none;
 }
 
 * {
@@ -48,10 +48,10 @@ body {
   color: black;
   position: relative;
   overflow-y: scroll;
-  scrollbar-width: none;
+  _scrollbar-width: none;
 }
 .container::-webkit-scrollbar {
-  display: none;
+  _display: none;
 }
 @media screen and (min-width: 960px) {
   .App {
@@ -60,7 +60,7 @@ body {
 }
 
 main {
-  padding: 30px 10%;
+  padding: 40px 10%;
   display: grid;
   width: 100%;
   grid-gap: 10px;
@@ -244,11 +244,12 @@ li {
 .cNoun, .cAdj, .cVerb, .cAdv, .cPron, .cConj, .cPunc, .cPrep, .cIntrj,
 .sNoun, .sAdj, .sVerb, .sAdv, .sPron, .sConj, .sPunc, .sPrep, .sIntrj {
   background-color: var(--headerbg);
-  padding: 0px;
-  border-radius: 0px;
+  padding: 0px 0.3rem;
+  border-radius: 3px;
   display: inline;
-  line-height: calc(1.2rem - 2px);
-  padding-bottom: 2px;
+  line-height: calc(1.5rem - 3px);
+  margin: 1px;
+  padding-bottom: 1px;
 }
 .cNoun, .cAdj, .cVerb, .cAdv, .cPron, .cConj, .cPunc, .cPrep, .cIntrj {
   color: black;

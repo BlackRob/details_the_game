@@ -15,6 +15,7 @@ export default function siteHeader() {
           justify-content: center;
           align-items: center;
           text-align:center;
+          padding: 20px;
         }
         a, a:visited {
           color: var(--active_outline);
