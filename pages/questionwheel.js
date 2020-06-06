@@ -208,7 +208,13 @@ const QuestionWheel = () => {
         cursor: pointer;
         color: var(--button-fill);
       }
-      a:hover, a:active {
+      a:hover {
+        color: var(--button-highlight);
+      }
+      a:focus {
+        color: var(--button-fill);
+      }
+      a:active {
         color: var(--button-highlight);
       }
       text {
