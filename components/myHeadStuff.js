@@ -6,6 +6,10 @@ const MyHeadStuff = ({ title }) => {
     <>
       <title>{title}</title>
       <link rel="icon" href="/favicon.ico" />
+      <meta property="og:image" content="https://grumbly.games/default.png" />
+      <meta property="og:image:secure_url" content="https://grumbly.games/default.png" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="fb:app_id" content="220488252548780" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`https://grumbly.games/${title}`} />

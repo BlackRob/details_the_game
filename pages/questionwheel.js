@@ -17,7 +17,17 @@ const QuestionWheel = () => {
 
   return <div className="container">
     <Head>
-      <MyHeadStuff title="question wheel" />
+      <title>Question Wheel</title>
+      <link rel="icon" href="/favicon.ico" />
+      <meta property="og:image" content="https://grumbly.games/questionwheel.png" />
+      <meta property="og:image:secure_url" content="https://grumbly.games/questionwheel.png" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="fb:app_id" content="220488252548780" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://grumbly.games/questionwheel" />
+      <meta property="og:title" content="Spin the wheel!" />
+      <meta property="og:description" content="a toy to help remember how to form questions in English" />
       <link href="https://fonts.googleapis.com/css2?family=Cabin+Condensed&display=swap" rel="stylesheet" />
     </Head>
     <div className="title">
