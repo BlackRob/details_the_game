@@ -90,31 +90,43 @@ const QuestionWheel = () => {
             <GreenGroup start="204.5" r1="56" r2="143" end="335.5" offset="1.7" />
           </g>
         </g>
-        <a id="sCW_butt" onMouseDown={() => startRotateS({ aRef: sRingRef1 })}
-          onMouseUp={() => pauseRotateS({ aRef: sRingRef1 })}
+        <a id="sCW_butt" onTouchStart={() => startRotateS({ aRef: sRingRef1 })}
+          onTouchEnd={() => pauseRotateS({ aRef: sRingRef1 })}
+          onMouseDown={() => startRotateRevS({ aRef: sRingRef1 })}
+          onMouseUp={() => pauseRotateRevS({ aRef: sRingRef1 })}
           onMouseLeave={() => pauseRotateS({ aRef: sRingRef1 })}>
           <ClockwiseButton id="sCW" start="24" r1="412" r2="478" end="39" point="42" /></a>
-        <a id="sCCW_butt" onMouseDown={() => startRotateRevS({ aRef: sRingRef2 })}
+        <a id="sCCW_butt" onTouchStart={() => startRotateRevS({ aRef: sRingRef2 })}
+          onTouchEnd={() => pauseRotateRevS({ aRef: sRingRef2 })}
+          onMouseDown={() => startRotateRevS({ aRef: sRingRef2 })}
           onMouseUp={() => pauseRotateRevS({ aRef: sRingRef2 })}
           onMouseLeave={() => pauseRotateRevS({ aRef: sRingRef2 })}>
           <CounterClockwiseButton id="sCCW" start="22" r1="412" r2="478" end="7" point="4" /></a>
         <text className="buttonText" x="950" y="700">pronouns</text>
 
-        <a id="mCW_butt" onMouseDown={() => startRotateS({ aRef: mRingRef1 })}
-          onMouseUp={() => pauseRotateS({ aRef: mRingRef1 })}
+        <a id="mCW_butt" onTouchStart={() => startRotateS({ aRef: mRingRef1 })}
+          onTouchEnd={() => pauseRotateS({ aRef: mRingRef1 })}
+          onMouseDown={() => startRotateRevS({ aRef: mRingRef1 })}
+          onMouseUp={() => pauseRotateRevS({ aRef: mRingRef1 })}
           onMouseLeave={() => pauseRotateS({ aRef: mRingRef1 })}>
           <ClockwiseButton id="mCW" start="158" r1="412" r2="478" end="173" point="176" /></a>
-        <a id="mCCW_butt" onMouseDown={() => startRotateRevS({ aRef: mRingRef2 })}
+        <a id="mCCW_butt" onTouchStart={() => startRotateRevS({ aRef: mRingRef2 })}
+          onTouchEnd={() => pauseRotateRevS({ aRef: mRingRef2 })}
+          onMouseDown={() => startRotateRevS({ aRef: mRingRef2 })}
           onMouseUp={() => pauseRotateRevS({ aRef: mRingRef2 })}
           onMouseLeave={() => pauseRotateRevS({ aRef: mRingRef2 })}>
           <CounterClockwiseButton id="mCCW" start="156" r1="412" r2="478" end="141" point="138" /></a>
 
-        <a id="lCW_butt" onMouseDown={() => startRotateS({ aRef: lRingRef1 })}
-          onMouseUp={() => pauseRotateS({ aRef: lRingRef1 })}
+        <a id="lCW_butt" onTouchStart={() => startRotateS({ aRef: lRingRef1 })}
+          onTouchEnd={() => pauseRotateS({ aRef: lRingRef1 })}
+          onMouseDown={() => startRotateRevS({ aRef: lRingRef1 })}
+          onMouseUp={() => pauseRotateRevS({ aRef: lRingRef1 })}
           onMouseLeave={() => pauseRotateS({ aRef: lRingRef1 })}>
           <text className="buttonText" x="50" y="700">verbs</text>
           <ClockwiseButton id="lCW" start="204" r1="412" r2="478" end="219" point="222" /></a>
-        <a id="lCCW_butt" onMouseDown={() => startRotateRevS({ aRef: lRingRef2 })}
+        <a id="lCCW_butt" onTouchStart={() => startRotateRevS({ aRef: lRingRef2 })}
+          onTouchEnd={() => pauseRotateRevS({ aRef: lRingRef2 })}
+          onMouseDown={() => startRotateRevS({ aRef: lRingRef2 })}
           onMouseUp={() => pauseRotateRevS({ aRef: lRingRef2 })}
           onMouseLeave={() => pauseRotateRevS({ aRef: lRingRef2 })}>
           <CounterClockwiseButton id="lCCW" start="202" r1="412" r2="478" end="187" point="184" /></a>
@@ -253,21 +265,21 @@ const Help = ({ showVal, setShow }) => {
         How to use the question wheel:
       <span className="z2_hide" onClick={setShow}>x</span>
       </div>
-      <p>The wheel has three rings. The outer ring is filled with
-      question words, the middle ring has helping verbs, and the
-      inner ring has subject pronouns. Some of the helping verbs
-      can only be used with certain pronouns; there are colored
-        outlines to show you which verbs and pronouns go together.</p>
-      <p>Press the arrow buttons to spin each ring until the words
-      line up to the start a question. To finish the question,
+      <p>The wheel has three rings: the outer ring is filled with
+      question words, the middle one has helping verbs, the
+      inner has subject pronouns. Some helping verbs
+      can only be used with specific pronouns; there are colored
+        outlines to show which verbs and pronouns go together.</p>
+      <p>Press the curved arrows to spin each ring until the words
+      line up to start a question. To finish the question,
         you have to think of a main verb and use the correct form.</p>
-      <p><b>Example:</b> spin the rings until the words
-      "Why" and "are" line up on the outer and middle rings. "are" is a
-      green verb, so it can be used with green pronouns. Spin the
-      inner ring until "you" is selected. This gives us, "Why are you
-      _________?" To finish the question, lets use the verb "laughing."</p>
+      <p><b>Example:</b> Spin the rings until the words
+      "Why" and "are" line up: "are" has a green outline
+      so it should be used with green pronouns. Spin the
+      inner ring until "you" is selected. To finish the question,
+      lets use the verb "laughing."</p>
       <p className="centered"><b>"Why are you laughing?"</b></p>
-      <p>If you like this, try "details"! It's a grammar game.</p>
+      <p>If you like this, try "details"! It's a grammar game!</p>
       <p className="centered">
         <a href="https://details.grumbly.games" rel="noopener noreferrer" target="_blank">https://details.grumbly.games</a>
       </p>
@@ -398,7 +410,7 @@ const BlueGroup = ({ start, r1, r2, end, offset }) => {
   </>
 }
 
-const ClockwiseButton = ({ id, start, r1, r2, end, point }) => {
+const ClockwiseButton = ({ id, start, r1, r2, end }) => {
   const x1 = r1 * Math.cos(start * Math.PI / 180) + 500
   const y1 = r1 * Math.sin(start * Math.PI / 180) + 400
   const x2 = r1 * Math.cos(end * Math.PI / 180) + 500
@@ -407,14 +419,18 @@ const ClockwiseButton = ({ id, start, r1, r2, end, point }) => {
   const y3 = r2 * Math.sin(end * Math.PI / 180) + 400
   const x4 = r2 * Math.cos(start * Math.PI / 180) + 500
   const y4 = r2 * Math.sin(start * Math.PI / 180) + 400
+
   const pointRadius = (parseInt(r1) + parseInt(r2)) / 2
-  const pointX = pointRadius * Math.cos(point * Math.PI / 180) + 500
-  const pointY = pointRadius * Math.sin(point * Math.PI / 180) + 400
+  const x2p5 = pointRadius * Math.cos((parseInt(end) + 3) * Math.PI / 180) + 500
+  const y2p5 = pointRadius * Math.sin((parseInt(end) + 3) * Math.PI / 180) + 400
+  const x4p5 = pointRadius * Math.cos((parseInt(start) + 3) * Math.PI / 180) + 500
+  const y4p5 = pointRadius * Math.sin((parseInt(start) + 3) * Math.PI / 180) + 400
 
   return <><path strokeWidth="2" stroke="black" id={id}
     d={` M${x1} ${y1} A${r1} ${r1} 0 0 1 ${x2} ${y2} 
-    L${pointX} ${pointY} L${x3} ${y3} 
-    A${r2} ${r2} 0 0 0 ${x4} ${y4} z `} />
+    L${x2p5} ${y2p5} L${x3} ${y3} 
+    A${r2} ${r2} 0 0 0 ${x4} ${y4} 
+    L${x4p5} ${y4p5} z `} />
     <style jsx>
       {`
         path {
@@ -428,7 +444,7 @@ const ClockwiseButton = ({ id, start, r1, r2, end, point }) => {
   </>
 }
 
-const CounterClockwiseButton = ({ id, start, r1, r2, end, point }) => {
+const CounterClockwiseButton = ({ id, start, r1, r2, end }) => {
   const x1 = r1 * Math.cos(start * Math.PI / 180) + 500
   const y1 = r1 * Math.sin(start * Math.PI / 180) + 400
   const x2 = r1 * Math.cos(end * Math.PI / 180) + 500
@@ -438,13 +454,16 @@ const CounterClockwiseButton = ({ id, start, r1, r2, end, point }) => {
   const x4 = r2 * Math.cos(start * Math.PI / 180) + 500
   const y4 = r2 * Math.sin(start * Math.PI / 180) + 400
   const pointRadius = (parseInt(r1) + parseInt(r2)) / 2
-  const pointX = pointRadius * Math.cos(point * Math.PI / 180) + 500
-  const pointY = pointRadius * Math.sin(point * Math.PI / 180) + 400
+  const x2p5 = pointRadius * Math.cos((parseInt(end) - 3) * Math.PI / 180) + 500
+  const y2p5 = pointRadius * Math.sin((parseInt(end) - 3) * Math.PI / 180) + 400
+  const x4p5 = pointRadius * Math.cos((parseInt(start) - 3) * Math.PI / 180) + 500
+  const y4p5 = pointRadius * Math.sin((parseInt(start) - 3) * Math.PI / 180) + 400
 
   return <><path strokeWidth="2" stroke="black" id={id}
     d={` M${x1} ${y1} A${r1} ${r1} 0 0 0 ${x2} ${y2} 
-    L${pointX} ${pointY} L${x3} ${y3} 
-    A${r2} ${r2} 0 0 1 ${x4} ${y4} z `} />
+    L${x2p5} ${y2p5}  L${x3} ${y3} 
+    A${r2} ${r2} 0 0 1 ${x4} ${y4} 
+    L${x4p5} ${y4p5} z `} />
     <style jsx>
       {`
         path {
@@ -460,6 +479,7 @@ const CounterClockwiseButton = ({ id, start, r1, r2, end, point }) => {
 
 
 const startRotateS = ({ aRef }) => {
+  aRef.current.style.webkitAnimationPlayState = "running"
   aRef.current.style.webkitAnimationPlayState = "running"
 }
 const pauseRotateS = ({ aRef }) => {
