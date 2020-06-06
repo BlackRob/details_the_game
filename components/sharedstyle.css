@@ -29,7 +29,7 @@ body {
   font-size: calc(12px + 0.6vw);
   background-color: var(--bodybg);
   color: black;
-  _-ms-overflow-style: none;
+  -ms-overflow-style: none;
 }
 
 * {
@@ -48,10 +48,10 @@ body {
   color: black;
   position: relative;
   overflow-y: scroll;
-  _scrollbar-width: none;
+  scrollbar-width: none;
 }
 .container::-webkit-scrollbar {
-  _display: none;
+  display: none;
 }
 @media screen and (min-width: 960px) {
   .App {

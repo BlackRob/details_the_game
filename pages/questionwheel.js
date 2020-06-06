@@ -24,7 +24,7 @@ const QuestionWheel = () => {
       The Wheel of Questions!
     </div>
     <div className="grammarwheel">
-      <svg viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg" >
         <circle id="lCircle" cx="500" cy="400" r="399" />
         <path strokeWidth="2" stroke="lightgray" fill="white"
           d={`M${390 * Math.cos(172 * Math.PI / 180) + 500} ${390 * Math.sin(172 * Math.PI / 180) + 400} 
@@ -197,11 +197,11 @@ const QuestionWheel = () => {
         height: auto;
         margin: auto;
         grid-area: spinner;
-        width: 90vmin;
+        width: 96vmin;
       }
       #lCircle {
         stroke: black;
-        fill: var(--large-circle-color);
+        fill: #f1f1f1;
         stroke-width: 2;
       }
       a, a:visited {
@@ -226,7 +226,7 @@ const QuestionWheel = () => {
       }
       .buttonText {
         font-size: 24px;
-        fill: gray;
+        fill: var(--button-fill);
       }
       text.help {
         fill: var(--button-fill);
@@ -236,13 +236,13 @@ const QuestionWheel = () => {
         fill: var(--button-highlight);
       }
       .animatedF {
-        animation: Spin infinite 15s linear;
+        animation: Spin infinite 10s linear;
         transform-origin: center center;
         animation-play-state: paused;
         animation-direction: forward;
       }
       .animatedR {
-        animation: Spin infinite 15s linear;
+        animation: Spin infinite 10s linear;
         transform-origin: center center;
         animation-play-state: paused;
         animation-direction: reverse;
@@ -473,7 +473,7 @@ const CounterClockwiseButton = ({ id, start, r1, r2, end }) => {
     <style jsx>
       {`
         path {
-          fill: var(--button-fill);
+          fill: gray;
         }
         path:hover {
           fill: var(--button-highlight);
