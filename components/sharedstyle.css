@@ -244,7 +244,6 @@ li {
 .cNoun, .cAdj, .cVerb, .cAdv, .cPron, .cConj, .cPunc, .cPrep, .cIntrj,
 .sNoun, .sAdj, .sVerb, .sAdv, .sPron, .sConj, .sPunc, .sPrep, .sIntrj {
   background-color: var(--headerbg);
-  padding: 0px 0.3rem;
   border-radius: 3px;
   display: inline;
   line-height: calc(1.5rem - 3px);
@@ -253,6 +252,7 @@ li {
 }
 .cNoun, .cAdj, .cVerb, .cAdv, .cPron, .cConj, .cPunc, .cPrep, .cIntrj {
   color: black;
+  padding: 0px 0.3rem;
   border: 0px;
 }
 .cAdj {

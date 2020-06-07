@@ -148,7 +148,6 @@ const QuestionWheel = () => {
       <Help showVal={showHelp} setShow={() => { setShowHelp(false) }} />
     </div>
     <div className="promo">
-      <a href="https://grumbly.games">https://grumbly.games</a>
     </div>
 
     <style jsx>{`
@@ -166,7 +165,7 @@ const QuestionWheel = () => {
         background-color: var(--main-bg-color);
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 1fr auto 1fr;
+        grid-template-rows: 2fr auto 1fr;
         grid-template-areas: "title" "spinner" "promo";
         align-items: center;
         justify-content: center;
@@ -191,13 +190,15 @@ const QuestionWheel = () => {
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
+        color: lightgray;
+        font-size: min(1.5em,36px);
       }
       .promo {
         margin: 0;
         padding: 0;
         grid-area: promo;
         height: 100%;
+        min-height:
         color: white;
         display: flex;
         align-items: center;
@@ -236,7 +237,7 @@ const QuestionWheel = () => {
       }
       .buttonText {
         font-size: 24px;
-        fill: var(--button-fill);
+        fill: lightgray;
       }
       text.help {
         fill: var(--button-fill);
@@ -295,8 +296,8 @@ const Help = ({ showVal, setShow }) => {
       inner ring until "you" is selected. To finish the question,
       lets use the verb "laughing."</p>
       <p className="centered"><b>"Why are you laughing?"</b></p>
-      <p>If you like this, try "details"! It's a grammar game!</p>
-      <p className="centered">
+      <p>For more information, read <a href="/posts/200606_question_wheel" rel="noopener noreferrer" target="_blank">this</a></p>
+      <p className="centered highlighted">If you like this, try "details"! It's a grammar game!<br />
         <a href="https://details.grumbly.games" rel="noopener noreferrer" target="_blank">https://details.grumbly.games</a>
       </p>
     </div>
@@ -312,8 +313,8 @@ const Help = ({ showVal, setShow }) => {
         min-height: 100vh;
         width: 100%;
         margin: 0;
-        position: absolute; /* Stay in place */
-        z-index: 2; /* Sit on top */
+        position: absolute;
+        z-index: 2;
         left: 0;
         top: 0;
         padding: 20px 0px;
@@ -321,7 +322,7 @@ const Help = ({ showVal, setShow }) => {
         font-size: 1rem;
       }
       .z2_body {
-        width: min(600px, 90vh);
+        width: min(800px, 90vh);
         height: auto;
         text-align: left;
         background: white;
@@ -346,6 +347,11 @@ const Help = ({ showVal, setShow }) => {
       }
       .centered {
         text-align: center;
+      }
+      .highlighted {
+        border: 2px solid var(--red-group-stroke);
+        border-radius: 3px;
+        padding: 5px;
       }
     `}</style>
   </div>
@@ -483,7 +489,7 @@ const CounterClockwiseButton = ({ id, start, r1, r2, end }) => {
     <style jsx>
       {`
         path {
-          fill: gray;
+          fill: var(--button-fill);
         }
         path:hover {
           fill: var(--button-highlight);
@@ -495,30 +501,21 @@ const CounterClockwiseButton = ({ id, start, r1, r2, end }) => {
 
 
 const startRotateS = ({ aRef }) => {
-  aRef.current.style.webkitAnimationPlayState = "running"
+  aRef.current.style.animationPlayState = "running"
   aRef.current.style.webkitAnimationPlayState = "running"
 }
 const pauseRotateS = ({ aRef }) => {
+  aRef.current.style.animationPlayState = "paused"
   aRef.current.style.webkitAnimationPlayState = "paused"
 }
 const startRotateRevS = ({ aRef }) => {
-  const element = aRef.current;
+  aRef.current.style.animationPlayState = "running"
   aRef.current.style.webkitAnimationPlayState = "running"
 }
 const pauseRotateRevS = ({ aRef }) => {
+  aRef.current.style.animationPlayState = "paused"
   aRef.current.style.webkitAnimationPlayState = "paused"
 }
 
 export default QuestionWheel
 
-
-{/*   < p > <b>have, has and had</b> are always followed by
-the past participle(third form) of a main verb to form
-the < i > present perfect</i > and < i > past perfect</i >: I < b > have eaten</b ></p >
-  <p><b>do, does and did</b> are always followed by
-      the root form of a main verb: I <b>do eat</b></p>
-  <p><b>am, is, are, was and were</b> can be used with
-      the <i>progressive</i> (-ing) form of a verb to make the <i>present
-        progressive</i> and <i>past progressive</i> tenses:
-        I <b>was eating</b>; they can also be used with the
-        past participle to form the <i>passive voice</i>: I <b>was eaten</b> </p> */}
