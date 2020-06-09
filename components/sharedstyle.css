@@ -156,10 +156,10 @@ figure iframe, figure img {
 }
 figure a, figure a:visited {
   color: black;
-  text-decoration: none;
+  text-decoration: underline;
 }
 figure a:hover, figure a:active {
-  color: black;
+  color: var(--insert);
 }
 
 figcaption {

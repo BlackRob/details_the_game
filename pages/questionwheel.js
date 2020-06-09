@@ -198,7 +198,6 @@ const QuestionWheel = () => {
         padding: 0;
         grid-area: promo;
         height: 100%;
-        min-height:
         color: white;
         display: flex;
         align-items: center;
@@ -247,15 +246,25 @@ const QuestionWheel = () => {
         fill: var(--button-highlight);
       }
       .animatedF {
+        -webkit-animation: Spin infinite 10s linear;
         animation: Spin infinite 10s linear;
+        -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
         transform-origin: center center;
+        -webkit-animation-play-state: paused;
         animation-play-state: paused;
+        -webkit-animation-direction: forward;
         animation-direction: forward;
       }
       .animatedR {
+        -webkit-animation: Spin infinite 10s linear;
         animation: Spin infinite 10s linear;
+        -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
         transform-origin: center center;
+        -webkit-animation-play-state: paused;
         animation-play-state: paused;
+        -webkit-animation-direction: reverse;
         animation-direction: reverse;
       }
       @keyframes Spin {
@@ -264,6 +273,14 @@ const QuestionWheel = () => {
         }
         to {
           transform: rotate(359deg);
+        }
+      }
+      @-webkit-keyframes Spin {
+        from {
+          -webkit-transform: rotate(0deg);
+        }
+        to {
+          -webkit-transform: rotate(359deg);
         }
       }
     `}</style>
@@ -503,6 +520,7 @@ const CounterClockwiseButton = ({ id, start, r1, r2, end }) => {
 const startRotateS = ({ aRef }) => {
   aRef.current.style.animationPlayState = "running"
   aRef.current.style.webkitAnimationPlayState = "running"
+  console.log(aRef.current.style)
 }
 const pauseRotateS = ({ aRef }) => {
   aRef.current.style.animationPlayState = "paused"
