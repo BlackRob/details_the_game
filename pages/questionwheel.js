@@ -237,6 +237,7 @@ const QuestionWheel = () => {
       .buttonText {
         font-size: 24px;
         fill: lightgray;
+        pointer-events: none;
       }
       text.help {
         fill: var(--button-fill);
@@ -520,7 +521,6 @@ const CounterClockwiseButton = ({ id, start, r1, r2, end }) => {
 const startRotateS = ({ aRef }) => {
   aRef.current.style.animationPlayState = "running"
   aRef.current.style.webkitAnimationPlayState = "running"
-  console.log(aRef.current.style)
 }
 const pauseRotateS = ({ aRef }) => {
   aRef.current.style.animationPlayState = "paused"
