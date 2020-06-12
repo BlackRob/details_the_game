@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import React, { useRef, useState } from 'react'
-import MyHeadStuff from '../components/myHeadStuff'
 
 
 const QuestionWheel = () => {
@@ -13,7 +12,6 @@ const QuestionWheel = () => {
 
   // a state variable to show or hide the help screen
   const [showHelp, setShowHelp] = useState(false);
-
 
   return <div className="container">
     <Head>
