@@ -4,7 +4,7 @@ import SiteFooter from '../components/siteFooter'
 import TypeButtonDiv from '../components/typeButtonDiv'
 import YouTubeVid from '../components/youTubeVid'
 import MyHeadStuff from '../components/myHeadStuff'
-import { Adj, Noun, Conj, Punc } from '../components/elementAliases'
+import { Adj, Noun, Conj, Punc, Verb, Adv } from '../components/elementAliases'
 
 
 const Home = () => (
@@ -51,13 +51,25 @@ const Home = () => (
               "vinegar" for example, you can write <span className="cNoun">
               the&nbsp;vinegar</span> or <span className="cNoun">a&nbsp;vinegar</span> on
               the noun card, and the game will automatically separate it
-              into <span className="sBG"><Adj x="the" />&nbsp;<Noun x="vinegar" /></span>
+              into <span className="sBG"><Adj x="the" />&nbsp;<Noun x="vinegar" /></span>.
           </li>
           <li>
-            <b>You can also add articles to adjective cards.</b> For example, to add an
-              adjective and a noun, "the red wolf" for example, write <span className="cAdj">
+            <b>You can also add articles to adjective, adverb and verb cards.</b> Although
+            these words don't need articles, when you want to add a noun and an adjective
+            at the same time the adjective goes between the noun and the article.
+            To add "the red wolf" to a sentence, write <span className="cAdj">
               the red</span> on the adjective card and <span className="cNoun">wolf</span> on
-              the noun card to get <span className="sBG"><Adj x="the" />&nbsp;<Adj x="red" />&nbsp;<Noun x="wolf" /></span>
+              the noun card to get <span className="sBG"><Adj x="the" />&nbsp;<Adj x="red" />&nbsp;
+              <Noun x="wolf" /></span>. In the same way, you might want to write <span className="sBG">
+              <Adj x="the" />&nbsp;<Verb x="howling" />&nbsp;<Noun x="wolf" /></span> or <span className="sBG">
+              <Adj x="the" />&nbsp;<Adv x="very" />&nbsp;<Adj x="angry" />&nbsp;<Noun x="wolf" /></span>.
+          </li>
+          <li>
+            <b>You get the adverb "not" for free.</b> This means if you want to use the negative form
+            of a verb you can, you don't need a separate adverb card. So to write
+              "is not" , you just write <span className="cVerb">
+              is&nbsp;not</span> on the verb card, and the game will automatically separate it
+              into <span className="sBG"><Verb x="is" />&nbsp;<Adv x="not" /></span>.
           </li>
           <li>
             <b>You are responsible for punctuation.</b> If you want to add another
@@ -68,14 +80,14 @@ const Home = () => (
           </li>
           <li>
             <b>details doesn't check spelling or grammar.</b> Just like in life,
-              you are responsible for your own mistakes
+              you are responsible for your own mistakes.
             </li>
           <li>
             There are two goals when playing details: <b>use up all your word cards
-              </b> and <b>make a cool and grammatically correct sentence</b>
+              </b> and <b>make a cool and grammatically correct sentence</b>.
           </li>
           <li>
-            <b>You can add new sentences before or after the original sentence</b>
+            <b>You can add new sentences before or after the original sentence</b>.
           </li>
           <li>
             Every time you add to the sentence, you get a new word card,
