@@ -66,8 +66,8 @@ const ThisPage = () => (
           </p>
           <p>One thing to notice is that when a pronoun is used, you have to use
             the <i>object</i> form of the pronoun. Some pronouns require different forms
-              for whether they are used as a subject or an object, like <b>who</b> (subject) and
-              <b>whom</b> (object). The personal object pronouns are <b>me</b>, <b>him</b>, <b>her</b>, <b>us</b>,
+              for whether they are used as a subject or an object, like <b>who</b> (subject)
+              and <b>whom</b> (object). The personal object pronouns are <b>me</b>, <b>him</b>, <b>her</b>, <b>us</b>,
               and <b>them</b>. <b>It</b> and <b>you</b> don't have separate object forms. You can
               write <span className="sBG"><Prep x="inside" />&nbsp;<Noun x="me" />
             </span>, but not <span className="sBG">❌ <Prep x="inside" />&nbsp;<Pron x="I" />
@@ -75,7 +75,7 @@ const ThisPage = () => (
           <p><i>Sometimes</i> you can make a prepositional phrase with a verb form --usually
             the <i>-ing</i> form: <span className="sBG"><Prep x="after" />&nbsp;<Verb x="eating" />
             </span>, <span className="sBG"><Prep x="before" />&nbsp;<Verb x="swimming" />
-            </span>. In these cases, the verb form is acting like a noun (eating is an activity
+            </span>. In these cases, the verb form is acting like a noun ("eating" is an activity
               and activities are nouns).</p>
           <p><i>Sometimes</i> you can also use an entire phrase as the object of a
               preposition. This is actually very common... the phrase itself might contain
@@ -135,13 +135,13 @@ const ThisPage = () => (
           <h4>Prepositions for agents and instruments --who or what?</h4>
           <p>Prepositions used to describe who or what did something.</p>
           <p className="example">The novel <Verb x="was written" /> <Prep x="by" /> <Adj x="a real" /> <Noun x="vampire" />.</p>
-          <p className="example">I <Verb x="eat" /> ice cream <Prep x="with" /> <Adj x="a" /> <Noun x="spoon" />.</p>
 
           <h4>Prepositions of manner --how? in what way?</h4>
           <p>Prepositions for describing the style or way something was done.</p>
           <p className="example">Seven children <Verb x="jumped" /> <Prep x="like" /> <Noun x="rabbits" />.</p>
           <p className="example">The bear <Verb x="looked" /> at me <Prep x="with" /> <Noun x="fear" /> in his eyes.</p>
           <p className="example">Suzanne often <Verb x="travels" /> <Prep x="by" /> <Noun x="bus" />!</p>
+          <p className="example">I <Verb x="eat" /> ice cream <Prep x="with" /> <Adj x="a" /> <Noun x="spoon" />.</p>
           <p className="example">The pioneers <Verb x="crossed" /> the country <Prep x="in" /> <Adj x="covered" /> <Noun x="wagons" />.</p>
 
           <h4>Prepositions of intent --why?</h4>

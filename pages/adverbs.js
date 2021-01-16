@@ -87,6 +87,20 @@ const ThisPage = () => (
             className="sBG"><Adv x="quite" />&nbsp;<Adv x="suddenly" /></span> <span
               className="sBG"><Adv x="surprisingly" />&nbsp;<Adv x="well" /></span>.</p>
         </>} />
+        <Fold title={<h3>Adverbs acting like conjunctions!</h3>} content={<>
+          <p>Some adverbs can perform the job of a conjunction (joining a clause to a
+          sentence). Appropriately enough, these are called "conjunctive adverbs". When
+          used this way, the clause introudced by the adverb still adds a "detail"
+            to some other part of the sentence. Example:</p>
+          <p className="example"><Pron x="I" /> <Verb x="love" /> <Pron x="you" /> <Adv x="like" /> <Noun x="bears" /> <Verb x="love" /> <Noun x="honey" />.</p>
+          <p>The adverb "like" is adding a detail to the base sentence, it tells "how much"
+            I love her (as much as bears love honey).</p>
+          <p>Conjunctive adverbs also sometimes work in as a pair with a conjunction
+              or another adverb, such as <b>if-then</b>, <b>
+              where-there</b> and <b>as-so</b>.</p>
+          <p className="example"><Conj x="If" /> <Pron x="you" /> <Verb x="are" /> <Adj
+            x='right' /> <Adv x='then' />  <Pron x="we" /> <Verb x="are" /> <Adj x='doomed' />.</p>
+        </>} />
         <Fold title={<h3>"Not" is free with verbs</h3>} content={<>
           <p>When using a verb, sometimes we want to use the negative form of it.
             This usually means just adding the adverb "not".</p>

@@ -31,7 +31,7 @@ const ThisPage = () => (
           describe something that actually happens... there's usually motion
           involved: to run, to jump, to laugh, to cry. </p>
           <p className="example">The zombies <Verb x='chased' /> me.</p>
-          <p>Transitive verbs usually take an object (a noun or phrase that
+          <p>Transitive verbs often take an object (a noun or phrase that
             completes the verb by answering the questions <i>who?</i> or <i>what?</i>).
             If we just wrote, <b>The zombies chased</b>, someone
             would expect to know <i>who</i> or <i>what</i> they were chasing. </p>
@@ -180,7 +180,7 @@ const ThisPage = () => (
           <p className="example">Owls like <Verb x="to sleep" /> <Adv x="regularly" />.</p>
           <h4>Past participles as nouns</h4>
           <p>Sometimes people will use a past participle as a noun. When this
-          happens, it is generally refers to some group with that characteristic,
+          happens, it generally refers to some group with that characteristic,
           but the actual word for the group has been omitted.</p>
           <p className="example"><Adj x="The" /> <Verb x='dead' /> have risen from their graves!</p>
           <p className="example"><Adj x="My" /> <Verb x='beloved' /> is meeting me at sunset.</p>
