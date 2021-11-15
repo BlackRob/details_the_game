@@ -14,8 +14,8 @@ of the sentence, which turns it into a yes/no question.<sup>1</sup>
 <p class="example"><span class="sVerb">Does</span> <span class="sPron">Tom</span> <span class="sVerb">like</span> <span class="sNoun">dogs</span>?</p>
 <p class="example"><span class="sAdv">Yes</span>, <span class="sPron">Tom</span> <span class="sVerb">likes</span> <span class="sNoun">dogs</span>.</p>
 
-Not all questions can be answered with yes or no, so there is another way to form questions, 
-by starting with a question word, like who, what or when, then following it with a 
+Not all questions can be answered with "yes" or "no", so there is another way to form questions, 
+by starting with a question word, like "who", "what" or "when", then following it with a 
 helping verb in the proper tense, then the subject, then the main verb and other words.
 There's a name for this: *subject-auxiliary inversion*. Which just means that you take 
 the subject of the sentence, and the auxiliary (another name for helping verbs) and *invert* 

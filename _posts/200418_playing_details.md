@@ -34,6 +34,6 @@ on a single verb card
 - You can add new sentences before or after the original sentence
 - Every time you add to the sentence, you get a new word card, but if you use all your cards you win!
 
-After you play details a few times, you will start to think of strategies to win, like how to use several words at once. Thinking in terms of word combinations --phrases and clauses, instead of just using one word at a time--is a great way to get better at details and improve your grammar at the same time.
+After you play details a few times, you will start to think of strategies to win, like how to use several words at once. Thinking in terms of word combinations—phrases and clauses, instead of just using one word at a time—is a great way to get better at details and improve your grammar at the same time.
 
 That's all you really need to know to play the game. Enjoy!

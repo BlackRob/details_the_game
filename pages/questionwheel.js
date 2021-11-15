@@ -130,7 +130,6 @@ const QuestionWheel = () => {
           onMouseDown={() => startRotateRevS({ aRef: lRingRef1 })}
           onMouseUp={() => pauseRotateRevS({ aRef: lRingRef1 })}
           onMouseLeave={() => pauseRotateS({ aRef: lRingRef1 })}>
-          <text className="buttonText" x="50" y="700">verbs</text>
           <ClockwiseButton id="lCW" start="204" r1="412" r2="478" end="219" point="222" /></a>
         <a id="lCCW_butt" onTouchStart={() => startRotateRevS({ aRef: lRingRef2 })}
           onTouchEnd={() => pauseRotateRevS({ aRef: lRingRef2 })}
@@ -138,6 +137,7 @@ const QuestionWheel = () => {
           onMouseUp={() => pauseRotateRevS({ aRef: lRingRef2 })}
           onMouseLeave={() => pauseRotateRevS({ aRef: lRingRef2 })}>
           <CounterClockwiseButton id="lCCW" start="202" r1="412" r2="478" end="187" point="184" /></a>
+        <text className="buttonText" x="50" y="700">verbs</text>
         <text className="buttonText" x="50" y="80">question</text>
         <text className="buttonText" x="50" y="118">words</text>
 
@@ -296,21 +296,21 @@ const Help = ({ showVal, setShow }) => {
     <div className="z2_body">
       <div className="z2_title">
         How to use the question wheel:
-      <span className="z2_hide" onClick={setShow}>x</span>
+        <span className="z2_hide" onClick={setShow}>x</span>
       </div>
       <p>The wheel has three rings: the outer ring is filled with
-      question words, the middle one has helping verbs, the
-      inner has subject pronouns. Some helping verbs
-      can only be used with specific pronouns; there are colored
+        question words, the middle one has helping verbs, the
+        inner has subject pronouns. Some helping verbs
+        can only be used with specific pronouns; there are colored
         outlines to show which verbs and pronouns go together.</p>
       <p>Press the curved arrows to spin each ring until the words
-      line up to start a question. To finish the question,
+        line up to start a question. To finish the question,
         you have to think of a main verb and use the correct form.</p>
       <p><b>Example:</b> Spin the rings until the words
-      "Why" and "are" line up: "are" has a green outline
-      so it should be used with green pronouns. Spin the
-      inner ring until "you" is selected. To finish the question,
-      lets use the verb "laughing."</p>
+        "Why" and "are" line up: "are" has a green outline
+        so it should be used with green pronouns. Spin the
+        inner ring until "you" is selected. To finish the question,
+        lets use the verb "laughing."</p>
       <p className="centered"><b>"Why are you laughing?"</b></p>
       <p>For more information, read <a href="/posts/200606_question_wheel" rel="noopener noreferrer" target="_blank">this</a></p>
       <p className="centered highlighted">If you like this, try "details"! It's a grammar game!<br />

@@ -27,7 +27,7 @@ export default function BlogTemplate({ post }) {
         <div className="postNav">
           <div><Link href={`/posts/${post.prev}`} as={`/posts/${post.prev}`} ><a>Previous Post</a></Link></div>
           <div><Link href="/blog" as="/blog"><a>All Posts</a></Link></div>
-          <div><Link href={`/posts/${post.next}`} as={`/posts/${post.next}`} ><a>Next Pos</a></Link></div>
+          <div><Link href={`/posts/${post.next}`} as={`/posts/${post.next}`} ><a>Next Post</a></Link></div>
         </div>
       </div>
       <div className="content">
