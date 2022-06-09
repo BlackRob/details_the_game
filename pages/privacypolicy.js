@@ -15,7 +15,7 @@ import {
   Punc,
 } from "../components/elementAliases";
 
-const About = () => (
+const Privacy = () => (
   <div className="container">
     <Head>
       <MyHeadStuff title="Privacy policy for details" />
@@ -42,4 +42,4 @@ const About = () => (
   </div>
 );
 
-export default About;
+export default Privacy;
