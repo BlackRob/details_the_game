@@ -24,12 +24,11 @@ const About = () => (
     <main>
       <div className="intro">
         <h2 className="title">Privacy policy</h2>
-        <p className="description">
-          Privacy policy for web, Android and iOS versions of details:
-        </p>
+        <h4 className="description">
+          (for web, Android and iOS versions of details)
+        </h4>
       </div>
       <div className="content">
-        <h3>Privacy policy for web, Android and iOS versions of details:</h3>
         "details" doesn't save or use any information about its users. It
         doesn't require an account and doesn't remember your history.
       </div>
