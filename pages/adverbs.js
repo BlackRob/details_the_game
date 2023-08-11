@@ -28,7 +28,6 @@ const ThisPage = () => (
         <p className="example">
           My cat is <Adv x="very" /> evil.
         </p>
-        <YouTubeVid vidID="5R1RGl4WQP8" caption="placeholder video" />
       </div>
       <div className="content">
         <Fold

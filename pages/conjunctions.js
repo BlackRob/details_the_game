@@ -41,7 +41,6 @@ const ThisPage = () => (
           The facts are no longer separate: the listener now knows that one fact
           explains the other. Now we know <i>why</i> Tom likes Sally.
         </p>
-        <YouTubeVid vidID="3GpOd3vuOGg" caption="placeholder video" />
       </div>
       <div className="content">
         <Fold
