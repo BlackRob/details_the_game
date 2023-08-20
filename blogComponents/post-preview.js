@@ -1,9 +1,14 @@
 import Date from "./date";
 import Link from "next/link";
-import { withStyles, makeStyles } from "@mui/styles";
+//import { withStyles, makeStyles } from "@mui/styles";
 // import Button from '@material-ui/core/Button';
-import Tooltip from "@mui/material/Tooltip";
+//import Tooltip from "@mui/material/Tooltip";
 // import Typography from '@material-ui/core/Typography';
+
+import { styled } from "@mui/material/styles";
+//import Button from '@mui/material/Button';
+import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+//import Typography from '@mui/material/Typography';
 
 export default function PostPreview({
   title,
@@ -12,7 +17,7 @@ export default function PostPreview({
   excerpt,
   categories,
 }) {
-  const classes = useStyles();
+  //const classes = useStyles();
 
   return (
     <li>
@@ -20,7 +25,7 @@ export default function PostPreview({
         title={excerpt}
         enterDelay={200}
         leaveDelay={0}
-        classes={{ tooltip: classes.customWidth }}
+        //classes={{ tooltip: classes.customWidth }}
       >
         <h3>
           <Link as={`/posts/${slug}`} href="/posts/[slug]">
@@ -68,7 +73,19 @@ export default function PostPreview({
   );
 }
 
-const HtmlTooltip = withStyles((theme) => ({
+const HtmlTooltip = styled(({ className, ...props }) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: "#f5f5f9",
+    color: "rgba(0, 0, 0, 0.87)",
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: "1px solid #dadde9",
+  },
+}));
+
+/* const HtmlTooltip = withStyles((theme) => ({
   tooltip: {
     backgroundColor: "#f5f5f9",
     color: "rgba(0, 0, 0, 0.87)",
@@ -76,10 +93,10 @@ const HtmlTooltip = withStyles((theme) => ({
     fontSize: 12,
     border: "1px solid #dadde9",
   },
-}))(Tooltip);
+}))(Tooltip); */
 
-const useStyles = makeStyles((theme) => ({
-  customWidth: {
-    maxWidth: 400,
-  },
-}));
+//const useStyles = makeStyles((theme) => ({
+//  customWidth: {
+//    maxWidth: 400,
+//  },
+//}));
