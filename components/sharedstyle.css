@@ -6,16 +6,16 @@
   --logo_active: darkslategray;
   --disabled_gray: gray;
   --active_outline: lightgray;
-  --conj: yellow; 
-  --adj: lightskyblue;
-  --noun: dodgerblue;
-  --adv: pink;
-  --verb: #D85091;
+  --conj: #ffe377;
+  --adj: #89f0d1;
+  --noun: #73cef4;
+  --adv: #fcc8c8;
+  --verb: #ff5c8f;
   --intrj: orange;
-  --prep: lime;
-  --pron: fuchsia;
-  --punc: lavender;/* #f8f8ff; */
-  --insert: rgba(255,51,0 ,1);
+  --prep: #2cd946;
+  --pron: #c09aeb;
+  --punc: lavender; /* #f8f8ff; */
+  --insert: rgba(255, 51, 0, 1);
 }
 
 html,
@@ -56,7 +56,7 @@ body {
 @media screen and (min-width: 960px) {
   .App {
     font-size: 24px;
-  } 
+  }
 }
 
 main {
@@ -64,7 +64,7 @@ main {
   display: grid;
   width: 100%;
   grid-gap: 10px;
-  background-color: var(--mainbg); 
+  background-color: var(--mainbg);
   grid-template-columns: 100%;
   grid-template-rows: auto auto auto;
   grid-gap: 10px 3rem;
@@ -74,8 +74,8 @@ main {
   main {
     grid-template-columns: 1fr 220px;
     grid-template-rows: auto 1fr;
-    grid-template-areas: 'intro sidebar' 'content sidebar';
-  } 
+    grid-template-areas: "intro sidebar" "content sidebar";
+  }
 }
 
 .intro {
@@ -106,8 +106,10 @@ main {
   position: relative;
 }
 
-
-h2, h3, h4, p {
+h2,
+h3,
+h4,
+p {
   margin-top: 0.6em;
   margin-bottom: 0.6em;
   line-height: 1.5em;
@@ -119,7 +121,7 @@ sup {
 }
 
 .example {
-  color:var(--mainbg);
+  color: var(--mainbg);
   background-color: var(--headerbg);
   padding: 1px 8px;
   border-radius: 3px;
@@ -144,7 +146,8 @@ figure {
   display: flex;
   flex-flow: column;
 }
-figure iframe, figure img {
+figure iframe,
+figure img {
   position: absolute;
   display: block;
   top: 0;
@@ -152,13 +155,15 @@ figure iframe, figure img {
   width: 100%;
   height: auto;
   border: 1px solid black;
-  box-shadow: 1px 1px 3px var(--headerbg) ;
+  box-shadow: 1px 1px 3px var(--headerbg);
 }
-figure a, figure a:visited {
+figure a,
+figure a:visited {
   color: black;
   text-decoration: underline;
 }
-figure a:hover, figure a:active {
+figure a:hover,
+figure a:active {
   color: var(--insert);
 }
 
@@ -188,7 +193,9 @@ button {
 button:hover {
   cursor: pointer;
 }
-button:focus {outline:0;}
+button:focus {
+  outline: 0;
+}
 
 .disabled {
   border: 2px solid gray;
@@ -201,10 +208,12 @@ button:focus {outline:0;}
   box-shadow: none;
 }
 
-a, a:visited {
+a,
+a:visited {
   color: black;
 }
-a:hover, a:active {
+a:hover,
+a:active {
   color: var(--insert);
 }
 
@@ -241,8 +250,24 @@ li {
 }
 
 /* "c" means card word, "s" means sentence word */
-.cNoun, .cAdj, .cVerb, .cAdv, .cPron, .cConj, .cPunc, .cPrep, .cIntrj,
-.sNoun, .sAdj, .sVerb, .sAdv, .sPron, .sConj, .sPunc, .sPrep, .sIntrj {
+.cNoun,
+.cAdj,
+.cVerb,
+.cAdv,
+.cPron,
+.cConj,
+.cPunc,
+.cPrep,
+.cIntrj,
+.sNoun,
+.sAdj,
+.sVerb,
+.sAdv,
+.sPron,
+.sConj,
+.sPunc,
+.sPrep,
+.sIntrj {
   background-color: var(--headerbg);
   border-radius: 3px;
   display: inline;
@@ -250,7 +275,15 @@ li {
   margin: 1px;
   padding-bottom: 1px;
 }
-.cNoun, .cAdj, .cVerb, .cAdv, .cPron, .cConj, .cPunc, .cPrep, .cIntrj {
+.cNoun,
+.cAdj,
+.cVerb,
+.cAdv,
+.cPron,
+.cConj,
+.cPunc,
+.cPrep,
+.cIntrj {
   color: black;
   padding: 0px 0.3rem;
   border: 0px;
@@ -282,7 +315,15 @@ li {
 .cIntrj {
   background-color: var(--intrj);
 }
-.sNoun, .sAdj, .sVerb, .sAdv, .sPron, .sConj, .sPunc, .sPrep, .sIntrj {
+.sNoun,
+.sAdj,
+.sVerb,
+.sAdv,
+.sPron,
+.sConj,
+.sPunc,
+.sPrep,
+.sIntrj {
   background-color: var(--headerbg);
 }
 .sAdj {
