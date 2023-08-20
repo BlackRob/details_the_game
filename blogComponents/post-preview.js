@@ -1,8 +1,8 @@
-import Date from './date'
-import Link from 'next/link'
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import Date from "./date";
+import Link from "next/link";
+import { withStyles, makeStyles } from "@mui/styles";
 // import Button from '@material-ui/core/Button';
-import Tooltip from '@material-ui/core/Tooltip';
+import Tooltip from "@mui/material/Tooltip";
 // import Typography from '@material-ui/core/Typography';
 
 export default function PostPreview({
@@ -16,7 +16,12 @@ export default function PostPreview({
 
   return (
     <li>
-      <HtmlTooltip title={excerpt} enterDelay={200} leaveDelay={0} classes={{ tooltip: classes.customWidth }}>
+      <HtmlTooltip
+        title={excerpt}
+        enterDelay={200}
+        leaveDelay={0}
+        classes={{ tooltip: classes.customWidth }}
+      >
         <h3>
           <Link as={`/posts/${slug}`} href="/posts/[slug]">
             <a>{title}</a>
@@ -28,7 +33,7 @@ export default function PostPreview({
         <div className="tags">{categories}</div>
       </div>
       <style jsx>
-        {`  
+        {`
           h3 {
             margin-top: 0.3em;
             margin-bottom: 0.15em;
@@ -48,7 +53,8 @@ export default function PostPreview({
             margin-left: 20px;
             font-weight: 600;
           }
-          a, a:visited {
+          a,
+          a:visited {
             color: inherit;
             text-decoration: none;
           }
@@ -59,16 +65,16 @@ export default function PostPreview({
         `}
       </style>
     </li>
-  )
+  );
 }
 
 const HtmlTooltip = withStyles((theme) => ({
   tooltip: {
-    backgroundColor: '#f5f5f9',
-    color: 'rgba(0, 0, 0, 0.87)',
+    backgroundColor: "#f5f5f9",
+    color: "rgba(0, 0, 0, 0.87)",
     maxWidth: 220,
-    fontSize: theme.typography.pxToRem(12),
-    border: '1px solid #dadde9',
+    fontSize: 12,
+    border: "1px solid #dadde9",
   },
 }))(Tooltip);
 
