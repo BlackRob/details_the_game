@@ -15,12 +15,19 @@ const Home = () => (
     <SiteHeader />
     <main>
       <div className="intro">
-        <h2 className="title">Hi! Hello! Welcome!</h2>
+        <h2 className="title">Welcome to Grumbly Games!</h2>
         <p className="description">
-          This site is intended to help you learn English grammar by playing
-          games. Right now, we only have one game, "details". In details, you
-          make a long sentence by adding details to a shorter sentence, then
-          share it with your friends. Try it. It's fun!
+          This site is meant to help you learn English grammar by playing games.
+          Right now, there's only one game, "details", but there might be more
+          in the future. In details, you make a long sentence by adding details
+          to a shorter sentence, then share it with your friends or your teacher
+          or study group. Try it, it's fun!
+        </p>
+        <p className="description">
+          Although details is meant for students and people who like word games,
+          many of the articles on this site are meant for English teachers.
+          They're mostly on odd grammar points or suggest fun activities for a
+          class. Use them or share them, they're free.
         </p>
       </div>
       <div className="content">

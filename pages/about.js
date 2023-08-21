@@ -26,13 +26,7 @@ const About = () => (
         <h2 className="title">About Grumbly Games</h2>
         <p className="description">
           "Grumbly Games" was created to promote the game "details" and provide
-          a simple explanation of some tricky points of grammar. After a few
-          articles, though, the developer got distracted (one of his many
-          shortcomings) and nothing new was added for a couple years. Eventually
-          he got around to finishing an app version of details for iOS and
-          Android, and swears he's going to finish this site, add content, some
-          great infographics, maybe a few affilliate links… he swears he has a
-          head full of ideas. [A head full of something, for sure —Ed.]
+          a simple explanation of some tricky points of grammar.
         </p>
         <h2 className="title">About details</h2>
         <p className="description">
