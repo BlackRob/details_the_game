@@ -2,7 +2,6 @@ import Head from "next/head";
 import SiteHeader from "../components/siteHeader";
 import SiteFooter from "../components/siteFooter";
 import TypeButtonDiv from "../components/typeButtonDiv";
-import YouTubeVid from "../components/youTubeVid";
 import MyHeadStuff from "../components/myHeadStuff";
 import {
   Conj,
@@ -29,8 +28,28 @@ const Privacy = () => (
         </h4>
       </div>
       <div className="content">
-        "details" doesn't save or use any information about its users. It
-        doesn't require an account and doesn't remember your history.
+        <a
+          href="https://play.google.com/store/apps/details?id=com.details_reactnative"
+          rel="noopener noreferrer"
+          target="_blank"
+          alt="google play store page for details the game"
+        >
+          Link to "details the game" in Google Play store,
+        </a>
+        <a
+          href="https://apps.apple.com/us/app/details-the-game/id6449182298"
+          rel="noopener noreferrer"
+          target="_blank"
+          alt="apple store page for details the game"
+        >
+          Link to "details the game" in Apple App store,
+        </a>
+        <p>
+          This app doesn't require an account. It doesn't track you and doesn't
+          share or collect any data. Once it's installed, it doesn't even need
+          the internet. There are no ads. You don't have anything to worry about
+          privacy-wise with this app.
+        </p>
       </div>
       <div className="sidebar">
         <TypeButtonDiv />

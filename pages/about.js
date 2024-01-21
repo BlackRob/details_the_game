@@ -25,8 +25,23 @@ const About = () => (
       <div className="intro">
         <h2 className="title">About Grumbly Games</h2>
         <p className="description">
-          "Grumbly Games" was created to promote the game "details" and provide
-          a simple explanation of some tricky points of grammar.
+          "Grumbly Games" was created to share and promote the game "details"
+          and provide a simple explanation of some tricky points of grammar.
+          It's not really a game company, but we have some ideas for other
+          fun/educational language learning games. Maybe we'll make them some
+          day.
+        </p>
+        <p>
+          Grumbly Games was created by Robert Austin ("We"). He's mostly a
+          writer, and has a portfolio&nbsp;
+          <a
+            href="https://robert.grumbly.games/"
+            rel="noopener noreferrer"
+            target="_blank"
+            alt="Robert Austin's portfolio"
+          >
+            here
+          </a>
         </p>
         <h2 className="title">About details</h2>
         <p className="description">
@@ -41,7 +56,8 @@ const About = () => (
           corner of the header, but there's also a version available in the
           Apple app store and in the Google Play store. The app and web versions
           aren't the same: the app versions are newer and more refined, but the
-          web version still works. Updating it is somewhere on our To Do list.
+          web version works well, and has some features that make it better for
+          use in a classroom.
         </p>
       </div>
       <div className="content">
@@ -121,9 +137,23 @@ const About = () => (
           Playing details and making long sentences is fun and cool, but you
           know what's cooler? Sharing! details was designed to make it easy to
           share your sentences. In the app version, you can easily share images
-          of your sentence or even a video of its growth. It uses the built-in
-          sharing functionality in iOS and Android, so it works as you would
-          expect.
+          or a video of your sentence. It uses the built-in sharing
+          functionality in iOS and Android, so it works as you would expect.
+        </p>
+
+        <h3>Privacy Policy</h3>
+        <p>
+          details doesn't require an account, and it doesn't store or transmit
+          user data. You can view the game's full privacy statement at{" "}
+          <a
+            href="https://grumbly.games/privacypolicy"
+            rel="noopener noreferrer"
+            target="_blank"
+            alt="Robert Austin's portfolio"
+          >
+            https://grumbly.games/privacypolicy
+          </a>
+          .
         </p>
         <p>
           {" "}
