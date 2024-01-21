@@ -140,21 +140,6 @@ const About = () => (
           or a video of your sentence. It uses the built-in sharing
           functionality in iOS and Android, so it works as you would expect.
         </p>
-
-        <h3>Privacy Policy</h3>
-        <p>
-          details doesn't require an account, and it doesn't store or transmit
-          user data. You can view the game's full privacy statement at{" "}
-          <a
-            href="https://grumbly.games/privacypolicy"
-            rel="noopener noreferrer"
-            target="_blank"
-            alt="Robert Austin's portfolio"
-          >
-            https://grumbly.games/privacypolicy
-          </a>
-          .
-        </p>
         <p>
           {" "}
           The web version here is a little different. It let's you share an
@@ -178,6 +163,21 @@ const About = () => (
             <figcaption>click to play!</figcaption>
           </a>
         </figure>
+
+        <h3>Privacy Policy</h3>
+        <p>
+          details doesn't require an account, and it doesn't store or transmit
+          user data. You can view the game's full privacy statement at{" "}
+          <a
+            href="https://grumbly.games/privacypolicy"
+            rel="noopener noreferrer"
+            target="_blank"
+            alt="privacy policy for details the game"
+          >
+            https://grumbly.games/privacypolicy
+          </a>
+          .
+        </p>
       </div>
       <div className="sidebar">
         <TypeButtonDiv />
