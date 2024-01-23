@@ -48,22 +48,39 @@ const ThisPage = () => (
               <p>
                 Adjectives can also be used with pronouns:{" "}
                 <span className="sBG">
-                  <Pron x="somebody" />
+                  <Pron x="He" />
                   &nbsp;
-                  <Adj x="special" />
+                  <Verb x="was" />
+                  &nbsp;
+                  <Adj x="sad" />
                 </span>
                 , or{" "}
                 <span className="sBG">
-                  <Adj x="the" />
+                  <Pron x="I" />
                   &nbsp;
-                  <Adj x="lucky" />
+                  <Verb x="ate" />
                   &nbsp;
-                  <Pron x="one" />
+                  <Adj x="very" />
+                  &nbsp;
+                  <Pron x="few" />
                 </span>
+                , or{" "}
               </p>
               <p className="example">
                 Everyone is tired of hearing about <Adj x="foolish" />{" "}
                 <Pron x="me" /> and my adventures.
+              </p>
+              <p>
+                Be careful though when using adjectives with pronouns. They
+                usually cannot be used directly before a pronoun, like{" "}
+                <span className="sBG">
+                  ❌ <Adj x="big" /> <Noun x="he" />
+                </span>
+                . They can sometimes be used after indefinite pronouns:
+                <span className="sBG">
+                  <Pron x="Somebody" /> <Adj x="special " />{" "}
+                  <Punc x="asked about you." />
+                </span>
               </p>
               <h4>With (some) verb forms</h4>
               <p>

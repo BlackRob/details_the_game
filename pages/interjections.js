@@ -17,11 +17,14 @@ const ThisPage = () => (
       <div className="intro">
         <h2 className="title">Interjections</h2>
         <p className="description">
-          Interjections are weird. They're very rarely written, but people use
-          them all the time when they're speaking. Interjections serve no
-          grammatical purpose, they just express emotion, so they are usually
-          written separately (not part of another sentence). A lot of swearing
-          is done through interjections.
+          Interjections are words or sounds that are "thrown out" in speech.
+          They are infrequently written, but people use them all the time when
+          speaking.
+        </p>
+        <p>
+          Interjections serve no grammatical purpose, they just express emotion,
+          so they are usually written separately (not part of another sentence).
+          A lot of swearing is done through interjections.
         </p>
       </div>
       <div className="content">
@@ -69,9 +72,9 @@ const ThisPage = () => (
                 Sometimes they can even be used in the middle of a sentence:
               </p>
               <p className="example">
-                My brother said <Punc x="--" />
+                My brother said <Punc x="—" />
                 <Intrj x="so stupid" />
-                <Punc x="--" />
+                <Punc x="—" />
                 &nbsp; that bats only eat cheese.
               </p>
             </>
@@ -87,9 +90,12 @@ const ThisPage = () => (
           content={
             <>
               <p>
-                Some interjections --"Uh oh! Oh no! No way!"-- are made up of
-                more than one word. But not every word that gets used on its own
-                is an interjection. Consider the following sequence:
+                Although some interjections —
+                <span className="cIntrj">"Uh oh! Oh no! No way!"</span>— are
+                made up of more than one word, most interjections are just one
+                word. <span className="cIntrj">Ha!</span> But not every word
+                that gets used on its own is an interjection. Consider the
+                following sequence:
               </p>
               <p className="example">
                 <Intrj x="Wow" />
@@ -134,7 +140,7 @@ const ThisPage = () => (
                 </span>
                 &nbsp; instead of another, less polite "fu" word. When a word is
                 used this way, it's called a <i>euphemism</i>, which just means
-                that one word is taking the place of another one.
+                that one word is being used in place of another one.
               </p>
             </>
           }

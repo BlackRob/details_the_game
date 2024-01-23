@@ -21,12 +21,14 @@ const ThisPage = () => (
           use adverbs to express the relative scale / intensity / quality of
           something. Example:{" "}
         </p>
-        <p className="example">My cat is evil.</p>
+        <p className="example">
+          My cat is <Adj x="evil" />.
+        </p>
         <p>
           "<i>How</i> evil is your cat?"
         </p>
         <p className="example">
-          My cat is <Adv x="very" /> evil.
+          My cat is <Adv x="very" /> <Adj x="evil" />.
         </p>
       </div>
       <div className="content">
@@ -63,7 +65,7 @@ const ThisPage = () => (
               <p>
                 Adverbs (and adverb phrases) add details to a sentence by
                 providing answers to five possible questions: <b>how</b>,{" "}
-                <b>when</b>,<b>where</b>, <b>how much</b> and <b>how often</b>.
+                <b>when</b>, <b>where</b>, <b>how much</b> and <b>how often</b>.
                 Adverbs are grouped based on which question they answer.
               </p>
               <h4>How? Adverbs of manner</h4>
@@ -94,14 +96,15 @@ const ThisPage = () => (
               </p>
               <h4>How much? To what extent? Adverbs of degree</h4>
               <p className="example">
-                The lawyers were <Adv x="very" /> <Adj x="unhappy" />.
+                The lawyers <Verb x="were" /> <Adv x="very" />{" "}
+                <Adj x="unhappy" />.
               </p>
               <p className="example">
                 The penguins <Adv x="completely" /> <Verb x="ruined" /> my
                 dinner party.
               </p>
               <p className="example">
-                The detectives solved the crime <Adv x="quite" />{" "}
+                The detectives <Verb x="solved" /> the crime <Adv x="quite" />{" "}
                 <Adv x="quickly" />.
               </p>
               <h4>How often? Adverbs of frequency</h4>
@@ -210,7 +213,7 @@ const ThisPage = () => (
               <p>
                 Some adverbs can perform the job of a conjunction (joining a
                 clause to a sentence). Appropriately enough, these are called
-                "conjunctive adverbs". When used this way, the clause introudced
+                "conjunctive adverbs". When used this way, the clause introduced
                 by the adverb still adds a "detail" to some other part of the
                 sentence. Example:
               </p>

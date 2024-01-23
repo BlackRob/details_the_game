@@ -1,24 +1,43 @@
-import Link from 'next/link'
-
+import Link from "next/link";
 
 export default function siteHeader() {
-  return <header>
-    <div className="Header_logo1">
-      <Link href="/"><a alt="logo">GRUMBLY</a></Link>
-    </div>
-    <div className="Header_logo2">
-      <Link href="/"><a alt="logo">GAMES</a></Link>
-    </div>
-    <div className="Header_menu">
-      <Link href="#learn"><a alt="learn">Learn!</a></Link>
-      <Link href="/blog"><a alt="blog">Blog</a></Link>
-      <Link href="/about"><a alt="about">About</a></Link>
-    </div>
-    <div className="Header_game">
-      <a href="https://details.grumbly.games" rel="noopener noreferrer" target="_blank" alt="play"><div className="GameLink">Play<br />details</div></a>
-    </div>
-    <style jsx>
-      {`
+  return (
+    <header>
+      <div className="Header_logo1">
+        <Link href="/">
+          <a alt="logo">GRUMBLY</a>
+        </Link>
+      </div>
+      <div className="Header_logo2">
+        <Link href="/">
+          <a alt="logo">GAMES</a>
+        </Link>
+      </div>
+      <div className="Header_menu">
+        {/* <Link href="#learn"><a alt="learn">Learn!</a></Link> */}
+        <Link href="/blog">
+          <a alt="blog">Blog</a>
+        </Link>
+        <Link href="/about">
+          <a alt="about">About</a>
+        </Link>
+      </div>
+      <div className="Header_game">
+        <a
+          href="https://details.grumbly.games"
+          rel="noopener noreferrer"
+          target="_blank"
+          alt="play"
+        >
+          <div className="GameLink">
+            Play
+            <br />
+            details
+          </div>
+        </a>
+      </div>
+      <style jsx>
+        {`
           header {
             font-size: 2em;
             background-color: var(--headerbg);
@@ -36,30 +55,35 @@ export default function siteHeader() {
               grid-template-rows: auto;
               grid-template-areas: "logo1 logo2 menu game";
               font-size: 36px;
-            } 
+            }
           }
 
           .Header_logo1 {
             grid-area: logo1;
-          } 
-          .Header_logo1 a, .Header_logo1 a:visited {
+          }
+          .Header_logo1 a,
+          .Header_logo1 a:visited {
             color: var(--adj);
             text-decoration: none;
           }
           .Header_logo2 {
             grid-area: logo2;
           }
-          .Header_logo2 a, .Header_logo2 a:visited {
+          .Header_logo2 a,
+          .Header_logo2 a:visited {
             color: var(--noun);
             text-decoration: none;
-          }     
-          .Header_logo1 a:hover, .Header_logo2 a:hover {
+          }
+          .Header_logo1 a:hover,
+          .Header_logo2 a:hover {
             color: var(--insert);
           }
-          .Header_logo1 a:active, .Header_logo2 a:active {
+          .Header_logo1 a:active,
+          .Header_logo2 a:active {
             color: var(--insert);
           }
-          .Header_logo1, .Header_logo2 {
+          .Header_logo1,
+          .Header_logo2 {
             padding-right: 1rem;
             display: flex;
             text-align: left;
@@ -67,19 +91,22 @@ export default function siteHeader() {
             justify-content: left;
           }
 
-          .Header_menu, .Header_game {
+          .Header_menu,
+          .Header_game {
             margin-left: auto;
             font-size: 0.4em;
             display: flex;
             align-items: center;
             justify-content: center;
           }
-          .Header_menu a, .Header_menu a:visited {
+          .Header_menu a,
+          .Header_menu a:visited {
             padding: 7px;
             color: var(--active_outline);
             text-decoration: none;
           }
-          .Header_menu a:hover, .Header_menu a:active {
+          .Header_menu a:hover,
+          .Header_menu a:active {
             color: var(--insert);
           }
           .Header_menu {
@@ -115,6 +142,7 @@ export default function siteHeader() {
             color: black;
           }
         `}
-    </style>
-  </header>
+      </style>
+    </header>
+  );
 }

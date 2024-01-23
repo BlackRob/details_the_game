@@ -30,18 +30,44 @@ const Home = () => (
           class. Use them or share them, they're free.
         </p>
       </div>
+
       <div className="content">
+        <h3>How to get details</h3>
+        <p>
+          Good news, you don't have to get anything, you can play details right
+          here, just click the button at the top of the screen. But there is an
+          app version, and it's better. So if you want to play on a mobile
+          device, get the app.
+        </p>
+        <p>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.details_reactnative"
+            rel="noopener noreferrer"
+            target="_blank"
+            alt="google play store page for details the game"
+          >
+            Link to "details the game" in Google Play store,
+          </a>
+        </p>
+        <p>
+          <a
+            href="https://apps.apple.com/us/app/details-the-game/id6449182298"
+            rel="noopener noreferrer"
+            target="_blank"
+            alt="apple store page for details the game"
+          >
+            Link to "details the game" in Apple App store,
+          </a>
+        </p>
         <h3>How to play details</h3>
         <p>
           details is easy! When you start a game, you get a new sentence and
-          five cards. Each card corresponds to one of the eight types of words
-          in English (nouns, verbs, etc.). To play, think of words or phrases
-          that you could add to the sentence by using one or more of your cards.
-          Every time you add words to the sentence you get one more card. If you
-          use all your cards, you win! The following video shows the basics of
-          the game: (note: this is a placeholder video)
+          five cards. Each card corresponds to one of the{" "}
+          <b>eight types of words in English</b> (nouns, verbs, etc.). To play,
+          think of words or phrases that you could add to the sentence by using
+          one or more of your cards. Every time you add words to the sentence
+          you get one more card. If you use all your cards, you win!
         </p>
-        <YouTubeVid vidID="HD0eam6fuJ4" caption="placeholder video" />
 
         <h3>The rules of details</h3>
         <p>
