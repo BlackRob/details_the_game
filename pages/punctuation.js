@@ -38,9 +38,8 @@ const ThisPage = () => (
             <>
               <p>
                 Commas have two main uses: to separate lists of items, and to
-                separate some clauses from the main sentence. When speaking, a
-                person usually pauses a little in places where they would write
-                a comma.
+                separate some clauses from the main sentence. Commas often (but
+                not always) correspond to a pause when speaking.
               </p>
               <h4>Commas to separate lists</h4>
               <p>
@@ -56,8 +55,8 @@ const ThisPage = () => (
               </p>
               <p>
                 Some people will put an extra comma before the conjunction. This
-                is called a "serial" or "Oxford" comma. You can if you want, but
-                you don't have to.
+                is called a "serial" or "Oxford" comma. Either way is fine, as
+                long as you're consistent.
               </p>
               <p className="example">
                 Birds
@@ -66,7 +65,7 @@ const ThisPage = () => (
               </p>
               <p>
                 Sometimes, for emphasis, people will use multiple conjunctions
-                instead of commas. This famously happens in a song from "The
+                instead of commas. This famously happens in the movie "The
                 Wizard of Oz":
               </p>
               <p className="example">Lions and tigers and bears, oh my!</p>
