@@ -68,6 +68,11 @@ const Home = () => (
           one or more of your cards. Every time you add words to the sentence
           you get one more card. If you use all your cards, you win!
         </p>
+        <p>
+          Here's a short video that shows how to play details (web version).{" "}
+        </p>
+
+        <YouTubeVid vidID="8qAy85pGBKs" caption=" " />
 
         <h3>The rules of details</h3>
         <p>
