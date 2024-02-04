@@ -4,8 +4,6 @@ excerpt: 'details is a simple game, but it can be difficult to "win". In this po
 author: "br"
 date: "2020-04-01"
 categories: "details, gameplay"
-ogImage:
-  url: "/assets/wonderwoman.jpg"
 ---
 
 details is a simple game, but it can be difficult to "win".

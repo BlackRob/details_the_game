@@ -2,6 +2,7 @@ import Head from "next/head";
 import SiteHeader from "../components/siteHeader";
 import SiteFooter from "../components/siteFooter";
 import TypeButtonDiv from "../components/typeButtonDiv";
+import AppLinkButtons from "../components/appLinkButtons";
 import YouTubeVid from "../components/youTubeVid";
 import MyHeadStuff from "../components/myHeadStuff";
 import {
@@ -53,25 +54,11 @@ const About = () => (
         </p>
         <p className="description">
           You can play details right here, using the button at the top right
-          corner of the header, but there's also a version available
-          <a
-            href="https://apps.apple.com/us/app/details-the-game/id6449182298"
-            rel="noopener noreferrer"
-            target="_blank"
-            alt="apple store page for details the game"
-          >
-            in the Apple App store,
-          </a>{" "}
-          and{" "}
-          <a
-            href="https://play.google.com/store/apps/details?id=com.details_reactnative"
-            rel="noopener noreferrer"
-            target="_blank"
-            alt="google play store page for details the game"
-          >
-            in the Google Play store,
-          </a>
-          . The app and web versions aren't the same: the app versions are newer
+          corner of the header, but it's also available as an app:{" "}
+        </p>
+        <AppLinkButtons />
+        <p>
+          The app and web versions aren't the same: the app versions are newer
           and more refined, but the web version works well, and has some
           features that make it better for use in a classroom.
         </p>

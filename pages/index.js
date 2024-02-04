@@ -2,6 +2,7 @@ import Head from "next/head";
 import SiteHeader from "../components/siteHeader";
 import SiteFooter from "../components/siteFooter";
 import TypeButtonDiv from "../components/typeButtonDiv";
+import AppLinkButtons from "../components/appLinkButtons";
 import YouTubeVid from "../components/youTubeVid";
 import MyHeadStuff from "../components/myHeadStuff";
 import { Adj, Noun, Conj, Punc, Verb, Adv } from "../components/elementAliases";
@@ -39,26 +40,7 @@ const Home = () => (
           app version, and it's better. So if you want to play on a mobile
           device, get the app.
         </p>
-        <p>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.details_reactnative"
-            rel="noopener noreferrer"
-            target="_blank"
-            alt="google play store page for details the game"
-          >
-            Link to "details the game" in Google Play store,
-          </a>
-        </p>
-        <p>
-          <a
-            href="https://apps.apple.com/us/app/details-the-game/id6449182298"
-            rel="noopener noreferrer"
-            target="_blank"
-            alt="apple store page for details the game"
-          >
-            Link to "details the game" in Apple App store,
-          </a>
-        </p>
+        <AppLinkButtons />
         <h3>How to play details</h3>
         <p>
           details is easy! When you start a game, you get a new sentence and
